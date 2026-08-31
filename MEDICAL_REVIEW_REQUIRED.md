@@ -33,6 +33,18 @@ This file intentionally flags medically sensitive wording for physician review. 
 | `/mole-removal` | Any wording that implies laser removal is appropriate for all moles or that removal is scar-free, safest, permanent, or guaranteed | Main guide | Modality selection and outcome guarantees require physician review. |
 | `/school-health` | Any exact screening interval, guaranteed/rapid cure wording, “safe/painless” procedure wording, or claims of complete healing | Main guide | Pediatric screening intervals, safety and efficacy claims require physician review. |
 
+
+## PR #2 physician-reviewed items — APPROVED
+
+The following four PR #2 items were reviewed and approved by the physician on 2026-08-31. They are no longer unresolved review requirements. Older PR #1 flags above remain pending and are not approved by this section.
+
+| URL | Physician review decision | Approved boundary / implementation |
+|---|---|---|
+| `/psoriasis-treatment` | **APPROVED** — psoriasis joint symptoms | The page may state that joint pain, stiffness or swelling can occur in association with psoriasis and should be discussed with the treating physician/dermatologist. |
+| `/psoriasis-treatment` | **APPROVED WITH CONSERVATIVE WORDING** — urgent assessment | Urgent assessment may be advised for rapidly widespread/severe psoriasis, widespread pustulation particularly with systemic illness, or other severe acute symptoms. Ordinary stable plaque psoriasis must not be presented as a medical emergency. |
+| `/acne-scar-treatment` | **APPROVED** — morphology and treatment selection | Treatment may be described as morphology-dependent. Subcision may be considered for selected tethered/rolling scars; TCA CROSS may be considered for selected deep/narrow or ice-pick scars. Wording must remain individualized and non-prescriptive. |
+| `/acne-scar-treatment` | **APPROVED** — multiple sessions / combination treatment | It is appropriate to state that improvement often requires multiple sessions and that mixed scar morphologies may benefit from staged or combination treatment. Do not promise complete scar removal or a specific percentage of improvement. |
+
 ## Review workflow
 
 1. Physician reviews each flagged statement in context.
@@ -40,4 +52,4 @@ This file intentionally flags medically sensitive wording for physician review. 
 3. Only then should the production copy be changed.
 4. Add a genuine last-reviewed date to significant medical pages only after actual physician review.
 
-No medically sensitive claims were rewritten as part of SEO PR #1.
+No medically sensitive claims were rewritten as part of SEO PR #1. The four PR #2 items documented above have completed physician review; all older PR #1 flags remain pending.
