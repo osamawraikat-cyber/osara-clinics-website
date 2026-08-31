@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 import fs from 'fs';
 
-const BASE='https://deploy-preview-3--gregarious-malabi-0dc7e1.netlify.app';
+const BASE='https://osaraclinics.com';
 const MID='G-72BY7LC2V2';
 const browser=await chromium.launch({headless:true});
 const errors=[];
