@@ -1,0 +1,58 @@
+name: PR5 verified coordinate correction
+
+on:
+  push:
+    branches:
+      - fix/pr5-contact-location
+
+permissions:
+  contents: write
+
+jobs:
+  correct:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/pr5-contact-location
+          fetch-depth: 0
+      - name: Replace only verified clinic coordinates
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          old = {"32.062463": "32.056335", "35.864789": "35.871691"}
+          changed = []
+          for p in Path('.').rglob('*'):
+              if not p.is_file() or '.git' in p.parts or p.as_posix() == '.github/workflows/pr5-coordinate-correction.yml':
+                  continue
+              try:
+                  s = p.read_text(encoding='utf-8')
+              except (UnicodeDecodeError, OSError):
+                  continue
+              n = s
+              for a, b in old.items():
+                  n = n.replace(a, b)
+              if n != s:
+                  p.write_text(n, encoding='utf-8')
+                  changed.append(str(p))
+          print('Changed:', changed)
+          if changed != ['index.html']:
+              raise SystemExit(f'Unexpected coordinate-bearing files: {changed}')
+          PY
+          if grep -RIn --exclude-dir=.git --exclude=pr5-coordinate-correction.yml -E '32\.062463|35\.864789' .; then
+            echo 'Old coordinates remain' >&2
+            exit 1
+          fi
+          grep -n '"latitude": 32.056335' index.html
+          grep -n '"longitude": 35.871691' index.html
+      - name: Commit correction and remove helper
+        shell: bash
+        run: |
+          rm .github/workflows/pr5-coordinate-correction.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Use verified OSara clinic coordinates'
+          git push origin HEAD:fix/pr5-contact-location
