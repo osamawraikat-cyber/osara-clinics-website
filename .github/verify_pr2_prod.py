@@ -41,12 +41,13 @@ for r in ['/psoriasis-treatment','/acne-scar-treatment']:
     for n in ['https://osaraclinics.com/#clinic','https://osaraclinics.com/dermatology#webpage','https://osaraclinics.com/doctors/dr-osama-alwreikat#physician']:
         if n not in raw: errors.append(f'{r} entity {n}')
 ps=pages['/psoriasis-treatment'].get_text(' ',strip=True).lower()
-ac=pages['/acne-scar-treatment'].get_text(' ',strip=True).lower()
+ac_raw=pages['/acne-scar-treatment'].get_text(' ',strip=True)
+ac=ac_raw.lower()
 if 'ordinary stable plaque psoriasis is not, by itself, a medical emergency' not in ps: errors.append('stable plaque emergency clarification missing')
 for phrase in ['rapid widespread or severe worsening','widespread pustulation','systemic illness','other severe acute symptoms']:
     if phrase not in ps: errors.append(f'psoriasis urgent phrase missing {phrase}')
-if 'subcision' not in ac or 'rolling' not in ac or 'selected' not in ac: errors.append('subcision individualized rolling wording missing')
-if 'tca cross' not in ac or 'ice-pick' not in ac or 'selected' not in ac: errors.append('TCA individualized ice-pick wording missing')
+if 'في حالات مختارة، خصوصاً بعض الندبات المتدحرجة أو الملتصقة' not in ac_raw: errors.append('subcision individualized rolling wording missing')
+if 'في حالات مختارة من الندبات العميقة والضيقة، وخصوصاً بعض ندبات ice-pick' not in ac_raw: errors.append('TCA individualized ice-pick wording missing')
 if re.search(r'\b\d{1,3}%\b',ac): errors.append('percentage guarantee present')
 if 'complete scar removal should not be promised' not in ac: errors.append('anti-complete-removal wording missing')
 for r in ['/psoriasis-treatment','/acne-scar-treatment','/vitiligo-jordan','/botox-hyperhidrosis','/mole-removal','/school-health']:
@@ -55,5 +56,5 @@ for r in ['/psoriasis-treatment','/acne-scar-treatment','/vitiligo-jordan','/bot
 www=s.get('https://www.osaraclinics.com/',allow_redirects=False,timeout=20)
 if www.status_code not in (301,302,307,308) or not www.headers.get('location','').startswith(BASE): errors.append(f'www {www.status_code} {www.headers.get("location")}')
 report={'sitemap_count':len(locs),'internal_checked':len(seen),'errors':errors}
-open('prod-http.json','w').write(json.dumps(report,indent=2)); print(json.dumps(report,indent=2))
+open('prod-http.json','w').write(json.dumps(report,ensure_ascii=False,indent=2)); print(json.dumps(report,ensure_ascii=False,indent=2))
 if errors: sys.exit(1)
