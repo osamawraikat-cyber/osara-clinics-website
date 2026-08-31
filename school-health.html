@@ -3,48 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/favicon.png">
 
     <title>صحة الجلد والعيون للأطفال وطلاب المدارس في عمان — Pediatric Derm & Eye Care | عيادات أوسارا</title>
     <meta name="description" content="دليل شامل لصحة الجلد والعيون للأطفال وطلاب المدارس في عيادات أوسارا، أبو نصير، عمان. علاج القوباء، الثعلبة، الأكزيما، الثآليل، وفحص عيون الأطفال.">
     <meta name="keywords" content="فحص عيون الاطفال مدارس عمان, القوباء عند الاطفال وعلاجها, الثعلبة عند الاطفال, ضعف النظر عند الاطفال, عيادات أوسارا, دكتور أسامة الوريكات, دكتورة سارة أبو طوق">
-    <link rel="canonical" href="https://www.osaraclinics.com/school-health.html">
+    <link rel="canonical" href="https://osaraclinics.com/school-health">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="صحة الجلد والعيون للأطفال وطلاب المدارس | عيادات أوسارا">
+    <meta property="og:description" content="دليل عيادات أوسارا حول صحة الجلد والعيون للأطفال وطلاب المدارس في أبو نصير، عمّان.">
+    <meta property="og:url" content="https://osaraclinics.com/school-health">
+    <meta property="og:image" content="https://osaraclinics.com/assets/logo.png">
     
-    <!-- Local Business & Medical WebPage Schema (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MedicalWebPage",
+      "@id": "https://osaraclinics.com/school-health#webpage",
       "name": "صحة الجلد والعيون للأطفال وطلاب المدارس — Pediatric Derm & Eye Care | OSara Clinics",
-      "url": "https://www.osaraclinics.com/school-health.html",
+      "url": "https://osaraclinics.com/school-health",
       "description": "Comprehensive guide on pediatric dermatology and school vision screening in Amman.",
       "about": [
-        {
-          "@type": "MedicalCondition",
-          "name": "Impetigo & Pediatric Dermatology | أمراض جلدية للأطفال"
-        },
-        {
-          "@type": "MedicalCondition",
-          "name": "Pediatric Vision Screening | فحص عيون الأطفال"
-        }
+        {"@type": "MedicalCondition", "name": "Impetigo & Pediatric Dermatology | أمراض جلدية للأطفال"},
+        {"@type": "MedicalCondition", "name": "Pediatric Vision Screening | فحص عيون الأطفال"}
       ],
       "provider": {
         "@type": "MedicalClinic",
+        "@id": "https://osaraclinics.com/#clinic",
         "name": "OSara Clinics — عيادات أوسارا",
+        "url": "https://osaraclinics.com/",
         "telephone": "+962778423361",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Abu Nusair",
-          "addressLocality": "Amman",
-          "addressCountry": "JO"
-        }
-      }
+        "address": {"@type": "PostalAddress", "streetAddress": "Abu Nusair", "addressLocality": "Amman", "addressCountry": "JO"}
+      },
+      "author": [
+        {"@type": "Physician", "@id": "https://osaraclinics.com/doctors/dr-osama-alwreikat#physician", "name": "Dr. Osama Alwreikat"},
+        {"@type": "Physician", "@id": "https://osaraclinics.com/doctors/dr-sara-abu-touq#physician", "name": "Dr. Sara Abu Touq"}
+      ]
     }
     </script>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -76,24 +74,20 @@
         h1, h2, h3, h4 { color: var(--primary); font-weight: 700; }
         .en-text { font-family: var(--font-en); color: var(--text-muted); direction: ltr; text-align: left; }
         .container { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        
         .badge { display: inline-flex; align-items: center; gap: 6px; background-color: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; }
         .badge-gold { background-color: var(--accent-light); color: var(--accent-dark); }
         .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 30px; border-radius: 8px; font-weight: 600; text-decoration: none; cursor: pointer; transition: var(--transition); border: none; font-size: 1rem; }
         .btn-whatsapp { background-color: var(--whatsapp); color: #ffffff; box-shadow: var(--shadow-md); }
         .btn-whatsapp:hover { background-color: var(--whatsapp-hover); transform: translateY(-2px); }
         .btn-outline { background-color: transparent; color: var(--primary); border: 2px solid var(--primary); }
-
         .main-header { position: sticky; top: 0; z-index: 1000; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(13, 92, 96, 0.06); padding: 12px 0; }
         .main-header .container { display: flex; justify-content: space-between; align-items: center; }
         .logo-img { height: 60px; width: auto; }
-        
         .page-hero { padding: 80px 0 50px 0; background: linear-gradient(135deg, #FCFAF7 40%, rgba(230, 243, 244, 0.5) 100%); text-align: center; }
         .page-hero h1 { font-size: 2.3rem; margin: 15px 0 5px 0; }
         .page-hero-title-en { font-family: var(--font-en); font-size: 1.4rem; color: var(--accent-dark); margin-bottom: 15px; }
         .page-hero-sub { font-size: 1.1rem; color: var(--text-dark); max-width: 750px; margin: 0 auto 10px auto; }
         .page-hero-sub-en { font-family: var(--font-en); font-size: 0.95rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 25px auto; }
-        
         .content-section { padding: 50px 0; }
         .card-box { background: #ffffff; padding: 35px; border-radius: 20px; box-shadow: var(--shadow-md); margin-bottom: 30px; border: 1px solid rgba(13, 92, 96, 0.05); }
         .card-box h2 { font-size: 1.5rem; margin-bottom: 4px; }
@@ -103,18 +97,14 @@
         .card-box ul { margin-right: 20px; margin-bottom: 15px; }
         .card-box ul.en-ul { margin-right: 0; margin-left: 20px; font-family: var(--font-en); color: var(--text-muted); }
         .card-box li { margin-bottom: 8px; }
-
         .faq-item { margin-bottom: 25px; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 18px; }
         .faq-q { font-size: 1.15rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
         .faq-q-en { font-family: var(--font-en); font-size: 0.95rem; color: var(--accent-dark); margin-bottom: 8px; }
-
         .footer { background-color: #0F172A; color: #94A3B8; padding: 40px 0; text-align: center; font-size: 0.9rem; }
         .footer a { color: var(--accent); text-decoration: none; }
-        
         .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background-color: var(--whatsapp); color: #ffffff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 999; }
     </style>
     
-    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -130,17 +120,18 @@
 </head>
 <body>
 
-    <!-- HEADER -->
     <header class="main-header">
         <div class="container">
-            <a href="index.html">
+            <a href="/">
                 <img src="assets/logo.png" alt="عيادات أوسارا | OSara Clinics" class="logo-img">
             </a>
-            <a href="index.html" class="btn btn-outline">🏠 العودة للرئيسية | Back Home</a>
+            <div>
+                <a href="/dermatology" class="btn btn-outline">الجلدية</a>
+                <a href="/ophthalmology" class="btn btn-outline">العيون</a>
+            </div>
         </div>
     </header>
 
-    <!-- HERO -->
     <section class="page-hero">
         <div class="container">
             <span class="badge badge-gold">صحة المدارس والأطفال | Pediatric Derm & Eye Care</span>
@@ -148,16 +139,13 @@
             <div class="page-hero-title-en">Pediatric Skin & School Vision Screening in Amman</div>
             <p class="page-hero-sub">دليل طبي متخصص للتعامل مع العدوى الجلدية المدرسية، الثعلبة التأثرية، وفحص عيون الأطفال الدائم في عيادات أوسارا بأبو نصير.</p>
             <p class="page-hero-sub-en en-text" dir="ltr">Comprehensive medical care for school-related skin infections, pediatric eczema, alopecia, and pediatric vision screening by Dr. Osama & Dr. Sara in Amman.</p>
-            <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D8%AD%D8%B5%20%D8%B7%D8%A8%D9%8A%20%D9%84%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84" class="btn btn-whatsapp" target="_blank" rel="noopener">
+            <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D8%AD%D8%B5%20%D8%B7%D8%A8%D9%8A%20%D9%84%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84" class="btn btn-whatsapp book-appointment" data-appointment data-service="school-health" target="_blank" rel="noopener">
                 📲 احجز موعد فحص الأطفال والطلاب | Book Pediatric Consultation via WhatsApp
             </a>
         </div>
     </section>
 
-    <!-- MAIN CONTENT -->
     <div class="container content-section">
-        
-        <!-- SECTION 1: DERMATOLOGY -->
         <div class="card-box">
             <h2>1. الأمراض الجلدية الشائعة مع العودة للمدارس</h2>
             <div class="h2-en">Common School Skin Conditions (Dr. Osama Alwreikat)</div>
@@ -175,9 +163,9 @@
                 <li><strong>Viral Warts:</strong> Benign viral lesions on fingers/feet spread via shared school items. Safe, painless ablation available.</li>
                 <li><strong>Teen Acne & Eczema:</strong> Personalized management for adolescent acne and seasonal eczema flare-ups.</li>
             </ul>
+            <p><a href="/doctors/dr-osama-alwreikat">د. أسامة الوريكات</a> · <a href="/dermatology">قسم الجلدية</a></p>
         </div>
 
-        <!-- SECTION 2: OPHTHALMOLOGY -->
         <div class="card-box">
             <h2>2. فحص عيون الأطفال والصداع المدرسي</h2>
             <div class="h2-en">School Vision Screening & Eye Care (Dr. Sara Abu Touq)</div>
@@ -193,20 +181,18 @@
                 <li><strong>Asthenopic Headaches:</strong> Resolving persistent school headaches caused by uncorrected visual strain.</li>
                 <li><strong>Infectious Conjunctivitis (Pink Eye):</strong> Fast-acting treatment for viral or bacterial eye infections common in schools.</li>
             </ul>
+            <p><a href="/doctors/dr-sara-abu-touq">د. سارة أبو طوق</a> · <a href="/ophthalmology">قسم العيون</a></p>
         </div>
 
-        <!-- SECTION 3: FAQS -->
         <div class="card-box">
             <h2>أسئلة شائعة من أولياء الأمور</h2>
             <div class="h2-en">Parent FAQs</div>
-            
             <div class="faq-item">
                 <div class="faq-q">متى يجب أن أجري فحص نظر لطفلي قبل المدرسة؟</div>
                 <div class="faq-q-en" dir="ltr">When should I get a school eye exam for my child?</div>
                 <p>يُنصح بإجراء فحص نظر دوري سنوياً قبل بداية العام الدراسي، أو فوراً إذا لاحظت فرك العينين بكثرة، أو الجلوس قريباً جداً من الشاشات، أو الشكوى من الصداع.</p>
                 <p class="en-text" dir="ltr">Annual screening before the school year begins is ideal, or immediately if your child complains of headaches, squints, or rubs eyes frequently.</p>
             </div>
-            
             <div class="faq-item">
                 <div class="faq-q">هل الثعلبة عند الأطفال معدية؟</div>
                 <div class="faq-q-en" dir="ltr">Is Alopecia Areata in children contagious?</div>
@@ -218,26 +204,23 @@
         <div style="text-align: center; margin-top: 40px;">
             <h3 style="margin-bottom: 5px;">احمي صحة طفلك النفسية والجسدية مع بداية الموسم الدراسي</h3>
             <p class="en-text" dir="ltr" style="text-align: center; margin-bottom: 20px;">Comprehensive pediatric skin & eye care at OSara Clinics, Abu Nusair, Amman</p>
-            <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D8%AD%D8%B5%20%D8%B7%D8%A8%D9%8A%20%D9%84%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84" class="btn btn-whatsapp" target="_blank" rel="noopener">
+            <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D8%AD%D8%B5%20%D8%B7%D8%A8%D9%8A%20%D9%84%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84" class="btn btn-whatsapp book-appointment" data-appointment data-service="school-health" target="_blank" rel="noopener">
                 📲 احجز عبر واتساب | Book via WhatsApp
             </a>
         </div>
-
     </div>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <p>© 2026 جميع الحقوق محفوظة لعيادات أوسارا — أبو نصير، عمان، الأردن.</p>
             <p class="en-text" dir="ltr" style="text-align: center; margin-top: 4px;">© 2026 OSara Clinics. All rights reserved. Abu Nusair, Amman, Jordan.</p>
-            <p style="margin-top: 10px;"><a href="index.html">الرئيسية | Home</a> | <a href="tel:0778423361">اتصل بنا: 0778423361</a></p>
+            <p style="margin-top: 10px;"><a href="/">الرئيسية | Home</a> | <a href="/dermatology">الجلدية</a> | <a href="/ophthalmology">العيون</a> | <a href="tel:0778423361">اتصل بنا: 0778423361</a></p>
         </div>
     </footer>
 
-    <!-- STICKY FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D8%AD%D8%B5%20%D8%B7%D8%A8%D9%8A%20%D9%84%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Book via WhatsApp">
+    <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D8%AD%D8%B5%20%D8%B7%D8%A8%D9%8A%20%D9%84%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84" class="whatsapp-float" data-service="school-health" target="_blank" rel="noopener" aria-label="Book via WhatsApp">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
-
+    <script src="/assets/analytics.js" defer></script>
 </body>
 </html>
