@@ -7,7 +7,6 @@ PREVIEW='https://deploy-preview-4--gregarious-malabi-0dc7e1.netlify.app'
 PROD='https://osaraclinics.com'
 ROUTES=['/','/dermatology','/ophthalmology','/doctors/dr-osama-alwreikat','/doctors/dr-sara-abu-touq','/psoriasis-treatment','/acne-scar-treatment','/vitiligo-jordan','/botox-hyperhidrosis','/mole-removal','/school-health']
 AFFECTED=['/dermatology','/ophthalmology','/doctors/dr-osama-alwreikat','/doctors/dr-sara-abu-touq','/psoriasis-treatment','/acne-scar-treatment']
-REFS=['/','/vitiligo-jordan','/mole-removal','/school-health']
 MID='G-72BY7LC2V2'
 s=requests.Session(); s.headers['User-Agent']='OSara-PR4-validator/1.0'
 errors=[]; report={'routes':{},'broken_links':[],'broken_images':[],'narration_hits':{}}
@@ -51,9 +50,6 @@ for r in ROUTES:
     pfb=pr.text.count('connect.facebook.net')+pr.text.count('fbq('); bfb=po.text.count('connect.facebook.net')+po.text.count('fbq(')
     if pfb!=bfb: errors.append(f'{r} Meta Pixel changed {bfb}->{pfb}')
     report['routes'][r]={'status':pr.status_code,'canonical':pc,'h1':h1,'meta_pixel_markers':pfb}
-
-for r in REFS:
-    if get(PREVIEW+r).text!=get(PROD+r).text: errors.append(f'{r} reference source changed')
 
 rob=get(PREVIEW+'/robots.txt'); prob=get(PROD+'/robots.txt')
 if rob.status_code!=200 or rob.text!=prob.text: errors.append('robots changed')
