@@ -1,0 +1,33 @@
+name: PR3 preview validation
+on:
+  push:
+    branches:
+      - verification/pr3-preview
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Static SEO routing analytics checks
+        run: python .github/verify_pr3.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null
+      - name: Browser GA4 mobile and CTA checks
+        run: node .github/verify_pr3.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr3-preview-validation
+          path: |
+            pr3-static.json
+            pr3-browser.json
