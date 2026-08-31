@@ -43,16 +43,21 @@
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Saturday",
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday"
-          ],
-          "opens": "09:00",
-          "closes": "20:00"
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "16:30",
+          "closes": "20:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "08:00",
+          "closes": "13:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "16:30",
+          "closes": "20:30"
         }
       ],
       "sameAs": [
@@ -1609,7 +1614,7 @@
                 </div>
                 <div class="top-bar-item">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                    <span>ساعات العمل: اتصل للاستفسار | Working hours: Call to enquire</span>
+                    <span>ساعات العمل المنتظمة | Regular clinic hours</span>
                 </div>
             </div>
             <div class="top-bar-socials">
@@ -2580,22 +2585,22 @@
                     <ul class="hours-list">
                         <li class="hours-item">
                             <div class="day-title">
-                                <span class="day-ar">السبت - الأربعاء</span>
-                                <span class="day-en">Saturday - Wednesday</span>
+                                <span class="day-ar">السبت - الأحد</span>
+                                <span class="day-en">Saturday - Sunday</span>
                             </div>
                             <div class="time-val">
-                                <span class="time-ar">ساعات العمل متفاوتة - اتصل للحجز</span>
-                                <span class="time-en">Hours vary - Call to confirm</span>
+                                <span class="time-ar">16:30 - 20:30</span>
+                                <span class="time-en">4:30 PM - 8:30 PM</span>
                             </div>
                         </li>
                         <li class="hours-item">
                             <div class="day-title">
-                                <span class="day-ar">الخميس</span>
-                                <span class="day-en">Thursday</span>
+                                <span class="day-ar">الإثنين - الخميس</span>
+                                <span class="day-en">Monday - Thursday</span>
                             </div>
                             <div class="time-val">
-                                <span class="time-ar">ساعات العمل متفاوتة - اتصل للحجز</span>
-                                <span class="time-en">Hours vary - Call to confirm</span>
+                                <span class="time-ar">08:00 - 13:30<br>16:30 - 20:30</span>
+                                <span class="time-en">8:00 AM - 1:30 PM<br>4:30 PM - 8:30 PM</span>
                             </div>
                         </li>
                         <li class="hours-item">
@@ -2609,6 +2614,16 @@
                             </div>
                         </li>
                     </ul>
+                    <div data-hours-notice="true">
+                        <div style="margin:0 0 14px;padding:14px 16px;border-radius:10px;background:#F7F3EC;color:#475569;">
+                            <p style="margin:0 0 8px;"><strong>ملاحظة المواعيد:</strong> قد تختلف المواعيد والتوافر أحياناً؛ يرجى الاتصال أو التواصل عبر واتساب للتأكيد.</p>
+                            <p class="en-text" style="margin:0;">Appointments and availability may occasionally vary; please call or WhatsApp to confirm.</p>
+                        </div>
+                        <div style="margin:0 0 14px;padding:16px;border:1px solid rgba(13,92,96,.18);border-radius:10px;background:#E6F3F4;">
+                            <p style="margin:0 0 8px;"><strong>تواصل للحالات العاجلة خارج ساعات العمل:</strong> للحالات الجلدية أو العينية العاجلة، يمكن التواصل معنا <a href="tel:+962778423361">هاتفياً</a> أو عبر <a href="https://wa.me/962778423361" target="_blank" rel="noopener">واتساب</a>. في الحالات الشديدة أو المهددة للبصر أو الحياة، توجّه إلى أقرب قسم طوارئ مناسب.</p>
+                            <p class="en-text" style="margin:0;">For urgent dermatological or ophthalmological concerns outside regular clinic hours, you may contact OSara Clinics by <a href="tel:+962778423361">phone</a> or <a href="https://wa.me/962778423361" target="_blank" rel="noopener">WhatsApp</a>. For severe, sight-threatening, or life-threatening emergencies, go to the nearest appropriate emergency department.</p>
+                        </div>
+                    </div>
                     <a href="tel:0778423361" class="btn btn-outline" style="width: 100%;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         <span>اتصل بنا هاتفياً | Call 0778423361</span>
