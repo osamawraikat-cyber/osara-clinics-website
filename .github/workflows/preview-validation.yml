@@ -1,113 +1,80 @@
-name: Temporary deploy preview browser validation
+name: Temporary final preview diagnostics
 
 on:
   push:
-    branches:
-      - seo/pr1-foundation
+    branches: [seo/pr1-foundation]
 
 permissions:
   contents: read
 
 jobs:
-  browser-validate:
+  diagnose:
     runs-on: ubuntu-latest
     env:
       PREVIEW_BASE: https://deploy-preview-1--gregarious-malabi-0dc7e1.netlify.app
+      PROD_BASE: https://osaraclinics.com
     steps:
       - uses: actions/checkout@v4
-
-      - name: Wait for preview
+      - name: Install dependencies
         run: |
-          for i in {1..30}; do
-            if curl -fsS "$PREVIEW_BASE/" >/dev/null; then exit 0; fi
-            sleep 5
-          done
-          exit 1
-
-      - name: Install Playwright
-        run: |
+          pip install requests >/dev/null
           npm init -y >/dev/null 2>&1
           npm install playwright@1.55.0 >/dev/null
           npx playwright install --with-deps chromium >/dev/null
-
-      - name: Browser, mobile, console and CTA validation
+      - name: Compare production and preview URL behavior
+        run: |
+          python - <<'PY' | tee url-comparison.json
+          import os,json,requests
+          bases={'production':os.environ['PROD_BASE'],'preview':os.environ['PREVIEW_BASE']}
+          routes=['/','/vitiligo-jordan','/botox-hyperhidrosis','/mole-removal','/school-health']
+          out={}
+          for label,base in bases.items():
+              rows=[]
+              for route in routes:
+                  variants=['/'] if route=='/' else [route,route+'/',route+'.html']
+                  for v in variants:
+                      r=requests.get(base+v,allow_redirects=True,timeout=20)
+                      rows.append({'requested':base+v,'redirects':[{'status':h.status_code,'url':h.url,'location':h.headers.get('location')} for h in r.history],'redirect_count':len(r.history),'final_status':r.status_code,'final_url':r.url})
+              out[label]=rows
+          print(json.dumps(out,indent=2))
+          PY
+      - name: Test directions CTA once
         shell: bash
         run: |
           set -o pipefail
-          cat > validate.mjs <<'JS'
+          cat > directions.mjs <<'JS'
           import { chromium } from 'playwright';
           import fs from 'fs';
-          const base=process.env.PREVIEW_BASE;
           const browser=await chromium.launch({headless:true});
-          const mobilePaths=['/','/dermatology','/ophthalmology','/doctors/dr-osama-alwreikat','/doctors/dr-sara-abu-touq','/vitiligo-jordan'];
-          const consoleResults=[]; const mobile=[];
-
-          for (const p of mobilePaths) {
-            const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1});
-            const page=await context.newPage();
-            const errs=[];
-            page.on('pageerror',e=>errs.push({type:'pageerror',text:String(e)}));
-            page.on('console',m=>{if(m.type()==='error') errs.push({type:'console',text:m.text()});});
-            const response=await page.goto(base+p,{waitUntil:'networkidle',timeout:45000});
-            const metrics=await page.evaluate(()=>({
-              innerWidth:window.innerWidth,
-              scrollWidth:document.documentElement.scrollWidth,
-              bodyScrollWidth:document.body.scrollWidth,
-              h1Count:document.querySelectorAll('h1').length,
-              h1Visible:[...document.querySelectorAll('h1')].filter(e=>{const r=e.getBoundingClientRect();const s=getComputedStyle(e);return r.width>0&&r.height>0&&s.visibility!=='hidden'&&s.display!=='none'}).length,
-              title:document.title,
-              canonical:document.querySelector('link[rel="canonical"]')?.href||null,
-              brokenImages:[...document.images].filter(i=>i.complete&&i.naturalWidth===0).map(i=>i.src)
-            }));
-            const name=p==='/'?'home':p.replaceAll('/','_').replace(/^_/, '');
-            await page.screenshot({path:`mobile-${name}.png`,fullPage:true});
-            mobile.push({path:p,status:response?.status()||null,url:page.url(),...metrics,errors:errs});
-            consoleResults.push({path:p,errors:errs});
-            await context.close();
-          }
-
           const context=await browser.newContext({viewport:{width:1280,height:900}});
           const page=await context.newPage();
-          const errs=[];
-          page.on('pageerror',e=>errs.push({type:'pageerror',text:String(e)}));
-          page.on('console',m=>{if(m.type()==='error') errs.push({type:'console',text:m.text()});});
-          await page.addInitScript(()=>{
-            document.addEventListener('click',e=>{const a=e.target.closest?.('a[href]');if(a)e.preventDefault();},true);
-          });
-          await page.goto(base+'/',{waitUntil:'networkidle',timeout:45000});
-
-          async function testCTA(kind,selector,expected){
-            await page.evaluate(()=>{window.gtag=undefined;window.dataLayer=[];});
-            const el=page.locator(selector).first();
-            if(!(await el.count())) return {kind,found:false,expected};
-            const href=await el.getAttribute('href');
-            await el.click({timeout:10000});
-            await page.waitForTimeout(100);
-            const dl=await page.evaluate(()=>window.dataLayer||[]);
-            const forbidden=dl.flatMap(x=>Object.keys(x||{})).filter(k=>/patient|diagnosis|symptom|message|text/i.test(k));
-            return {kind,found:true,href,expected,dataLayer:dl,eventCount:dl.filter(x=>x&&x.event===expected).length,forbiddenKeys:[...new Set(forbidden)]};
+          const errors=[];
+          page.on('pageerror',e=>errors.push(String(e)));
+          page.on('console',m=>{if(m.type()==='error') errors.push(m.text())});
+          await page.addInitScript(()=>document.addEventListener('click',e=>{if(e.target.closest?.('a[href]'))e.preventDefault()},true));
+          await page.goto(process.env.PREVIEW_BASE+'/dermatology',{waitUntil:'networkidle'});
+          await page.evaluate(()=>{window.gtag=undefined;window.dataLayer=[]});
+          const link=page.locator('a[href*="google.com/maps"],a[href*="maps.app.goo.gl"],a[href*="goo.gl/maps"]').first();
+          const found=await link.count();
+          let result={found:!!found,errors};
+          if(found){
+            result.href=await link.getAttribute('href');
+            await link.click(); await page.waitForTimeout(100);
+            result.dataLayer=await page.evaluate(()=>window.dataLayer||[]);
+            result.eventCount=result.dataLayer.filter(x=>x?.event==='directions_click').length;
+            result.forbiddenKeys=[...new Set(result.dataLayer.flatMap(x=>Object.keys(x||{})).filter(k=>/patient|diagnosis|symptom|message|text/i.test(k)))];
           }
-
-          const ctas=[];
-          ctas.push(await testCTA('whatsapp','a[href*="wa.me/"]:not([data-appointment]):not(.appointment-link):not(.book-appointment)','whatsapp_click'));
-          ctas.push(await testCTA('phone','a[href^="tel:"]','phone_click'));
-          ctas.push(await testCTA('directions','a[href*="google.com/maps"],a[href*="maps.app.goo.gl"],a[href*="goo.gl/maps"]','directions_click'));
-          ctas.push(await testCTA('appointment','a[data-appointment],a.appointment-link,a.book-appointment','appointment_click'));
-          consoleResults.push({path:'/',errors:errs});
-          const report={mobile,ctas,consoleResults};
-          fs.writeFileSync('browser-report.json',JSON.stringify(report,null,2));
-          console.log(JSON.stringify(report,null,2));
-          await context.close();
+          fs.writeFileSync('directions-report.json',JSON.stringify(result,null,2));
+          console.log(JSON.stringify(result,null,2));
           await browser.close();
           JS
-          node ./validate.mjs | tee browser-report.stdout.json
-
-      - name: Upload browser validation
+          node directions.mjs | tee directions-report.stdout.json
+      - name: Upload diagnostics
         uses: actions/upload-artifact@v4
         with:
-          name: preview-browser-validation
+          name: final-preview-diagnostics
           if-no-files-found: error
           path: |
-            browser-report.json
-            browser-report.stdout.json
-            mobile-*.png
+            url-comparison.json
+            directions-report.json
+            directions-report.stdout.json
