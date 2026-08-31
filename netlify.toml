@@ -1,0 +1,8 @@
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+# Preserve Netlify's current extensionless public URL convention.
+# No path redirects are added here; existing .html backing files remain in place.
