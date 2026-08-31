@@ -1,0 +1,232 @@
+name: Temporary deploy preview validation
+
+on:
+  push:
+    branches:
+      - seo/pr1-foundation
+
+permissions:
+  contents: read
+
+jobs:
+  validate-preview:
+    runs-on: ubuntu-latest
+    env:
+      PREVIEW_BASE: https://deploy-preview-1--gregarious-malabi-0dc7e1.netlify.app
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install HTTP test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4
+
+      - name: Wait for preview to be reachable
+        run: |
+          python - <<'PY'
+          import os,time,requests
+          u=os.environ['PREVIEW_BASE']+'/'
+          last=None
+          for _ in range(30):
+              try:
+                  r=requests.get(u,timeout=10)
+                  if r.status_code==200:
+                      print('preview ready',r.url)
+                      raise SystemExit(0)
+                  last=f'status={r.status_code}'
+              except Exception as e:
+                  last=repr(e)
+              time.sleep(5)
+          raise SystemExit('preview not ready: '+str(last))
+          PY
+
+      - name: HTTP, SEO, robots, sitemap and internal-link validation
+        run: |
+          python - <<'PY' | tee http-report.json
+          import os,json,re,requests
+          from bs4 import BeautifulSoup
+          from urllib.parse import urljoin,urlparse
+
+          base=os.environ['PREVIEW_BASE']
+          canonical_host='https://osaraclinics.com'
+          paths=['/','/dermatology','/ophthalmology','/doctors/dr-osama-alwreikat','/doctors/dr-sara-abu-touq','/vitiligo-jordan','/botox-hyperhidrosis','/mole-removal','/school-health']
+          existing=['/','/vitiligo-jordan','/botox-hyperhidrosis','/mole-removal','/school-health']
+          s=requests.Session(); s.headers['User-Agent']='OSara-PR1-preview-validator/1.0'
+
+          def chain(url):
+              r=s.get(url,allow_redirects=True,timeout=20)
+              return {
+                  'requested':url,
+                  'chain':[{'status':h.status_code,'url':h.url,'location':h.headers.get('location')} for h in r.history],
+                  'redirect_count':len(r.history),
+                  'final_status':r.status_code,
+                  'final_url':r.url,
+                  'text':r.text,
+                  'headers':dict(r.headers),
+              }
+
+          matrix=[]
+          for p in paths:
+              variants=['/'] if p=='/' else [p,p+'/',p+'.html']
+              for v in variants:
+                  x=chain(base+v)
+                  soup=BeautifulSoup(x.pop('text'),'html.parser')
+                  c=soup.find('link',rel=lambda x:x and 'canonical' in x)
+                  x['canonical']=c.get('href') if c else None
+                  x.pop('headers',None)
+                  matrix.append(x)
+
+          www=[]
+          for p in existing:
+              x=chain('https://www.osaraclinics.com'+p)
+              x.pop('text',None); x.pop('headers',None)
+              www.append(x)
+
+          page_checks=[]
+          broken=[]
+          all_links=set()
+          for p in paths:
+              x=chain(base+p)
+              soup=BeautifulSoup(x['text'],'html.parser')
+              title=soup.title.get_text(' ',strip=True) if soup.title else None
+              h1s=[h.get_text(' ',strip=True) for h in soup.find_all('h1')]
+              can=soup.find('link',rel=lambda z:z and 'canonical' in z)
+              og=soup.find('meta',attrs={'property':'og:url'})
+              robots=[m.get('content','') for m in soup.find_all('meta',attrs={'name':re.compile(r'^robots$',re.I)})]
+              noindex=any('noindex' in v.lower() for v in robots)
+              intended=canonical_host+'/' if p=='/' else canonical_host+p
+              jsonld=[]
+              bad_entity_urls=[]
+              for sc in soup.find_all('script',attrs={'type':'application/ld+json'}):
+                  raw=sc.string or sc.get_text()
+                  try:
+                      obj=json.loads(raw)
+                      jsonld.append(obj)
+                      stack=[obj]
+                      while stack:
+                          cur=stack.pop()
+                          if isinstance(cur,dict):
+                              for k,v in cur.items():
+                                  if k in ('url','@id','image') and isinstance(v,str) and v.startswith('http'):
+                                      if 'www.osaraclinics.com' in v or re.search(r'osaraclinics\.com/[^#?]+\.html(?:$|[#?])',v):
+                                          bad_entity_urls.append(v)
+                                  else: stack.append(v)
+                          elif isinstance(cur,list): stack.extend(cur)
+                  except Exception as e:
+                      jsonld.append({'parse_error':str(e)})
+              for a in soup.find_all('a',href=True):
+                  href=a['href'].strip()
+                  if href.startswith('/') and not href.startswith('//'):
+                      target=urljoin(base,href.split('#')[0])
+                      all_links.add(target)
+              page_checks.append({
+                  'path':p,'status':x['final_status'],'final_url':x['final_url'],'title':title,'h1_count':len(h1s),'h1s':h1s,
+                  'canonical':can.get('href') if can else None,'expected_canonical':intended,
+                  'og_url':og.get('content') if og else None,'noindex':noindex,'robots_meta':robots,
+                  'jsonld_blocks':len(jsonld),'bad_jsonld_urls':sorted(set(bad_entity_urls))
+              })
+
+          for target in sorted(all_links):
+              try:
+                  r=s.get(target,allow_redirects=True,timeout=20)
+                  if r.status_code>=400:
+                      broken.append({'url':target,'status':r.status_code,'final_url':r.url})
+              except Exception as e:
+                  broken.append({'url':target,'error':repr(e)})
+
+          robots=chain(base+'/robots.txt')
+          sitemap=chain(base+'/sitemap.xml')
+          result={
+              'matrix':matrix,
+              'www_existing_routes':www,
+              'pages':page_checks,
+              'broken_internal_links':broken,
+              'robots':{'status':robots['final_status'],'final_url':robots['final_url'],'body':robots['text']},
+              'sitemap':{'status':sitemap['final_status'],'final_url':sitemap['final_url'],'body':sitemap['text']}
+          }
+          print(json.dumps(result,ensure_ascii=False,indent=2))
+          PY
+
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+
+      - name: Browser, mobile, console and CTA validation
+        run: |
+          cat > /tmp/validate.mjs <<'JS'
+          import { chromium } from 'playwright';
+          import fs from 'fs';
+          const base=process.env.PREVIEW_BASE;
+          const browser=await chromium.launch({headless:true});
+          const mobilePaths=['/','/dermatology','/ophthalmology','/doctors/dr-osama-alwreikat','/doctors/dr-sara-abu-touq','/vitiligo-jordan'];
+          const consoleResults=[]; const mobile=[];
+          for (const p of mobilePaths) {
+            const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1});
+            const page=await context.newPage();
+            const errs=[];
+            page.on('pageerror',e=>errs.push({type:'pageerror',text:String(e)}));
+            page.on('console',m=>{if(m.type()==='error') errs.push({type:'console',text:m.text()});});
+            const response=await page.goto(base+p,{waitUntil:'networkidle',timeout:45000});
+            const metrics=await page.evaluate(()=>({
+              innerWidth:window.innerWidth,
+              scrollWidth:document.documentElement.scrollWidth,
+              bodyScrollWidth:document.body.scrollWidth,
+              h1Count:document.querySelectorAll('h1').length,
+              h1Visible:[...document.querySelectorAll('h1')].filter(e=>{const r=e.getBoundingClientRect();const s=getComputedStyle(e);return r.width>0&&r.height>0&&s.visibility!=='hidden'&&s.display!=='none'}).length,
+              title:document.title,
+              canonical:document.querySelector('link[rel="canonical"]')?.href||null,
+              brokenImages:[...document.images].filter(i=>i.complete&&i.naturalWidth===0).map(i=>i.src)
+            }));
+            const name=p==='/'?'home':p.replaceAll('/','_').replace(/^_/, '');
+            await page.screenshot({path:`mobile-${name}.png`,fullPage:true});
+            mobile.push({path:p,status:response?.status()||null,url:page.url(),...metrics,errors:errs});
+            consoleResults.push({path:p,errors:errs});
+            await context.close();
+          }
+
+          const context=await browser.newContext({viewport:{width:1280,height:900}});
+          const page=await context.newPage();
+          const errs=[];
+          page.on('pageerror',e=>errs.push({type:'pageerror',text:String(e)}));
+          page.on('console',m=>{if(m.type()==='error') errs.push({type:'console',text:m.text()});});
+          await page.addInitScript(()=>{
+            document.addEventListener('click',e=>{const a=e.target.closest?.('a[href]');if(a)e.preventDefault();},true);
+          });
+          await page.goto(base+'/',{waitUntil:'networkidle',timeout:45000});
+
+          async function testCTA(kind,selector,expected){
+            await page.evaluate(()=>{window.gtag=undefined;window.dataLayer=[];});
+            const el=page.locator(selector).first();
+            const count=await el.count();
+            if(!count) return {kind,selector,found:false,expected};
+            const href=await el.getAttribute('href');
+            await el.click({timeout:10000});
+            await page.waitForTimeout(100);
+            const dl=await page.evaluate(()=>window.dataLayer||[]);
+            const forbidden=dl.flatMap(x=>Object.keys(x||{})).filter(k=>/patient|diagnosis|symptom|message|text/i.test(k));
+            return {kind,selector,found:true,href,expected,dataLayer:dl,eventCount:dl.filter(x=>x&&x.event===expected).length,forbiddenKeys:[...new Set(forbidden)]};
+          }
+
+          const ctas=[];
+          ctas.push(await testCTA('whatsapp','a[href*="wa.me/"]:not([data-appointment]):not(.appointment-link):not(.book-appointment)','whatsapp_click'));
+          ctas.push(await testCTA('phone','a[href^="tel:"]','phone_click'));
+          ctas.push(await testCTA('directions','a[href*="google.com/maps"],a[href*="maps.app.goo.gl"],a[href*="goo.gl/maps"]','directions_click'));
+          ctas.push(await testCTA('appointment','a[data-appointment],a.appointment-link,a.book-appointment','appointment_click'));
+          consoleResults.push({path:'/',errors:errs});
+          fs.writeFileSync('browser-report.json',JSON.stringify({mobile,ctas,consoleResults},null,2));
+          console.log(JSON.stringify({mobile,ctas,consoleResults},null,2));
+          await context.close(); await browser.close();
+          JS
+          node /tmp/validate.mjs | tee browser-report.stdout.json
+
+      - name: Upload validation reports and screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-validation
+          path: |
+            http-report.json
+            browser-report.json
+            browser-report.stdout.json
+            mobile-*.png
