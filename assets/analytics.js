@@ -1,9 +1,8 @@
 (function () {
   'use strict';
 
-  function pushEvent(eventName, anchor) {
+  function buildPayload(anchor) {
     var payload = {
-      event: eventName,
       source_page: window.location.pathname || '/',
       specialty: anchor.dataset.specialty || undefined,
       service: anchor.dataset.service || undefined,
@@ -14,12 +13,19 @@
       if (payload[key] === undefined || payload[key] === '') delete payload[key];
     });
 
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(payload);
+    return payload;
+  }
+
+  function pushEvent(eventName, anchor) {
+    var payload = buildPayload(anchor);
 
     if (typeof window.gtag === 'function') {
       window.gtag('event', eventName, payload);
+      return;
     }
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: eventName }, payload));
   }
 
   function classify(anchor) {
