@@ -1,0 +1,25 @@
+name: PR5 browser validation
+on:
+  push:
+    branches:
+      - verification/pr5-final
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null
+      - run: node .github/verify_pr5_browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr5-browser-validation
+          path: |
+            pr5-browser.json
+            pr5-screenshots/
