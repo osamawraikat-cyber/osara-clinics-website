@@ -9,14 +9,24 @@ This file intentionally flags medically sensitive wording for physician review. 
 | `/` | “Acne scars and post-inflammatory hyperpigmentation are treatable with the right medical approach.” | Acne-scar card | Treatment-effect claim; confirm that wording is appropriately qualified. |
 | `/` | “with effective treatments including specialized Botox injections” and “proven protocols.” | Hyperhidrosis card | Efficacy/proven wording requires review. |
 | `/` | “Regular mole checks with a dermatologist are essential, especially for numerous or large nevi.” | Mole card | Screening recommendation/interval implication requires review. |
+| `/` | “Botox injections are a safe, non-surgical cosmetic procedure…” and “natural, safe results.” | Cosmetic Botox card | Safety/outcome wording requires physician review. |
+| `/` | “uses premium certified fillers to deliver natural, balanced results.” / “يستخدم أفضل أنواع الفيلر المعتمدة” | Dermal fillers card | “Best/premium/certified” and outcome wording should be substantiated and physician-reviewed. |
+| `/` | “Botox for hyperhidrosis is a safe and effective treatment… with results lasting 6-12 months.” | Hyperhidrosis Botox card | Safety, efficacy and exact duration claims require review. |
+| `/` | “Laser hair removal is the optimal solution for permanent and effective removal of unwanted hair compared to traditional methods.” | Laser hair-removal card | Superiority and permanence claims require review. |
+| `/` | “نقوم بوضع بروتوكول علاجي مخصص ومتابعة مستمرة ودقيقة لضمان أفضل النتائج والشفاء التام.” | Personalized-care section | “Guarantee,” “best results,” and “complete healing” language is inappropriate without explicit medical/legal review. |
 | `/botox-hyperhidrosis` | “نتائج تدوم حتى 12 شهراً.” | Meta description | Exact duration claim; patient response varies and requires physician-reviewed wording. |
-| `/botox-hyperhidrosis` | “Botox for Hyperhidrosis” / any FDA-approval, onset, duration, success-rate or safety wording on the page | Main guide | Regulatory, efficacy, onset/duration and safety claims are explicitly YMYL-sensitive. Review before optimization. |
+| `/botox-hyperhidrosis` | “حل آمن وفعّال… بنسب نجاح عالية ونتائج تدوم حتى عام كامل” / “A safe and effective medical solution… with results lasting up to 12 months.” | Hero | Safety, efficacy, success-rate and exact-duration wording require review. |
+| `/botox-hyperhidrosis` | “Dr. Osama Alwreikat… provides FDA-approved Botox injections to safely block sweat signals.” | Introductory explanation | Regulatory and safety claim; confirm product/indication-specific accuracy. |
+| `/botox-hyperhidrosis` | “Reduces sweating by 85% to 95%…” / “تقليل إفراز العرق… بنسبة تتراوح بين 85% إلى 95%.” | Mechanism/results section | Exact efficacy percentage requires sourcing and physician review. |
+| `/botox-hyperhidrosis` | “Results begin showing within 3–7 days, reaching full efficacy in 2 weeks.” | Expected results | Exact onset/time-to-maximum-effect claim requires review. |
+| `/botox-hyperhidrosis` | “Results last 6 to 12 months and can be safely repeated annually.” | Expected results | Exact duration and repeat-safety wording require review. |
+| `/botox-hyperhidrosis` | “Yes, it is FDA-approved and performed under strict medical safety standards using certified authentic products…” | FAQ | Regulatory/safety/product-authenticity claim requires verification. |
+| `/botox-hyperhidrosis` | “compensatory sweating is extremely rare with Botox injections compared to surgical options…” | FAQ | Comparative adverse-event frequency claim requires evidence-appropriate wording. |
 | `/vitiligo-jordan` | “Modern dermatology focuses on halting disease progression and restoring natural skin pigment with high success rates, especially when initiated early.” | FAQ answer | “High success rates” and timing/outcome relationship require review. |
 | `/vitiligo-jordan` | “Early clinical diagnosis and structured medical follow-ups with a dermatologist significantly improve re-pigmentation outcomes.” | Introductory explanation | Strong outcome claim requires review. |
 | `/mole-removal` | “Comprehensive guide on dermoscopic mole screening and scar-free laser or surgical removal.” | JSON-LD description | “Scar-free” is an outcome guarantee and should not remain without explicit physician approval. |
 | `/mole-removal` | Any wording that implies laser removal is appropriate for all moles or that removal is scar-free, safest, permanent, or guaranteed | Main guide | Modality selection and outcome guarantees require physician review. |
 | `/school-health` | Any exact screening interval, guaranteed/rapid cure wording, “safe/painless” procedure wording, or claims of complete healing | Main guide | Pediatric screening intervals, safety and efficacy claims require physician review. |
-| `/` | Any “best”, “premium”, “permanent”, “guaranteed”, “safest”, “only effective treatment”, exact duration/onset, recurrence, or superiority wording in cosmetic/ophthalmology sections | Homepage | These categories were identified in the SEO handoff as requiring physician review rather than engineering edits. |
 
 ## Review workflow
 
@@ -25,4 +35,4 @@ This file intentionally flags medically sensitive wording for physician review. 
 3. Only then should the production copy be changed.
 4. Add a genuine last-reviewed date to significant medical pages only after actual physician review.
 
-No medical claims were rewritten as part of SEO PR #1.
+No medically sensitive claims were rewritten as part of SEO PR #1.
