@@ -1,0 +1,24 @@
+name: Temporary PR4 visual patch
+on:
+  push:
+    branches:
+      - design/pr4-visual-quality
+permissions:
+  contents: write
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/pr4-visual-quality
+          fetch-depth: 0
+      - run: python .github/pr4_visual_patch.py
+      - run: git diff --check
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/guide-layout.css dermatology.html ophthalmology.html doctors/dr-osama-alwreikat.html doctors/dr-sara-abu-touq.html psoriasis-treatment.html acne-scar-treatment.html
+          git commit -m "Polish newer patient-facing pages"
+          git push origin HEAD:design/pr4-visual-quality
