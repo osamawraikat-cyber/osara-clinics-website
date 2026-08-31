@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" href="assets/favicon.png">
 
     <title>عيادات أوسارا — دكتور جلدية وطبيب عيون | أبو نصير، شفا بدران، الجبيهة، عمان</title>
-    <meta name="description" content="عيادات أوسارا للأمراض الجلدية وطب العيون في أبو نصير، عمان (خدمة شفا بدران، الجبيهة، وعين الباشا). د. أسامة الوريكات — جلدية وتجميل. د. سارة أبو طوق — عيون. احجز موعدك فوراً عبر واتساب.">
+    <meta name="description" content="عيادات أوسارا للأمراض الجلدية وطب العيون في أبو نصير، عمان (خدمة شفا بدران، الجبيهة، وعين الباشا). د. أسامة الوريكات — جلدية وتناسلية وليزر. د. سارة أبو طوق — عيون. احجز موعدك فوراً عبر واتساب.">
     <meta name="keywords" content="دكتور جلدية ابو نصير, عيادة جلدية شفا بدران, دكتور جلدية الجبيهة, دكتور جلدية عين الباشا, دكتور عيون ابو نصير, عيادة أوسارا, OSara Clinics, دكتور أسامة الوريكات, دكتورة سارة أبو طوق, dermatologist amman, cildiye uzmanı amman, ürdün de dermatolog, türkçe bilen دكتور جلدية, بوتوكس ابو نصير, فيلر عمان, علاج البهاق عمان">
     <link rel="canonical" href="https://osaraclinics.com/">
     <meta property="og:type" content="website">
@@ -1082,6 +1082,34 @@
             border: 0;
         }
 
+        .map-static-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 36px;
+            background: linear-gradient(145deg, #ffffff 0%, #E6F3F4 100%);
+        }
+
+        .map-static-icon {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .map-static-card h3 { margin-bottom: 8px; font-size: 1.45rem; }
+        .map-static-card > p { margin-bottom: 8px; }
+        .map-actions { margin-top: 22px; width: 100%; max-width: 620px; }
+
         .hours-container {
             background-color: var(--bg-base);
             border-radius: 16px;
@@ -1609,6 +1637,7 @@
     gtag('js', new Date());
     gtag('config', 'G-72BY7LC2V2');
   </script>
+    <link rel="stylesheet" href="/assets/contact-cta.css">
 </head>
 <body>
 
@@ -2582,8 +2611,16 @@
             
             <div class="location-grid">
                 <!-- Map -->
-                <div class="map-container">
-                    <iframe src="https://maps.google.com/maps?q=OSara%20Clinics%20Dermatology%20%26%20Ophthalmology%20Abu%20Nusair%20Amman%20Jordan&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="map-container map-static-card" aria-label="موقع عيادات أوسارا | OSara Clinics location">
+                    <div class="map-static-icon" aria-hidden="true">⌖</div>
+                    <h3>عيادات أوسارا | OSara Clinics</h3>
+                    <p>أبو نصير، عمّان | Abu Nusair, Amman</p>
+                    <p class="en-text">Open the verified clinic listing in Google Maps for the exact location and directions.</p>
+                    <div class="osara-contact-actions map-actions">
+                        <a class="osara-contact-btn osara-contact-wa" href="https://wa.me/962778423361" target="_blank" rel="noopener">احجز عبر واتساب <span>WhatsApp</span></a>
+                        <a class="osara-contact-btn osara-contact-call" href="tel:+962778423361">اتصل بالعيادة <span>Call</span></a>
+                        <a class="osara-contact-btn osara-contact-directions" href="https://maps.app.goo.gl/FMrYnf8xmhJJETsG9?g_st=ac" target="_blank" rel="noopener">الاتجاهات <span>Directions</span></a>
+                    </div>
                 </div>
                 
                 <!-- Hours -->
