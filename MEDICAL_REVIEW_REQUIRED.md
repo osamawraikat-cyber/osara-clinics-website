@@ -33,10 +33,10 @@ This file intentionally flags medically sensitive wording for physician review. 
 | `/mole-removal` | Any wording that implies laser removal is appropriate for all moles or that removal is scar-free, safest, permanent, or guaranteed | Main guide | Modality selection and outcome guarantees require physician review. |
 | `/school-health` | Any exact screening interval, guaranteed/rapid cure wording, “safe/painless” procedure wording, or claims of complete healing | Main guide | Pediatric screening intervals, safety and efficacy claims require physician review. |
 
-| `/psoriasis-treatment` | “Some patients may also develop joint symptoms that warrant assessment.” | Psoriasis overview | Association with psoriatic arthritis is appropriate but wording should be physician-reviewed for scope and escalation. |
-| `/psoriasis-treatment` | “Seek urgent medical assessment if psoriasis becomes very widespread, intensely red/painful, or widespread pustules occur with fever or systemic illness.” | Urgent assessment section | Escalation language should be physician-reviewed for severity thresholds and local care pathways. |
-| `/acne-scar-treatment` | “Subcision may be considered for some rolling or tethered depressed scars; TCA CROSS may be discussed for selected deeper narrow scars.” | Treatment-options section | Procedure-to-scar matching is medically specific and should be physician-reviewed; page does not claim these procedures are available at OSara Clinics. |
-| `/acne-scar-treatment` | “Many cases require multiple sessions and may benefit from a staged combination plan.” | Expectations section | General treatment-course statement should be physician-reviewed and kept free of guaranteed outcomes. |
+| `/psoriasis-treatment` | “الألم أو التيبس أو التورم في المفاصل يجب ذكره للطبيب.” | When to see a dermatologist | Association with psoriatic arthritis is appropriate but wording should be physician-reviewed for scope and escalation. |
+| `/psoriasis-treatment` | “اطلب تقييماً طبياً عاجلاً إذا أصبحت الصدفية واسعة جداً أو شديدة الاحمرار والألم، ظهرت بثرات منتشرة مع حرارة أو شعور عام بالتعب، حدث تدهور سريع، أو ظهرت أعراض مفصلية شديدة.” | Urgent assessment section | Escalation language should be physician-reviewed for severity thresholds and local care pathways. |
+| `/acne-scar-treatment` | “Subcision | السبسجن — تحرير الأشرطة الليفية تحت بعض الندبات المنخفضة، خصوصاً الندبات المتدحرجة أو الملتصقة.” and “TCA CROSS — تطبيق موضعي ومحدد... داخل بعض الندبات الضامرة...” | Treatment-options section | Procedure-to-scar matching is medically specific and should be physician-reviewed; page does not claim these procedures are available at OSara Clinics. |
+| `/acne-scar-treatment` | “كثير من الحالات تحتاج عدة جلسات، وقد تكون النتيجة الأفضل مع خطة مركبة ومتدرجة بحسب الاستجابة.” | Expectations section | General treatment-course statement should be physician-reviewed and kept free of guaranteed outcomes. |
 
 ## Review workflow
 
