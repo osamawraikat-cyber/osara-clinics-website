@@ -18,7 +18,10 @@
     {"@type":"MedicalWebPage","@id":"https://osaraclinics.com/dermatology#webpage","url":"https://osaraclinics.com/dermatology","name":"Dermatology at OSara Clinics","about":{"@id":"https://osaraclinics.com/doctors/dr-osama-alwreikat#physician"},"isPartOf":{"@id":"https://osaraclinics.com/#clinic"}}
   ]}
   </script>
-  <style>body{font-family:Arial,"Noto Sans Arabic",sans-serif;margin:0;background:#fcfaf7;color:#1e293b;line-height:1.8}header,main,footer{max-width:960px;margin:auto;padding:24px}nav{display:flex;flex-wrap:wrap;gap:12px}nav a{color:#0d5c60}.hero{padding:52px 24px;background:#e6f3f4;border-radius:18px}h1,h2{color:#0d5c60}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.card{background:#fff;padding:20px;border:1px solid #e5e7eb;border-radius:14px}.card h3{margin-top:0;color:#0d5c60}.cta{display:inline-block;background:#25d366;color:#fff;text-decoration:none;padding:12px 18px;border-radius:9px}.muted{color:#64748b}.intro{max-width:780px}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/guide-layout.css">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-72BY7LC2V2"></script>
   <script>
@@ -29,9 +32,9 @@
   </script>
 </head>
 <body>
-<header><nav><a href="/">الرئيسية</a><a href="/dermatology" aria-current="page">الجلدية</a><a href="/ophthalmology">العيون</a><a href="/doctors/dr-osama-alwreikat">د. أسامة</a><a href="/doctors/dr-sara-abu-touq">د. سارة</a></nav></header>
-<main>
-  <section class="hero"><p>عيادات أوسارا — أبو نصير، عمّان</p><h1>الأمراض الجلدية | Dermatology</h1><p class="intro">صفحة التخصص الرئيسية لتقييم ومتابعة أمراض الجلد والشعر والأظافر. استخدم الأدلة أدناه لفهم موضوعك قبل الاستشارة؛ التشخيص وخيارات العلاج الفعلية تُحدد بعد الفحص.</p><a class="cta book-appointment" data-appointment data-specialty="dermatology" href="https://wa.me/962778423361" target="_blank" rel="noopener">احجز عبر واتساب</a></section>
+<header class="site-header guide-header"><div class="site-header-inner"><a class="site-brand" href="/"><img src="/assets/logo.png" alt="عيادات أوسارا | OSara Clinics"></a><nav class="site-nav"><a href="/">الرئيسية</a><a href="/dermatology" aria-current="page">الجلدية</a><a href="/ophthalmology">العيون</a><a href="/doctors/dr-osama-alwreikat">د. أسامة</a><a href="/doctors/dr-sara-abu-touq">د. سارة</a></nav></div></header>
+<main class="page-main">
+  <section class="hero"><span class="badge">الأمراض الجلدية | Dermatology</span><p class="kicker">عيادات أوسارا — أبو نصير، عمّان</p><h1>الأمراض الجلدية | Dermatology</h1><p class="intro">صفحة التخصص الرئيسية لتقييم ومتابعة أمراض الجلد والشعر والأظافر. استخدم الأدلة أدناه لفهم موضوعك قبل الاستشارة؛ التشخيص وخيارات العلاج الفعلية تُحدد بعد الفحص.</p><a class="cta book-appointment" data-appointment data-specialty="dermatology" href="https://wa.me/962778423361" target="_blank" rel="noopener">احجز عبر واتساب</a></section>
   <section><h2>أدلة وخدمات جلدية ذات أولوية</h2><div class="grid">
     <article class="card"><h3>الصدفية | Psoriasis</h3><p>ما هي الصدفية، أشكالها، متى تحتاج تقييماً، وكيف تُختار فئات العلاج الموضعي والضوئي والجهازي والبيولوجي.</p><a href="/psoriasis-treatment">دليل علاج الصدفية</a></article>
     <article class="card"><h3>ندبات حب الشباب | Acne Scars</h3><p>فهم rolling وboxcar وice-pick والندبات المرتفعة، ولماذا يعتمد العلاج على شكل الندبة ولون البشرة وحب الشباب النشط.</p><a href="/acne-scar-treatment">دليل علاج ندبات حب الشباب</a></article>
@@ -39,10 +42,11 @@
     <article class="card"><h3>فرط التعرق</h3><p>معلومات عن تقييم فرط التعرق وخيارات العلاج.</p><a href="/botox-hyperhidrosis">فرط التعرق والبوتوكس</a></article>
     <article class="card"><h3>الشامات</h3><p>فحص الشامات ومناقشة خيارات الإزالة عند وجود داعٍ طبي أو تجميلي.</p><a href="/mole-removal">فحص وإزالة الشامات</a></article>
   </div></section>
-  <section><h2>موضوعات أخرى</h2><p>توجد أيضاً صفحة مشتركة حول <a href="/school-health">صحة الجلد والعيون للأطفال وطلاب المدارس</a>. هذه البوابة لا تكرر تفاصيل كل حالة؛ الهدف منها توجيهك إلى الصفحة الأكثر صلة ثم إلى التقييم الطبي عند الحاجة.</p></section>
-  <section><h2>الطبيب المرتبط بالتخصص</h2><p><a href="/doctors/dr-osama-alwreikat">د. أسامة الوريكات</a> — طبيب جلدية وتجميل في عيادات أوسارا.</p><p class="muted">هذه الصفحة لا تستبدل التقييم الطبي الفردي. تفاصيل الحالات وخيارات العلاج تُناقش أثناء الاستشارة.</p></section>
+  <section><h2>موضوعات أخرى</h2><p>يمكنك أيضاً الاطلاع على <a href="/school-health">صحة الجلد والعيون للأطفال وطلاب المدارس</a> للحصول على معلومات موجهة للعائلات والطلاب، ثم حجز تقييم طبي عند الحاجة.</p></section>
+  <section><h2>طبيب الجلدية في عيادات أوسارا</h2><p><a href="/doctors/dr-osama-alwreikat">د. أسامة الوريكات</a> — طبيب جلدية وتجميل في عيادات أوسارا.</p><p class="muted">هذه الصفحة لا تستبدل التقييم الطبي الفردي. تفاصيل الحالات وخيارات العلاج تُناقش أثناء الاستشارة.</p></section>
 </main>
-<footer><a href="tel:+962778423361" data-specialty="dermatology">اتصل بالعيادة</a> · <a href="https://www.google.com/maps/search/?api=1&query=32.062463,35.864789" target="_blank" rel="noopener">الاتجاهات</a></footer>
+<footer class="footer"><div class="footer-inner"><a href="tel:+962778423361" data-specialty="dermatology">اتصل بالعيادة</a> · <a href="https://www.google.com/maps/search/?api=1&query=32.062463,35.864789" target="_blank" rel="noopener">الاتجاهات</a></div></footer>
+<a class="whatsapp-float" href="https://wa.me/962778423361" data-specialty="dermatology" target="_blank" rel="noopener" aria-label="واتساب">✆</a>
 <script src="/assets/analytics.js" defer></script>
 </body>
 </html>
