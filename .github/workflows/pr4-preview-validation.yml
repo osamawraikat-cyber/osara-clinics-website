@@ -32,3 +32,4 @@ jobs:
             pr4-static.json
             pr4-browser.json
             pr4-screenshots/
+      # Verification-only rerun after adding transient network retries.
