@@ -40,13 +40,13 @@ for r,soup in pages.items():
         if p and p not in seen:
             seen.add(p); rr=s.get(BASE+p,allow_redirects=True,timeout=20)
             if rr.status_code>=400: errors.append(f'broken {r}->{p} {rr.status_code}')
-ps=pages['/psoriasis-treatment'].get_text(' ',strip=True)
-if 'stable plaque psoriasis is generally not an emergency' not in ps.lower(): errors.append('stable plaque emergency boundary missing')
-if not all(x in ps.lower() for x in ['rapidly widespread','widespread pustules','systemic illness']): errors.append('urgent psoriasis boundary missing')
-ac=pages['/acne-scar-treatment'].get_text(' ',strip=True).lower()
-for x in ['selected','rolling','tethered','ice-pick']:
-    if x not in ac: errors.append(f'acne wording missing {x}')
-if re.search(r'\b\d+\s*%|complete scar removal|100%',ac): errors.append('scar guarantee/percentage found')
+ps=pages['/psoriasis-treatment'].find('main').get_text(' ',strip=True).lower()
+for x in ['ordinary stable plaque psoriasis is not, by itself, a medical emergency','rapid widespread or severe worsening','widespread pustulation particularly with fever or systemic illness','other severe acute symptoms']:
+    if x not in ps: errors.append(f'psoriasis wording missing: {x}')
+ac=pages['/acne-scar-treatment'].find('main').get_text(' ',strip=True).lower()
+for x in ['rolling scars','ice-pick scars','حالات مختارة','الندبات المتدحرجة أو الملتصقة','الندبات العميقة والضيقة','complete scar removal should not be promised']:
+    if x not in ac: errors.append(f'acne wording missing: {x}')
+if re.search(r'\b\d+\s*%',ac): errors.append('scar percentage guarantee found')
 www=s.get('https://www.osaraclinics.com/',allow_redirects=False,timeout=20)
 if www.status_code not in (301,302,307,308) or not www.headers.get('location','').startswith('https://osaraclinics.com'): errors.append(f'www redirect {www.status_code} {www.headers.get("location")}')
 for r in ['/vitiligo-jordan','/botox-hyperhidrosis','/mole-removal','/school-health','/psoriasis-treatment','/acne-scar-treatment']:
