@@ -1,0 +1,30 @@
+name: PR2 production validation
+on:
+  push:
+    branches:
+      - verification/pr2-production
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - run: python .github/verify_prod.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null
+      - run: node .github/verify_prod.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr2-production-validation
+          path: |
+            http-report.json
+            browser-report.json
