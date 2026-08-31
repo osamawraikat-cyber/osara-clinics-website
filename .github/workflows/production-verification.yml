@@ -1,0 +1,33 @@
+name: PR1 production verification
+on:
+  push:
+    branches:
+      - verification/pr1-production
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install static dependencies
+        run: pip install requests beautifulsoup4 lxml
+      - name: Verify production HTTP and SEO
+        run: python .github/production_verify.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: |
+          npm install playwright
+          npx playwright install --with-deps chromium
+      - name: Verify production rendering and events
+        run: node .github/production_verify.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr1-production-verification
+          path: |
+            production-static-report.json
+            production-browser-report.json
