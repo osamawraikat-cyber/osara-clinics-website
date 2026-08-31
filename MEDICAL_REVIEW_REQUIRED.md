@@ -33,6 +33,11 @@ This file intentionally flags medically sensitive wording for physician review. 
 | `/mole-removal` | Any wording that implies laser removal is appropriate for all moles or that removal is scar-free, safest, permanent, or guaranteed | Main guide | Modality selection and outcome guarantees require physician review. |
 | `/school-health` | Any exact screening interval, guaranteed/rapid cure wording, “safe/painless” procedure wording, or claims of complete healing | Main guide | Pediatric screening intervals, safety and efficacy claims require physician review. |
 
+| `/psoriasis-treatment` | “Some patients may also develop joint symptoms that warrant assessment.” | Psoriasis overview | Association with psoriatic arthritis is appropriate but wording should be physician-reviewed for scope and escalation. |
+| `/psoriasis-treatment` | “Seek urgent medical assessment if psoriasis becomes very widespread, intensely red/painful, or widespread pustules occur with fever or systemic illness.” | Urgent assessment section | Escalation language should be physician-reviewed for severity thresholds and local care pathways. |
+| `/acne-scar-treatment` | “Subcision may be considered for some rolling or tethered depressed scars; TCA CROSS may be discussed for selected deeper narrow scars.” | Treatment-options section | Procedure-to-scar matching is medically specific and should be physician-reviewed; page does not claim these procedures are available at OSara Clinics. |
+| `/acne-scar-treatment` | “Many cases require multiple sessions and may benefit from a staged combination plan.” | Expectations section | General treatment-course statement should be physician-reviewed and kept free of guaranteed outcomes. |
+
 ## Review workflow
 
 1. Physician reviews each flagged statement in context.
@@ -40,4 +45,4 @@ This file intentionally flags medically sensitive wording for physician review. 
 3. Only then should the production copy be changed.
 4. Add a genuine last-reviewed date to significant medical pages only after actual physician review.
 
-No medically sensitive claims were rewritten as part of SEO PR #1.
+No medically sensitive claims were rewritten as part of SEO PR #1. PR #2 adds the statements above for physician verification rather than presenting uncertain details as guarantees.
