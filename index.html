@@ -1,0 +1,2777 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <title>عيادات أوسارا — دكتور جلدية وطبيب عيون | أبو نصير، شفا بدران، الجبيهة، عمان</title>
+    <meta name="description" content="عيادات أوسارا للأمراض الجلدية وطب العيون في أبو نصير، عمان (خدمة شفا بدران، الجبيهة، وعين الباشا). د. أسامة الوريكات — جلدية وتجميل. د. سارة أبو طوق — عيون. احجز موعدك فوراً عبر واتساب.">
+    <meta name="keywords" content="دكتور جلدية ابو نصير, عيادة جلدية شفا بدران, دكتور جلدية الجبيهة, دكتور جلدية عين الباشا, دكتور عيون ابو نصير, عيادة أوسارا, OSara Clinics, دكتور أسامة الوريكات, دكتورة سارة أبو طوق, dermatologist amman, cildiye uzmanı amman, ürdün de dermatolog, türkçe bilen دكتور جلدية, بوتوكس ابو نصير, فيلر عمان, علاج البهاق عمان">
+    <link rel="canonical" href="https://www.osaraclinics.com/">
+    
+    <!-- Local Business Schema (JSON-LD) for Local SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "name": "OSara Clinics — Dermatology & Ophthalmology | عيادات أوسارا",
+      "alternateName": "عيادات أوسارا للجلدية والعيون",
+      "image": "https://www.osaraclinics.com/assets/logo.png",
+      "@id": "https://www.osaraclinics.com/#clinic",
+      "url": "https://www.osaraclinics.com",
+      "telephone": "+962778423361",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "حي الأمانة, أبو نصير",
+        "addressLocality": "عمان",
+        "addressCountry": "JO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.062463,
+        "longitude": 35.864789
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Saturday",
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "09:00",
+          "closes": "20:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61584046595246",
+        "https://www.instagram.com/osara.dermaclinics/"
+      ],
+      "medicalSpecialty": [
+        "Dermatology",
+        "Ophthalmology"
+      ]
+    }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Embedded Styles (Vanilla CSS) -->
+    <style>
+        /* CSS Custom Properties / Design Tokens */
+        :root {
+            --primary: #0D5C60;
+            --primary-hover: #094548;
+            --primary-light: #E6F3F4;
+            --accent: #C5A880;
+            --accent-dark: #A3855B;
+            --accent-light: #F7F3EC;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --bg-base: #FCFAF7;
+            --bg-card: #FFFFFF;
+            --whatsapp: #25D366;
+            --whatsapp-hover: #20BA5A;
+            --font-ar: 'Cairo', sans-serif;
+            --font-en: 'Outfit', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -1px rgba(0,0,0,0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(13, 92, 96, 0.08), 0 4px 6px -2px rgba(13, 92, 96, 0.04);
+            --shadow-premium: 0 20px 25px -5px rgba(13, 92, 96, 0.1), 0 10px 10px -5px rgba(13, 92, 96, 0.04);
+        }
+
+        /* Base Resets */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Offset for sticky nav */
+        }
+
+        body {
+            font-family: var(--font-ar);
+            background-color: var(--bg-base);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Selection styling */
+        ::selection {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        /* Typography Helper Classes */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .en-text {
+            font-family: var(--font-en);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Grid & Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Helper Classes */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(13, 92, 96, 0.1);
+        }
+
+        .badge-gold {
+            background-color: var(--accent-light);
+            color: var(--accent-dark);
+            border-color: rgba(197, 168, 128, 0.2);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-gold {
+            background-color: var(--accent);
+            color: #ffffff;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: #ffffff;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary);
+            color: #ffffff;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-info {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar-item a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .top-bar-item a:hover {
+            opacity: 0.8;
+        }
+
+        .top-bar-socials {
+            display: flex;
+            gap: 12px;
+        }
+
+        .top-bar-socials a {
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+        }
+
+        .top-bar-socials a:hover {
+            color: var(--accent);
+        }
+
+        /* Sticky Header */
+        .main-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(13, 92, 96, 0.06);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            margin-left: 35px; /* Spacing between logo and menu links in RTL */
+        }
+
+        .logo-img {
+            height: 72px; /* Increased height for readability */
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .footer-logo-img {
+            height: 55px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background-color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 10px rgba(13, 92, 96, 0.2);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name-ar {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-name-en {
+            font-family: var(--font-en);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-top: 1px;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-dark);
+            padding: 6px 4px;
+            position: relative;
+            transition: var(--transition);
+            line-height: 1.2;
+        }
+
+        .nav-links a .nav-ar {
+            font-size: 1rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .nav-links a .nav-en {
+            font-family: var(--font-en);
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 5%;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover .nav-en,
+        .nav-links a.active .nav-en {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Hamburger Menu Icon */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 120px 0 100px 0;
+            background: linear-gradient(135deg, #FCFAF7 40%, rgba(230, 243, 244, 0.4) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url('assets/hero_bg.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hero-badge {
+            align-self: flex-start;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+
+        .hero-title span {
+            color: var(--accent-dark);
+        }
+
+        .hero-title-en {
+            font-family: var(--font-en);
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-top: 8px;
+            line-height: 1.3;
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-top: 10px;
+            border-right: 4px solid var(--accent);
+            padding-right: 15px;
+        }
+
+        .hero-tagline-en {
+            font-family: var(--font-en);
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            padding-right: 19px;
+        }
+
+        .hero-cta {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-frame {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            animation: morphing 15s ease-in-out infinite;
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+        }
+
+        .hero-frame-inner {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            bottom: 10px;
+            left: 10px;
+            background-color: var(--bg-base);
+            border-radius: inherit;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-illustration {
+            width: 80%;
+            height: auto;
+            color: var(--primary);
+            opacity: 0.85;
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+
+        /* Section Global Styles */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-subtitle-en {
+            font-family: var(--font-en);
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Doctors Section */
+        .doctors-section {
+            background-color: #ffffff;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .doctor-card {
+            background-color: var(--bg-base);
+            border-radius: 20px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid rgba(13, 92, 96, 0.05);
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .doctor-img-wrapper {
+            position: relative;
+            background-color: var(--primary-light);
+            overflow: hidden;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .doctor-monogram {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, #093c3e 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .doctor-monogram::before {
+            content: '';
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border: 1px solid rgba(197, 168, 128, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .monogram-letters {
+            font-family: var(--font-en);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+            line-height: 1;
+            z-index: 2;
+        }
+
+        .monogram-subtitle {
+            font-family: var(--font-en);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 15px;
+            letter-spacing: 2px;
+            z-index: 2;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(197, 168, 128, 0.3);
+            padding-top: 6px;
+            display: inline-block;
+        }
+
+        .doctor-card:hover .doctor-monogram {
+            background: linear-gradient(135deg, var(--primary-hover) 0%, #062a2c 100%);
+        }
+
+        .doctor-card:hover .doctor-monogram::before {
+            transform: scale(1.1);
+            border-color: rgba(197, 168, 128, 0.5);
+        }
+
+        .doctor-info {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .doctor-header {
+            margin-bottom: 15px;
+        }
+
+        .doctor-name-ar {
+            font-size: 1.35rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .doctor-name-en {
+            font-family: var(--font-en);
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        .doctor-bio-ar {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .doctor-bio-en {
+            font-family: var(--font-en);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.5;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding-top: 12px;
+        }
+
+        /* Cards Grid Layout */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--primary);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header-area {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .card-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .card-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            background-color: var(--primary-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        .card-badge {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .card-title-ar {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .card-title-en {
+            font-family: var(--font-en);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-top: 1px;
+            line-height: 1.2;
+        }
+
+        .card-desc-ar {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .card-divider {
+            height: 1px;
+            background-color: rgba(0,0,0,0.06);
+            margin: 12px 0;
+        }
+
+        .card-desc-en {
+            font-family: var(--font-en);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.5;
+            text-align: right;
+        }
+
+        .card-desc-en[dir="ltr"] {
+            text-align: left;
+        }
+
+        .card-cta-wrapper {
+            margin-top: auto;
+        }
+
+        .card-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background-color: var(--bg-base);
+            color: var(--primary);
+            border: 1px solid rgba(13, 92, 96, 0.15);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-btn {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 10px rgba(13, 92, 96, 0.15);
+        }
+
+        /* Specialized Badges for Ophthalmology */
+        .card-badge-appointment {
+            background-color: #FEF3C7;
+            color: #D97706;
+            border: 1px solid rgba(217, 119, 6, 0.1);
+        }
+
+        /* Why OSara Section */
+        .why-section {
+            background-color: #ffffff;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .why-card {
+            background-color: var(--bg-base);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .why-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-light);
+            border-radius: 50% 20% 50% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .why-card:nth-child(2) .why-icon {
+            border-radius: 50% 50% 20% 50%;
+        }
+
+        .why-card:nth-child(3) .why-icon {
+            border-radius: 50% 50% 50% 20%;
+        }
+
+        .why-title-ar {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .why-title-en {
+            font-family: var(--font-en);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .why-desc-ar {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .why-desc-en {
+            font-family: var(--font-en);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        /* Google Reviews Section */
+        .reviews-section {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .reviews-badge {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 35px 50px;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(8px);
+        }
+
+        .reviews-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 12px;
+            color: #F59E0B;
+        }
+
+        .reviews-score {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .reviews-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .reviews-text-en {
+            font-family: var(--font-en);
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        /* Location & Hours Section */
+        .location-section {
+            background-color: #ffffff;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .hours-container {
+            background-color: var(--bg-base);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(13, 92, 96, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hours-header {
+            margin-bottom: 20px;
+        }
+
+        .hours-title-ar {
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+
+        .hours-title-en {
+            font-family: var(--font-en);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .hours-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(0,0,0,0.08);
+        }
+
+        .hours-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .day-title {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .day-ar {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .day-en {
+            font-family: var(--font-en);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 1px;
+        }
+
+        .time-val {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .time-ar {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .time-en {
+            font-family: var(--font-en);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 1px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--bg-base);
+        }
+
+        .contact-card {
+            background-color: #ffffff;
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(13, 92, 96, 0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .contact-info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-info-icon {
+            width: 50px;
+            height: 60px;
+            border-radius: 12px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .contact-info-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-info-label-ar {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 2px;
+        }
+
+        .contact-info-label-en {
+            font-family: var(--font-en);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .contact-info-val-ar {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .contact-info-val-en {
+            font-family: var(--font-en);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .contact-action-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background-color: var(--primary-light);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px dashed rgba(13, 92, 96, 0.2);
+        }
+
+        .contact-action-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .contact-action-title-en {
+            font-family: var(--font-en);
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .contact-action-desc {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-action-panel .btn {
+            width: 100%;
+            max-width: 320px;
+            padding: 15px 30px;
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0F172A;
+            color: #94A3B8;
+            padding: 60px 0 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 30px;
+        }
+
+        .card-inline-link {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: underline;
+            margin-right: 6px;
+            display: inline-block;
+            transition: var(--transition);
+        }
+        .card-inline-link:hover {
+            color: var(--accent-dark);
+        }
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 30px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo-icon {
+            background-color: var(--accent);
+            color: #ffffff;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+
+        .footer-logo-name-ar {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .footer-logo-name-en {
+            font-family: var(--font-en);
+            font-size: 0.85rem;
+            color: #94A3B8;
+        }
+
+        .footer-desc {
+            line-height: 1.6;
+        }
+
+        .footer-links-col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-col-title {
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-right: 5px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-socials a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            transition: var(--transition);
+        }
+
+        .footer-socials a:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .copyright-en {
+            font-family: var(--font-en);
+            font-size: 0.85rem;
+        }
+
+        /* Sticky/Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: var(--whatsapp);
+            color: #ffffff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: var(--whatsapp-hover);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float-pulse {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--whatsapp);
+            opacity: 0.4;
+            z-index: -1;
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-tagline {
+                border-right: none;
+                border-left: none;
+                padding: 0;
+                border-top: 1px solid var(--accent);
+                border-bottom: 1px solid var(--accent);
+                padding: 15px 0;
+            }
+            .hero-tagline-en {
+                padding: 0;
+            }
+            .hero-cta {
+                justify-content: center;
+            }
+            .hero-image-wrapper {
+                order: -1;
+            }
+            .doctors-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-card {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+            .contact-action-panel {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 70px;
+            }
+            .top-bar {
+                display: none;
+            }
+            .main-header .container {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .main-nav {
+                position: fixed;
+                top: 65px;
+                right: -100%;
+                width: 280px;
+                height: calc(100vh - 65px);
+                background-color: #ffffff;
+                flex-direction: column;
+                padding: 30px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: var(--transition);
+                align-items: flex-start;
+                z-index: 1001;
+            }
+            .main-nav.active {
+                right: 0;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
+            .nav-links a {
+                display: block;
+                padding: 10px 0;
+                font-size: 1.1rem;
+            }
+            .nav-actions {
+                margin-top: 30px;
+                width: 100%;
+            }
+            .nav-actions .btn {
+                width: 100%;
+            }
+            .doctor-card {
+                grid-template-columns: 1fr;
+            }
+            .doctor-img-wrapper {
+                height: 250px;
+            }
+            .why-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero-title-en {
+                font-size: 1.4rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '872741752427669');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=872741752427669&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <div class="top-bar-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <a href="tel:0778423361" dir="ltr">07 7842 3361</a>
+                </div>
+                <div class="top-bar-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    <span>ساعات العمل: اتصل للاستفسار | Working hours: Call to enquire</span>
+                </div>
+            </div>
+            <div class="top-bar-socials">
+                <a href="https://www.facebook.com/profile.php?id=61584046595246" target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/osara.dermaclinics/" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER / NAVIGATION -->
+    <header class="main-header">
+        <div class="container">
+            <a href="#hero" class="logo-area">
+                <img src="assets/logo.png" alt="عيادة أوسارا للأمراض الجلدية وطب العيون" class="logo-img">
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-links">
+                    <li>
+                        <a href="#hero" class="active">
+                            <span class="nav-ar">الرئيسية</span>
+                            <span class="nav-en">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#doctors">
+                            <span class="nav-ar">الأطباء</span>
+                            <span class="nav-en">Doctors</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#medical-derm">
+                            <span class="nav-ar">الجلدية الطبية</span>
+                            <span class="nav-en">Medical</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#cosmetic-derm">
+                            <span class="nav-ar">التجميل</span>
+                            <span class="nav-en">Cosmetic</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#ophthalmology">
+                            <span class="nav-ar">العيون</span>
+                            <span class="nav-en">Eye Care</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#why-us">
+                            <span class="nav-ar">لماذا نحن</span>
+                            <span class="nav-en">Why Us</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#location">
+                            <span class="nav-ar">موقعنا</span>
+                            <span class="nav-en">Location</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="https://wa.me/962778423361" class="btn btn-primary btn-whatsapp" target="_blank" rel="noopener">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        <span>واتساب | WhatsApp</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge badge-gold hero-badge">📍 أبو نصير، شفا بدران، الجبيهة | Abu Nusair & Nearby Areas</span>
+                <h1 class="hero-title">
+                    عيادات أوسارا
+                    <span class="logo-name-ar" style="display:block; font-size:1.6rem; color:var(--text-dark); margin: 10px 0;">طب الأمراض الجلدية وطب العيون</span>
+                    <div class="hero-title-en">OSARA CLINICS</div>
+                    <span class="logo-name-en" style="display:block; font-size:1.05rem; color:var(--text-muted); font-weight: 500;">Dermatology & Ophthalmology</span>
+                </h1>
+                
+                <p class="hero-tagline">رعاية متخصصة لبشرتك وعيونك في أبو نصير — نخدم مناطق شفا بدران، الجبيهة، وعين الباشا في عمان.</p>
+                <p class="hero-tagline-en" dir="ltr">Specialized dermatology & eye care in Abu Nusair — serving Shafa Badran, Jubaiha, & Ain Al-Basha, Amman.</p>
+                
+                <div class="hero-cta">
+                    <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%B7%D8%A8%D9%8A%D8%A9%20%7C%20Hello%20OSara%20Clinics%2C%20I%20would%20like%20to%20book%20a%20consultation" class="btn btn-primary btn-whatsapp" target="_blank" rel="noopener">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        <span>📲 احجز موعدك عبر واتساب | Book via WhatsApp</span>
+                    </a>
+                    <a href="#location" class="btn btn-outline">📍 موقعنا وخريطة جوجل</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper">
+                <div class="hero-frame">
+                    <div class="hero-frame-inner">
+                        <svg class="hero-illustration" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M48 20a12 12 0 1 0 0 24 12 12 0 0 0 0-24z"/>
+                            <path d="M48 44v32a10 10 0 0 0 10 10h10"/>
+                            <path d="M48 20V8a4 4 0 0 1 8 0v2"/>
+                            <path d="M30 46h36M30 58h36"/>
+                            <circle cx="50" cy="50" r="40" stroke-dasharray="4 4"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCTORS SECTION -->
+    <section class="section doctors-section" id="doctors">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">الفريق الطبي | Medical Team</span>
+                <h2 class="section-title">أطباء عيادات أوسارا</h2>
+                <div class="section-subtitle-en">Our Medical Team</div>
+            </div>
+            
+            <div class="doctors-grid">
+                <!-- Dr. Osama Card -->
+                <div class="doctor-card">
+                    <div class="doctor-img-wrapper">
+                        <div class="doctor-monogram">
+                            <span class="monogram-letters">OW</span>
+                            <span class="monogram-subtitle">OSAMA ALWREIKAT</span>
+                        </div>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="doctor-header">
+                            <h3 class="doctor-name-ar">د. أسامة الوريكات</h3>
+                            <h4 class="doctor-name-en">Dr. Osama Alwreikat</h4>
+                            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+                                <span class="badge badge-gold">طبيب جلدية وتجميل | Dermatologist</span>
+                                <span class="badge" style="background-color: #FFF0F0; color: #E30A17; border: 1px solid #FFCDD2;">🇹🇷 Türkçe Bilen Cildiye Uzmanı</span>
+                            </div>
+                        </div>
+                        <p class="doctor-bio-ar">طبيب متخصص في الأمراض الجلدية والتجميل. يقدم الدكتور أسامة الوريكات في عيادة أوسارا بأبو نصير خدمات تشخيص وعلاج شاملة لأمراض الجلد والشعر والأظافر والتجميل غير الجراحي.</p>
+                        <p class="doctor-bio-en" dir="ltr">Dermatologist specializing in medical & cosmetic dermatology at OSara Clinics, Abu Nusair, Amman. Offering comprehensive diagnosis and treatment for all skin, hair, and nail conditions.</p>
+                        <p class="doctor-bio-en" dir="ltr" style="margin-top: -8px; font-size: 0.85rem; color: var(--primary);"><strong>🇹🇷 Türkçe:</strong> Gülhane Askerî Tıp Akademisi (GATA / Sağlık Bilimleri Üniversitesi - Ankara) mezunu Dr. Osama Alwreikat, Ürdün Amman'da Türkçe konuşan cildiye uzmanı olarak tüm cilt, saç ve estetik tedavilerinde hizmet vermektedir.</p>
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%AF%D9%83%D8%AA%D9%85%D8%B1%20%D8%A3%D8%B3%D8%A7%D9%85%D9%85%D9%87%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%85%D9%88%D8%B9%D9%85%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%AC%D9%84%D8%AF%D9%8A%D8%A9%20%7C%20Hello%20Dr.%20Osama%2C%20I%20would%20like%20to%20book%20a%20dermatology%20consultation" class="btn btn-primary btn-whatsapp" target="_blank" rel="noopener">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            <span>احجز موعداً | Book Appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Dr. Sara Card -->
+                <div class="doctor-card">
+                    <div class="doctor-img-wrapper">
+                        <div class="doctor-monogram">
+                            <span class="monogram-letters">ST</span>
+                            <span class="monogram-subtitle">SARA ABU TOUQ</span>
+                        </div>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="doctor-header">
+                            <h3 class="doctor-name-ar">د. سارة أبو طوق</h3>
+                            <h4 class="doctor-name-en">Dr. Sara Abu Touq</h4>
+                            <span class="badge badge-gold" style="margin-top: 8px;">طبيبة عيون وجراحتها | Ophthalmologist</span>
+                        </div>
+                        <p class="doctor-bio-ar">دكتورة عيون متخصصة في عيادة أوسارا بأبو نصير، عمان. تقدم الدكتورة سارة أبو طوق خدمات شاملة في طب العيون لجميع الأعمار بالموعد المسبق. احجز عبر واتساب.</p>
+                        <p class="doctor-bio-en" dir="ltr">Ophthalmologist at OSara Clinics, Abu Nusair, Amman. Dr. Sara Abu Touq provides comprehensive eye care for all ages by prior appointment. Book via WhatsApp.</p>
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%AF%D9%83%D8%AA%D9%88%D8%B1%D9%85%D8%A9%20%D8%B3%D8%A7%D8%B1%D9%87%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D8%B9%D9%8A%D9%88%D9%86%20%D9%85%D8%B9%D9%83%20%7C%20Hello%20Dr.%20Sara%2C%20I%20would%20like%20to%20book%20an%20eye%20consultation" class="btn btn-primary btn-whatsapp" target="_blank" rel="noopener">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            <span>احجز موعداً | Book Appointment</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: MEDICAL DERMATOLOGY -->
+    <section class="section" id="medical-derm">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">د. أسامة الوريكات | Dr. Osama Alwreikat</span>
+                <h2 class="section-title">الأمراض الجلدية الطبية</h2>
+                <div class="section-subtitle-en">Medical Dermatology Services</div>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">🩺</div>
+                            <span class="badge card-badge">طبي | Medical</span>
+                        </div>
+                        <h3 class="card-title-ar">حب الشباب</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Acne</h4>
+                    </div>
+                    <p class="card-desc-ar">حب الشباب من أكثر مشاكل البشرة شيوعاً، وكثير من الحالات تحتاج تشخيصاً طبياً دقيقاً وليس فقط غسولاً أو كريماً. في عيادة أوسارا للأمراض الجلدية في أبو نصير، يقدم الدكتور أسامة الوريكات خطة علاجية مخصصة لكل حالة سواء كانت هرمونية أو بكتيرية أو ناتجة عن حساسية.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Acne is one of the most common skin conditions, and persistent cases often require proper medical diagnosis beyond over-the-counter products. At OSara Dermatology Clinic in Abu Nusair, Amman, Dr. Osama Alwreikat creates personalized acne treatment plans targeting the root cause — hormonal, bacterial, or inflammatory.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%84%D8%A7%D8%AC%20%D8%AD%D8%A8%20%D8%A7%D9%84%D8%B4%D8%A8%D8%A7%D8%A8%20%7C%20Acne" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">✨</div>
+                            <span class="badge card-badge">علاجي | Treatment</span>
+                        </div>
+                        <h3 class="card-title-ar">ندبات حب الشباب</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Acne Scars</h4>
+                    </div>
+                    <p class="card-desc-ar">ندبات حب الشباب والبقع الداكنة التي تتركها يمكن علاجها بفعالية من خلال بروتوكولات طبية متخصصة. في عيادة أوسارا بأبو نصير، نستخدم أحدث تقنيات علاج الندبات كالديرمابن والتقشير الكيميائي والبلازما للحصول على بشرة أكثر نعومة وإشراقاً.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Acne scars and post-inflammatory hyperpigmentation are treatable with the right medical approach. OSara Clinics in Abu Nusair, Amman offers advanced acne scar treatments including dermapen, chemical peels, and PRP therapy to restore smooth, even-toned skin.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%86%D8%AF%D8%A8%D8%A7%D8%AA%20%D8%AD%D8%A8%20%D8%A7%D9%84%D8%B4%D8%A8%D8%A7%D8%A8%20%7C%20Acne%20Scars" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">🧬</div>
+                            <span class="badge card-badge">تخصصي | Specialist</span>
+                        </div>
+                        <h3 class="card-title-ar">البهاق</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Vitiligo</h4>
+                    </div>
+                    <p class="card-desc-ar">البهاق حالة مناعية تؤثر على خلايا صبغة الجلد، وليست مجرد مشكلة تجميلية. التشخيص المبكر والمتابعة الطبية المنتظمة مع طبيب جلدية في عمان تُحدث فارقاً حقيقياً في نتائج العلاج. الدكتور أسامة الوريكات يقدم بروتوكولات علاج البهاق المعتمدة. <a href="vitiligo-jordan.html" class="card-inline-link">اقرأ التفاصيل ↗</a></p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Vitiligo is an autoimmune condition affecting skin pigment cells — not merely a cosmetic concern. Early diagnosis and regular follow-up with a dermatologist in Amman significantly improves treatment outcomes. Dr. Osama Alwreikat at OSara Clinics, Abu Nusair offers evidence-based vitiligo treatment protocols.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%84%D8%A7%D8%AC%20%D8%A7%D9%84%D8%A8%D9%87%D8%A7%D9%82%20%7C%20Vitiligo" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">🧴</div>
+                            <span class="badge card-badge">جلدية | Skin Care</span>
+                        </div>
+                        <h3 class="card-title-ar">الأكزيما</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Eczema</h4>
+                    </div>
+                    <p class="card-desc-ar">الأكزيما أو التهاب الجلد التأتبي حالة مزمنة تتميز بجلد جاف ومتهيج ومثير للحكة. العلاج الصحيح يبدأ بتحديد نوع الأكزيما وعواملها المحرِّضة. في عيادة أوسارا للأمراض الجلدية في أبو نصير، نضع خطة علاجية شاملة للسيطرة على الأكزيما وتحسين جودة حياة المريض.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Eczema (atopic dermatitis) is a chronic inflammatory skin condition causing dry, itchy, and irritated skin. Effective management starts with correctly identifying the type and triggers. At OSara Dermatology Clinic in Abu Nusair, Amman, we develop comprehensive eczema treatment plans to control flare-ups and improve quality of life.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%84%D8%A7%D8%AC%20%D8%A7%D9%84%D8%A3%D9%83%D8%B2%D9%8A%D9%85%D8%A7%20%7C%20Eczema" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">🛡️</div>
+                            <span class="badge card-badge">مزمن | Chronic</span>
+                        </div>
+                        <h3 class="card-title-ar">الصدفية</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Psoriasis</h4>
+                    </div>
+                    <p class="card-desc-ar">الصدفية مرض مناعي مزمن يسبب ظهور بقع متقشرة حمراء على الجلد وقد يصيب المفاصل أيضاً. تتوفر اليوم علاجات فعّالة تساعد على السيطرة على الصدفية وتقليل نوباتها. الدكتور أسامة الوريكات في عيادة أوسارا بأبو نصير عمان يقدم تشخيصاً دقيقاً وخططاً علاجية موثوقة لمرضى الصدفية.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Psoriasis is a chronic autoimmune disease causing scaly, inflamed skin patches that can also affect the joints. Modern treatments effectively control psoriasis and reduce flares. Dr. Osama Alwreikat at OSara Clinics, Abu Nusair, Amman provides accurate diagnosis and trusted treatment plans for psoriasis patients.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%84%D8%A7%D8%AC%20%D8%A7%D9%84%D8%B5%D8%AF%D9%81%D9%8A%D8%A9%20%7C%20Psoriasis" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">🔆</div>
+                            <span class="badge card-badge">تصبغات | Pigment</span>
+                        </div>
+                        <h3 class="card-title-ar">الكلف</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Melasma</h4>
+                    </div>
+                    <p class="card-desc-ar">الكلف والبقع الداكنة من أكثر مشاكل البشرة انتشاراً لدى النساء في منطقة الشرق الأوسط، وعلاجها يتطلب تشخيصاً دقيقاً للنوع والعمق قبل اختيار البروتوكول المناسب. في عيادة أوسارا بأبو نصير، نقدم بروتوكولات علاج الكلف والتصبغات بإشراف الدكتور أسامة الوريكات.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Melasma and dark spots are among the most common skin concerns for women in the Middle East, and effective treatment requires precise diagnosis before choosing the right protocol. OSara Clinics in Abu Nusair, Amman offers specialized melasma and pigmentation treatment protocols under Dr. Osama Alwreikat's supervision.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%84%D8%A7%D8%AC%20%D8%A7%D9%84%D9%83%D9%84%D9%81%20%7C%20Melasma" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">💧</div>
+                            <span class="badge card-badge">علاجي | Treatment</span>
+                        </div>
+                        <h3 class="card-title-ar">فرط التعرق</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Hyperhidrosis</h4>
+                    </div>
+                    <p class="card-desc-ar">فرط التعرق في اليدين والإبطين والقدمين حالة طبية حقيقية تؤثر على الحياة اليومية والثقة بالنفس، ولها علاجات فعّالة منها حقن البوتوكس المتخصصة. في عيادة أوسارا للأمراض الجلدية في أبو نصير عمان، يشخّص الدكتور أسامة الوريكات حالات التعرق الزائد ويختار العلاج الأنسب لكل مريض.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Hyperhidrosis — excessive sweating of the hands, armpits, or feet — is a real medical condition that impacts daily life and confidence, with effective treatments including specialized Botox injections. At OSara Dermatology Clinic in Abu Nusair, Amman, Dr. Osama Alwreikat diagnoses and treats hyperhidrosis with proven protocols.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%81%D8%B1%D8%AA%20%D8%A7%D9%84%D8%AA%D8%B9%D8%B1%D9%82%20%7C%20Hyperhidrosis" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">🧬</div>
+                            <span class="badge card-badge">حالة خاصة | Special Care</span>
+                        </div>
+                        <h3 class="card-title-ar">التهاب الغدد العرقية القيحي</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Hidradenitis Suppurativa</h4>
+                    </div>
+                    <p class="card-desc-ar">التهاب الغدد العرقية القيحي (Hidradenitis Suppurativa) حالة جلدية مزمنة تسبب تكرار ظهور خراجات مؤلمة في مناطق الطيات الجلدية كالإبطين والفخذين. يحتاج تشخيصها وعلاجها طبيب جلدية. عيادة أوسارا في أبو نصير عمان تقدم رعاية لهذه الحالات.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Hidradenitis suppurativa is a chronic skin condition causing painful, recurring abscesses in skin fold areas such as the armpits and groin. It requires dedicated dermatological care for accurate diagnosis and management. OSara Clinics in Abu Nusair, Amman provides dedicated care for hidradenitis suppurativa patients.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D9%87%D8%A7%D8%A8%20%D8%A7%D9%84%D8%B2%D9%88%D8%A7%D8%A6%D8%AF%20%D8%A7%D9%84%D9%82%D9%8A%D8%AD%D9%8A%D8%A9%20%7C%20Hidradenitis" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">👶</div>
+                            <span class="badge card-badge">أطفال | Pediatrics</span>
+                        </div>
+                        <h3 class="card-title-ar">الأورام الوعائية عند الرضع</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Infantile Hemangiomas</h4>
+                    </div>
+                    <p class="card-desc-ar">الأورام الوعائية عند الرضع (Infantile Hemangiomas) من أكثر الأورام الجلدية الحميدة شيوعاً في مرحلة الرضاعة. معظمها يتراجع تلقائياً، لكن بعض الحالات تحتاج تدخلاً طبياً مبكراً. الدكتور أسامة الوريكات في عيادة أوسارا بأبو نصير يقدم تقييماً دقيقاً ومتابعة لهذه الحالات.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Infantile hemangiomas are the most common benign skin tumors in infancy. While most resolve naturally, some cases require early medical intervention. Dr. Osama Alwreikat at OSara Clinics, Abu Nusair provides expert evaluation, monitoring, and treatment when needed.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%A3%D9%88%D8%B1%D8%A7%D9%85%20%D8%A7%D9%84%D9%88%D8%B9%D8%A7%D8%A6%D9%8A%D8%A9%20%7C%20Hemangiomas" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">🔍</div>
+                            <span class="badge card-badge">فحص | Screening</span>
+                        </div>
+                        <h3 class="card-title-ar">الشامات</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Moles & Nevi</h4>
+                    </div>
+                    <p class="card-desc-ar">ليست كل الشامات متشابهة — بعضها يحتاج متابعة دقيقة للكشف المبكر عن أي تغيرات غير طبيعية. فحص الشامات الدوري بإشراف طبيب جلدية ضروري. نقدم فحص الشامات بأحدث الأجهزة وإزالتها بالليزر والجراحة. <a href="mole-removal.html" class="card-inline-link">اقرأ التفاصيل ↗</a></p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Not all moles are the same — some require careful monitoring for early detection of abnormal changes. Regular mole checks with a dermatologist are essential, especially for numerous or large nevi. OSara Clinics in Abu Nusair, Amman offers professional mole examination and removal services.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A5%D8%B2%D8%A7%D9%84%D8%A9%20%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D8%A7%D8%AA%20%7C%20Moles" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 11 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">💆‍♂️</div>
+                            <span class="badge card-badge">شعر | Hair Care</span>
+                        </div>
+                        <h3 class="card-title-ar">تساقط الشعر</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Hair Loss</h4>
+                    </div>
+                    <p class="card-desc-ar">تساقط الشعر قد يكون ناتجاً عن أسباب متعددة: هرمونية، وراثية، غذائية، أو حالات مناعية كالثعلبة. التشخيص الصحيح يحدد العلاج المناسب سواء كان دوائياً أو إجراءات كالبلازما PRP. الدكتور أسامة الوريكات في عيادة أوسارا بأبو نصير عمان يقدم تقييماً شاملاً لحالات تساقط الشعر.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Hair loss can stem from multiple causes — hormonal, genetic, nutritional, or autoimmune conditions like alopecia. Correct diagnosis determines the right treatment, whether medical or procedural like PRP therapy. Dr. Osama Alwreikat at OSara Clinics, Abu Nusair, Amman offers comprehensive hair loss evaluation and treatment.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%84%D8%A7%D8%AC%20%D8%AA%D8%B3%D8%A7%D9%82%D8%B7%20%D8%A7%D9%84%D8%B4%D8%B9%D8%B1%20%7C%20Hair%20Loss" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 12 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">🩹</div>
+                            <span class="badge card-badge">إجراء طبي | Procedure</span>
+                        </div>
+                        <h3 class="card-title-ar">الثآليل والزوائد الجلدية</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Warts & Skin Tags</h4>
+                    </div>
+                    <p class="card-desc-ar">الثآليل عدوى فيروسية جلدية تنتشر بالتلامس وتحتاج علاجاً طبياً للقضاء عليها بشكل كامل. الزوائد الجلدية الحميدة يمكن إزالتها بسهولة وأمان في العيادة. عيادة أوسارا للأمراض الجلدية في أبو نصير عمان تقدم إزالة الثآليل والزوائد الجلدية بطرق فعّالة وآمنة.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Warts are viral skin infections that spread through contact and require proper medical treatment for complete removal. Benign skin tags can be safely and easily removed in-clinic. OSara Dermatology Clinic in Abu Nusair, Amman offers safe and effective wart and skin tag removal.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A5%D8%B2%D8%A7%D9%84%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A2%D9%84%D9%8A%D9%84%20%7C%20Warts" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 13 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">🧪</div>
+                            <span class="badge card-badge">حساسية | Allergy</span>
+                        </div>
+                        <h3 class="card-title-ar">حساسية الجلد</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Skin Allergies</h4>
+                    </div>
+                    <p class="card-desc-ar">حساسية الجلد والطفح الجلدي قد تكون ناتجة عن مواد كيميائية، أطعمة، أدوية، أو عوامل بيئية. تحديد المسبب الحقيقي هو مفتاح العلاج الفعّال. الدكتور أسامة الوريكات في عيادة أوسارا بأبو نصير يشخّص ويعالج حالات حساسية الجلد المختلفة.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Skin allergies and rashes can result from chemicals, foods, medications, or environmental factors. Identifying the true trigger is key to effective treatment. Dr. Osama Alwreikat at OSara Clinics, Abu Nusair diagnoses and treats a full range of skin allergy conditions.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%84%D8%A7%D8%AC%20%D8%AD%D8%B3%D8%A7%D8%B3%D9%8a%D8%A9%20%D8%A7%D9%84%D8%AC%D9%84%D8%AF%20%7C%20Skin%20Allergies" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 14 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">🧴</div>
+                            <span class="badge card-badge">علاجي | Treatment</span>
+                        </div>
+                        <h3 class="card-title-ar">الوردية</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Rosacea</h4>
+                    </div>
+                    <p class="card-desc-ar">الوردية حالة جلدية مزمنة تسبب احمراراً دائماً في الوجه وقد تشمل بثوراً صغيرة أو توسع الأوعية الدموية. علاجها يتطلب تشخيصاً دقيقاً وبروتوكولاً متخصصاً. الدكتور أسامة الوريكات في عيادة أوسارا بأبو نصير عمان يقدم علاج الوردية بفعالية.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Rosacea is a chronic skin condition causing persistent facial redness, sometimes with small pimples or visible blood vessels. Effective management requires accurate diagnosis and a specialized protocol. Dr. Osama Alwreikat at OSara Clinics, Abu Nusair, Amman offers effective rosacea treatment.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%84%D8%A7%D8%AC%20%D8%A7%D9%84%D9%88%D8%B1%D8%AF%D9%8A%D8%A9%20%7C%20Rosacea" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 15 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">🩺</div>
+                            <span class="badge card-badge">تقييم | Assessment</span>
+                        </div>
+                        <h3 class="card-title-ar">علامات الولادة</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Birthmarks</h4>
+                    </div>
+                    <p class="card-desc-ar">علامات الولادة متنوعة الأشكال والأنواع — بعضها حميد لا يحتاج تدخلاً، وبعضها يستدعي تقييماً طبياً أو علاجاً. الدكتور أسامة الوريكات في عيادة أوسارا بأبو نصير يقدم تقييماً دقيقاً لعلامات الولادة وخيارات العلاج المناسبة.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Birthmarks vary widely in type — some are benign requiring no intervention, while others warrant medical evaluation or treatment. Dr. Osama Alwreikat at OSara Clinics, Abu Nusair provides accurate assessment of birthmarks and appropriate treatment options.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%84%D8%A7%D8%AC%20%D8%B9%D9%84%D8%A7%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D9%88%D9%84%D8%A7%D8%AF%D8%A9%20%7C%20Birthmarks" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز استشارة | Book a consultation</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: COSMETIC DERMATOLOGY -->
+    <section class="section" id="cosmetic-derm" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">تجميل غير جراحي | Non-Surgical Cosmetic</span>
+                <h2 class="section-title">الإجراءات التجميلية الجلدية</h2>
+                <div class="section-subtitle-en">Cosmetic Dermatology Procedures</div>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- Card 16 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">✨</div>
+                            <span class="badge card-badge badge-gold">حقن | Injections</span>
+                        </div>
+                        <h3 class="card-title-ar">بوتوكس</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Botox</h4>
+                    </div>
+                    <p class="card-desc-ar">حقن البوتوكس إجراء تجميلي غير جراحي فعّال لتقليل خطوط التعبير والتجاعيد في الجبين، حول العينين، وبين الحاجبين. في عيادة أوسارا بأبو نصير عمان، يُجري الدكتور أسامة الوريكات حقن البوتوكس بدقة عالية لنتائج طبيعية وآمنة.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Botox injections are a safe, non-surgical cosmetic procedure to reduce expression lines and wrinkles on the forehead, around the eyes, and between the brows. At OSara Clinics in Abu Nusair, Amman, Dr. Osama Alwreikat performs Botox with precision for natural, safe results.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AD%D9%82%D9%8%20%D8%A7%D9%84%D8%A8%D9%88%D8%AA%D9%88%D9%83%D8%B3%20%7C%20Botox" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 17 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">✨</div>
+                            <span class="badge card-badge badge-gold">حقن | Injections</span>
+                        </div>
+                        <h3 class="card-title-ar">فيلر</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Dermal Fillers</h4>
+                    </div>
+                    <p class="card-desc-ar">حقن الفيلر تُستخدم لتحسين ملامح الوجه وملء التجاعيد العميقة وتعزيز حجم الشفتين والخدود. الدكتور أسامة الوريكات في عيادة أوسارا بأبو نصير يستخدم أفضل أنواع الفيلر المعتمدة لنتائج طبيعية ومتوازنة.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Dermal fillers enhance facial contours, fill deep wrinkles, and add volume to lips and cheeks. Dr. Osama Alwreikat at OSara Clinics, Abu Nusair uses premium certified fillers to deliver natural, balanced results.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AD%D9%82%D9%86%20%D8%A7%D9%84%D9%81%D9%8A%D9%84%D8%B1%20%7C%20Fillers" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 18 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">💧</div>
+                            <span class="badge card-badge badge-gold">علاجي | Treatment</span>
+                        </div>
+                        <h3 class="card-title-ar">بوتوكس التعرق</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Hyperhidrosis Botox</h4>
+                    </div>
+                    <p class="card-desc-ar">بوتوكس التعرق علاج فعّال وآمن لفرط التعرق في الإبطين واليدين والقدمين، ونتائجه تمتد من 6 إلى 12 شهراً. عيادة أوسارا تقدم هذا العلاج الطبي المعتمد بإشراف د. أسامة الوريكات. <a href="botox-hyperhidrosis.html" class="card-inline-link">اقرأ التفاصيل ↗</a></p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Botox for hyperhidrosis is a safe and effective treatment for excessive sweating of the armpits, hands, and feet, with results lasting 6-12 months. If you suffer from hyperhidrosis in Amman, OSara Clinics in Abu Nusair offers this treatment under medical supervision.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A8%D9%88%D8%AA%D9%88%D9%83%D8%B3%20%D8%A7%D9%84%D8%AA%D8%B9%D8%B1%D9%82%20%7C%20Sweat%20Botox" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 19 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">🧴</div>
+                            <span class="badge card-badge badge-gold">تقشير | Peels</span>
+                        </div>
+                        <h3 class="card-title-ar">تقشير كيميائي</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Chemical Peel</h4>
+                    </div>
+                    <p class="card-desc-ar">التقشير الكيميائي إجراء جلدي فعّال لتجديد البشرة ومعالجة التصبغات وندبات حب الشباب والجلد الخشن. تتوفر في عيادة أوسارا بأبو نصير عمان أنواع متعددة من التقشير الكيميائي تناسب مختلف أنواع البشرة.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Chemical peels are an effective skin treatment for skin renewal, treating pigmentation, acne scars, and rough skin texture. OSara Clinics in Abu Nusair, Amman offers multiple chemical peel types suitable for different skin types.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D9%82%D8%B4%D9%8A%D8%B1%20%D8%A7%D9%84%D9%83%D9%8A%D9%85%D9%8A%D8%A7%D8%A6%D9%8A%20%7C%20Chemical%20Peel" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 20 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">💆‍♀️</div>
+                            <span class="badge card-badge badge-gold">نضارة | Rejuvenation</span>
+                        </div>
+                        <h3 class="card-title-ar">العلاج بالبلازما</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">PRP Therapy</h4>
+                    </div>
+                    <p class="card-desc-ar">العلاج بالبلازما (PRP) يستخدم عوامل النمو الطبيعية في دمك لتحفيز تجديد الجلد وعلاج تساقط الشعر والندبات. في عيادة أوسارا للأمراض الجلدية في أبو نصير، نقدم جلسات البلازما للوجه والشعر بأعلى معايير السلامة.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">PRP therapy uses your blood's natural growth factors to stimulate skin renewal, treat hair loss, and improve scars. OSara Dermatology Clinic in Abu Nusair offers face and hair PRP sessions to the highest safety standards.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AC%D9%84%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%B2%D9%85%D8%A7%20%7C%20PRP" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 21 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">✨</div>
+                            <span class="badge card-badge badge-gold">كولاجين | Collagen</span>
+                        </div>
+                        <h3 class="card-title-ar">ديرمابن</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Dermapen | Microneedling</h4>
+                    </div>
+                    <p class="card-desc-ar">الديرمابن أو الإبر الدقيقة تقنية تجميلية تحفز إنتاج الكولاجين لتحسين ملمس البشرة وعلاج الندبات والمسام الواسعة والتجاعيد الخفيفة. الدكتور أسامة الوريكات في عيادة أوسارا بأبو نصير يقدم جلسات الديرمابن بنتائج ملحوظة.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Dermapen microneedling stimulates collagen production to improve skin texture, treat scars, enlarged pores, and fine lines. Dr. Osama Alwreikat at OSara Clinics, Abu Nusair offers dermapen sessions with noticeable results.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AC%D9%84%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D9%8A%D8%B1%D9%85%D8%A7%D8%A8%D9%86%20%7C%20Dermapen" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 22 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">💧</div>
+                            <span class="badge card-badge badge-gold">نضارة | Nourish</span>
+                        </div>
+                        <h3 class="card-title-ar">ميزوثيرابي</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Mesotherapy</h4>
+                    </div>
+                    <p class="card-desc-ar">الميزوثيرابي حقن دقيقة تُغذي الجلد بالفيتامينات والمعادن والهيالورونيك أسيد مباشرة في الطبقة الوسطى من الجلد لترطيب عميق وإشراق ملحوظ. عيادة أوسارا في أبو نصير عمان تقدم جلسات الميزوثيرابي للوجه والشعر.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Mesotherapy involves micro-injections delivering vitamins, minerals, and hyaluronic acid directly into the skin's middle layer for deep hydration and a visible glow. OSara Clinics in Abu Nusair, Amman offers mesotherapy sessions for face and hair.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AC%D9%84%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D9%8A%D8%B2%D9%88%D8%AB%D9%8A%D8%B1%D8%A7%D8%A8%D9%8A%20%7C%20Mesotherapy" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 23 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">✨</div>
+                            <span class="badge card-badge badge-gold">ليزر | Laser</span>
+                        </div>
+                        <h3 class="card-title-ar">إزالة الشعر بالليزر</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Laser Hair Removal</h4>
+                    </div>
+                    <p class="card-desc-ar">إزالة الشعر بالليزر الحل الأمثل للتخلص من الشعر الزائد بشكل دائم وفعّال مقارنة بالطرق التقليدية. في عيادة أوسارا للأمراض الجلدية بأبو نصير عمان تُجرى جلسات الإزالة بأجهزة متطورة وبإشراف طبي.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Laser hair removal is the optimal solution for permanent and effective removal of unwanted hair compared to traditional methods. At OSara Dermatology Clinic in Abu Nusair, Amman, sessions are performed with advanced devices under medical supervision.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A5%D8%B2%D8%A7%D9%84%D8%A9%20%D8%A7%D9%84%D8%B4%D8%B9%D8%B1%20%D8%A8%D8%A7%D9%84%D9%84%D9%8A%D8%B2%D8%B1%20%7C%20Laser%20Hair" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 24 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">⏳</div>
+                            <span class="badge card-badge badge-gold">عمر | Youth</span>
+                        </div>
+                        <h3 class="card-title-ar">مكافحة الشيخوخة</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Anti-Aging</h4>
+                    </div>
+                    <p class="card-desc-ar">علاجات مكافحة الشيخوخة الجلدية تشمل طيفاً واسعاً من الإجراءات كالبوتوكس والفيلر والتقشير والبلازما لاستعادة شباب البشرة وحيويتها. الدكتور أسامة الوريكات في عيادة أوسارا بأبو نصير عمان يضع بروتوكولاً متكاملاً لمكافحة الشيخوخة مناسباً لكل مريض.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Anti-aging skin treatments span a wide range of procedures including Botox, fillers, peels, and PRP to restore skin's youthful vitality. Dr. Osama Alwreikat at OSara Clinics, Abu Nusair creates a personalized anti-aging protocol for each patient.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9%20%D8%A7%D9%84%D8%B4%D9%8A%D8%AE%D9%88%D8%AE%D8%A9%20%7C%20Anti-Aging" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: OPHTHALMOLOGY -->
+    <section class="section" id="ophthalmology">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">د. سارة أبو طوق | Dr. Sara Abu Touq</span>
+                <h2 class="section-title">طب العيون</h2>
+                <div class="section-subtitle-en">Ophthalmology & Eye Care Services</div>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- Card 25 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">👁️</div>
+                            <span class="badge card-badge card-badge-appointment">🗓 بالموعد المسبق / By Appointment</span>
+                        </div>
+                        <h3 class="card-title-ar">فحص العيون</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Eye Examination</h4>
+                    </div>
+                    <p class="card-desc-ar">الفحص الدوري للعيون ضروري للحفاظ على صحة البصر والكشف المبكر عن أمراض العيون قبل تطورها. الدكتورة سارة أبو طوق، طبيبة العيون في عيادة أوسارا بأبو نصير عمان، تقدم فحوصات شاملة للعيون لجميع الأعمار بالموعد المسبق.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Regular eye examinations are essential for maintaining vision health and early detection of eye conditions before they progress. Dr. Sara Abu Touq, ophthalmologist at OSara Clinics, Abu Nusair, Amman, offers comprehensive eye exams for all ages by prior appointment.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D8%AD%D8%B5%20%D8%B9%D9%8A%D9%88%D9%86%20%D9%85%D8%B9%20%D8%A7%D9%84%D8%AF%D9%83%D8%AA%D9%88%D8%B1%D8%A9%20%D8%B3%D8%A7%D8%B1%D8%A9%20%7C%20Eye%20Exam" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 26 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">👁️</div>
+                            <span class="badge card-badge card-badge-appointment">🗓 بالموعد المسبق / By Appointment</span>
+                        </div>
+                        <h3 class="card-title-ar">جفاف العيون</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Dry Eye</h4>
+                    </div>
+                    <p class="card-desc-ar">جفاف العيون من أكثر مشاكل العيون شيوعاً ويسبب حرقة وتهيجاً مستمراً يؤثر على جودة الحياة. يحتاج التشخيص الدقيق لتحديد السبب واختيار العلاج الأمثل. الدكتورة سارة أبو طوق في عيادة أوسارا بأبو نصير عمان تقدم تشخيص وعلاج جفاف العيون بالموعد المسبق.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Dry eye syndrome is one of the most common eye conditions, causing persistent burning and irritation that affects quality of life. Accurate diagnosis determines the optimal treatment. Dr. Sara Abu Touq at OSara Clinics, Abu Nusair, Amman offers dry eye diagnosis and treatment by prior appointment.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%84%D8%B9%D9%84%D8%A7%D8%AC%20%D8%AC%D9%81%D8%A7%D9%81%20%D8%A7%D9%84%D8%B9%D9%8A%D9%88%D9%86%20%7C%20Dry%20Eye" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 27 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">👁️</div>
+                            <span class="badge card-badge card-badge-appointment">🗓 بالموعد المسبق / By Appointment</span>
+                        </div>
+                        <h3 class="card-title-ar">الجلوكوما</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Glaucoma</h4>
+                    </div>
+                    <p class="card-desc-ar">الجلوكوما (المياه الزرقاء) مرض عيني خطير يُلقَّب بـ"سارق البصر الصامت" لأنه قد يتطور دون أعراض واضحة. الكشف المبكر من خلال فحص العيون الدوري ضروري للحفاظ على البصر. الدكتورة سارة أبو طوق في عيادة أوسارا بأبو نصير عمان تقدم تشخيص وعلاج الجلوكوما بالموعد المسبق.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Glaucoma is a serious eye disease called the "silent thief of sight" as it can progress without obvious symptoms. Early detection through regular eye examinations is essential to preserve vision. Dr. Sara Abu Touq at OSara Clinics, Abu Nusair, Amman offers glaucoma diagnosis and treatment by prior appointment.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%84%D8%AA%D8%B4%D8%AE%D9%8A%D8%B5%20%D8%A7%D9%84%D8%AC%D9%84%D9%88%D9%83%D9%88%D9%85%D8%A7%20%7C%20Glaucoma" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 28 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">👁️</div>
+                            <span class="badge card-badge card-badge-appointment">🗓 بالموعد المسبق / By Appointment</span>
+                        </div>
+                        <h3 class="card-title-ar">المياه البيضاء</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Cataracts</h4>
+                    </div>
+                    <p class="card-desc-ar">المياه البيضاء (الساد) تعتيم تدريجي في عدسة العين يسبب ضبابية في الرؤية وتزداد مع التقدم في العمر. الجراحة هي العلاج الوحيد الفعّال ونتائجها ممتازة. الدكتورة سارة أبو طوق في عيادة أوسارا بأبو نصير عمان تقدم تشخيص المياه البيضاء وتقييم الحالات بالموعد المسبق.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Cataracts cause progressive clouding of the eye lens leading to blurry vision that worsens with age. Surgery is the only effective treatment with excellent outcomes. Dr. Sara Abu Touq at OSara Clinics, Abu Nusair, Amman offers cataract diagnosis and case evaluation by prior appointment.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D8%AA%D9%82%D9%8A%D9%8A%D9%85%20%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6%D8%A7%D8%A1%20%7C%20Cataracts" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 29 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">👁️</div>
+                            <span class="badge card-badge card-badge-appointment">🗓 بالموعد المسبق / By Appointment</span>
+                        </div>
+                        <h3 class="card-title-ar">اعتلال الشبكية السكري</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Diabetic Retinopathy</h4>
+                    </div>
+                    <p class="card-desc-ar">اعتلال الشبكية السكري من أخطر مضاعفات مرض السكري على العيون وقد يؤدي إلى فقدان البصر إذا لم يُعالج مبكراً. يُنصح كل مريض سكري بفحص دوري للشبكية. الدكتورة سارة أبو طوق في عيادة أوسارا بأبو نصير عمان تقدم متابعة حالات اعتلال الشبكية بالموعد المسبق.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Diabetic retinopathy is one of the most serious diabetic complications affecting the eyes and can lead to vision loss if untreated. Every diabetic patient is advised to have regular retinal screenings. Dr. Sara Abu Touq at OSara Clinics, Abu Nusair, Amman offers diabetic retinopathy monitoring by prior appointment.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%81%D8%AD%D8%B5%20%D8%A7%D9%84%D8%B4%D8%A8%D9%83%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B3%D9%83%D8%B1%D9%8A%20%7C%20Diabetic%20Retinopathy" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 30 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">👁️</div>
+                            <span class="badge card-badge card-badge-appointment">🗓 بالموعد المسبق / By Appointment</span>
+                        </div>
+                        <h3 class="card-title-ar">التهاب الملتحمة</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Conjunctivitis</h4>
+                    </div>
+                    <p class="card-desc-ar">التهاب الملتحمة أو "العين الحمراء" من أكثر التهابات العيون شيوعاً وقد يكون بكتيرياً أو فيروسياً أو تحسسياً. التشخيص الصحيح يحدد العلاج المناسب. الدكتورة سارة أبو طوق في عيادة أوسارا بأبو نصير عمان تقدم تشخيص وعلاج التهابات العيون بالموعد المسبق.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Conjunctivitis (red eye) is one of the most common eye infections and can be bacterial, viral, or allergic. Correct diagnosis determines the right treatment. Dr. Sara Abu Touq at OSara Clinics, Abu Nusair, Amman offers eye infection diagnosis and treatment by prior appointment.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%84%D8%B9%D9%84%D8%A7%D8%AC%20%D8%A7%D9%84%D8%AA%D9%87%D8%A7%D8%A8%20%D8%A7%D9%84%D9%85%D9%84%D8%AA%D8%AD%D9%85%D8%A9%20%7C%20Conjunctivitis" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 31 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">👁️</div>
+                            <span class="badge card-badge card-badge-appointment">🗓 بالموعد المسبق / By Appointment</span>
+                        </div>
+                        <h3 class="card-title-ar">الحول</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Strabismus</h4>
+                    </div>
+                    <p class="card-desc-ar">الحول انحراف في محور العين يؤثر على التوافق البصري وقد يصيب الأطفال والبالغين. التشخيص المبكر خاصة عند الأطفال ضروري لتجنب ضعف البصر الدائم. الدكتورة سارة أبو طوق في عيادة أوسارا بأبو نصير عمان تقدم تقييم وعلاج الحول بالموعد المسبق.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Strabismus is a misalignment of the eyes affecting visual coordination in both children and adults. Early diagnosis, especially in children, is essential to prevent permanent vision impairment. Dr. Sara Abu Touq at OSara Clinics, Abu Nusair, Amman offers strabismus evaluation and treatment by prior appointment.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%84%D8%AA%D9%82%D9%8A%D9%8A%D9%85%20%D9%88%D8%B9%D9%84%D8%A7%D8%AC%20%D8%A7%D9%84%D8%AD%D9%88%D9%84%20%7C%20Strabismus" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 32 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">👁️</div>
+                            <span class="badge card-badge card-badge-appointment">🗓 بالموعد المسبق / By Appointment</span>
+                        </div>
+                        <h3 class="card-title-ar">طب عيون الأطفال</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Pediatric Eye Care</h4>
+                    </div>
+                    <p class="card-desc-ar">صحة عيون الأطفال تؤثر مباشرة على نموهم وتحصيلهم الدراسي. الفحص المبكر للأطفال يكشف عن مشاكل الرؤية والحول وضعف البصر في وقت مبكر. الدكتورة سارة أبو طوق في عيادة أوسارا بأبو نصير عمان تقدم فحص وعلاج عيون الأطفال بالموعد المسبق.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Children's eye health directly impacts their development and academic performance. Early pediatric eye exams detect vision problems, strabismus, and amblyopia at a treatable stage. Dr. Sara Abu Touq at OSara Clinics, Abu Nusair, Amman offers pediatric eye care by prior appointment.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D8%B9%D9%8A%D9%88%D9%86%20%D8%A3%D8%B7%D9%81%D8%A7%D9%84%20%7C%20Pediatric%20Eye%20Care" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 33 -->
+                <div class="card">
+                    <div class="card-header-area">
+                        <div class="card-top-row">
+                            <div class="card-icon-wrapper">👁️</div>
+                            <span class="badge card-badge card-badge-appointment">🗓 بالموعد المسبق / By Appointment</span>
+                        </div>
+                        <h3 class="card-title-ar">قصر النظر واضطرابات الانكسار</h3>
+                        <h4 class="card-title-en" lang="en" dir="ltr">Myopia & Refractive Errors</h4>
+                    </div>
+                    <p class="card-desc-ar">قصر النظر وطول النظر واللابؤرية من أكثر مشاكل البصر شيوعاً وتصيب جميع الأعمار. قياس النظر الدقيق وصرف النظارات أو العدسات اللاصقة المناسبة يُحسّن جودة الحياة. الدكتورة سارة أبو طوق في عيادة أوسارا بأبو نصير عمان تقدم خدمات قياس النظر والتحويل للنظارات بالموعد المسبق.</p>
+                    <div class="card-divider"></div>
+                    <p class="card-desc-en en-text" lang="en" dir="ltr">Myopia, hyperopia, and astigmatism are the most common vision problems affecting all ages. Accurate refraction testing and proper glasses or contact lens prescription significantly improves quality of life. Dr. Sara Abu Touq at OSara Clinics, Abu Nusair, Amman offers vision testing and prescription services by prior appointment.</p>
+                    <div class="card-cta-wrapper">
+                        <a href="https://wa.me/962778423361?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B9%D9%8A%D8%A7%D8%AF%D8%A7%D8%AA%20%D8%A3%D9%88%D8%B3%D8%A7%D8%B1%D8%A7%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D9%82%D9%8A%D8%A7%D8%B3%20%D9%86%D8%B8%D8%B1%20%D9%88%D9%86%D8%B8%D8%A7%D8%B1%D8%A7%D8%AA%20%7C%20Vision%20Test" class="card-btn" target="_blank" rel="noopener">
+                            <span>📲 احجز موعدك | Book your appointment</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY OSARA SECTION -->
+    <section class="section why-section" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">لماذا تختارنا | Why Choose Us</span>
+                <h2 class="section-title">تميز الرعاية الطبية في عياداتنا</h2>
+                <div class="section-subtitle-en">The Pillars of Our Clinic's Care</div>
+            </div>
+            
+            <div class="why-grid">
+                <!-- Point 1 -->
+                <div class="why-card">
+                    <div class="why-icon">👨‍⚕️</div>
+                    <h3 class="why-title-ar">أطباؤنا ذوو خبرة وكفاءة</h3>
+                    <h4 class="why-title-en">Experienced Doctors</h4>
+                    <p class="why-desc-ar">يقدم الرعاية الطبية أطباء معتمدون وذوو خبرة عالية في مجالاتهم: الدكتور أسامة الوريكات في الجلدية والتجميل، والدكتورة سارة أبو طوق في طب وجراحة العيون.</p>
+                    <p class="why-desc-en en-text" lang="en" dir="ltr">Our clinic is run by highly qualified, experienced doctors: Dr. Osama Alwreikat in dermatology, and Dr. Sara Abu Touq in ophthalmology.</p>
+                </div>
+                
+                <!-- Point 2 -->
+                <div class="why-card">
+                    <div class="why-icon">🏥</div>
+                    <h3 class="why-title-ar">عيادة حديثة ومتكاملة</h3>
+                    <h4 class="why-title-en">Modern & Equipped Clinic</h4>
+                    <p class="why-desc-ar">عيادتنا مجهزة بأحدث التقنيات والأجهزة الطبية المتطورة لتشخيص وعلاج مشاكل الجلد والعيون في مكان واحد مريح بأبو نصير.</p>
+                    <p class="why-desc-en en-text" lang="en" dir="ltr">Equipped with modern diagnostic tools and advanced dermatological laser systems to provide top-tier care in Amman.</p>
+                </div>
+
+                <!-- Point 3 -->
+                <div class="why-card">
+                    <div class="why-icon">🤝</div>
+                    <h3 class="why-title-ar">رعاية طبية مشخصة لكل مريض</h3>
+                    <h4 class="why-title-en">Personalized Care</h4>
+                    <p class="why-desc-ar">نؤمن في أوسارا بأن كل حالة متفردة، لذا نقوم بوضع بروتوكول علاجي مخصص ومتابعة مستمرة ودقيقة لضمان أفضل النتائج والشفاء التام.</p>
+                    <p class="why-desc-en en-text" lang="en" dir="ltr">We tailor medical treatment plans specifically to each patient's unique needs, ensuring continuous, comprehensive follow-up.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOOGLE REVIEWS SECTION -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="reviews-badge">
+                <div class="reviews-stars">
+                    <!-- 5 Stars SVGs -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                </div>
+                <div class="reviews-score">5.0</div>
+                <div class="reviews-text">تقييم 5.0 على Google من مرضانا</div>
+                <div class="reviews-text-en" dir="ltr">5.0 Star Rated on Google Reviews by our patients</div>
+                <a href="https://g.page/r/CbIkvHbYk-8nEAE/review" class="btn btn-gold" target="_blank" rel="noopener">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114-3.555 0-6.435-2.883-6.435-6.437 0-3.553 2.88-6.435 6.435-6.435 1.549 0 2.96.55 4.07 1.48L21.2 3.16C19.16 1.27 16.27 0 12.24 0 5.48 0 0 5.48 0 12.24s5.48 12.24 12.24 12.24c6.9 0 12.24-4.82 12.24-12.24 0-.773-.08-1.52-.2-2.24H12.24z"/></svg>
+                    <span>اكتب تقييماً أو اقرأ الآراء | Leave a Review</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & HOURS SECTION -->
+    <section class="section location-section" id="location">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">العنوان والمواعيد | Address & Hours</span>
+                <h2 class="section-title">موقع العيادة وساعات العمل</h2>
+                <div class="section-subtitle-en">Clinic Location & Working Hours</div>
+            </div>
+            
+            <div class="location-grid">
+                <!-- Map -->
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=OSara%20Clinics%20Dermatology%20%26%20Ophthalmology%20Abu%20Nusair%20Amman%20Jordan&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+                <!-- Hours -->
+                <div class="hours-container">
+                    <div class="hours-header">
+                        <h3 class="hours-title-ar">ساعات العمل في العيادة</h3>
+                        <h4 class="hours-title-en">Working Schedule</h4>
+                    </div>
+                    <ul class="hours-list">
+                        <li class="hours-item">
+                            <div class="day-title">
+                                <span class="day-ar">السبت - الأربعاء</span>
+                                <span class="day-en">Saturday - Wednesday</span>
+                            </div>
+                            <div class="time-val">
+                                <span class="time-ar">ساعات العمل متفاوتة - اتصل للحجز</span>
+                                <span class="time-en">Hours vary - Call to confirm</span>
+                            </div>
+                        </li>
+                        <li class="hours-item">
+                            <div class="day-title">
+                                <span class="day-ar">الخميس</span>
+                                <span class="day-en">Thursday</span>
+                            </div>
+                            <div class="time-val">
+                                <span class="time-ar">ساعات العمل متفاوتة - اتصل للحجز</span>
+                                <span class="time-en">Hours vary - Call to confirm</span>
+                            </div>
+                        </li>
+                        <li class="hours-item">
+                            <div class="day-title">
+                                <span class="day-ar">الجمعة</span>
+                                <span class="day-en">Friday</span>
+                            </div>
+                            <div class="time-val">
+                                <span class="time-ar" style="color: #EF4444;">مغلق</span>
+                                <span class="time-en">Closed</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="tel:0778423361" class="btn btn-outline" style="width: 100%;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>اتصل بنا هاتفياً | Call 0778423361</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / BOOK SECTION -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">تواصل معنا | Contact Us</span>
+                <h2 class="section-title">حجز المواعيد والاستفسارات</h2>
+                <div class="section-subtitle-en">Book Your Appointment & Enquiries</div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-info-panel">
+                    <!-- Address -->
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">📍</div>
+                        <div class="contact-info-text">
+                            <span class="contact-info-label-ar">العنوان</span>
+                            <span class="contact-info-label-en">Address</span>
+                            <span class="contact-info-val-ar">أبو نصير، حي الأمانة، الطابق الأول، عمان، الأردن</span>
+                            <span class="contact-info-val-en" dir="ltr">Abu Nusair, Al Amanah District, 1st Floor, Amman, Jordan</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Phone -->
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">📞</div>
+                        <div class="contact-info-text">
+                            <span class="contact-info-label-ar">رقم الهاتف</span>
+                            <span class="contact-info-label-en">Phone Number</span>
+                            <a href="tel:0778423361" class="contact-info-val-ar" style="text-decoration:none; color:inherit; font-weight:700;" dir="ltr">07 7842 3361</a>
+                            <span class="contact-info-val-en" dir="ltr">+962 7 7842 3361</span>
+                        </div>
+                    </div>
+
+                    <!-- Socials -->
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">🌐</div>
+                        <div class="contact-info-text">
+                            <span class="contact-info-label-ar">مواقع التواصل</span>
+                            <span class="contact-info-label-en">Social Media</span>
+                            <div class="top-bar-socials" style="margin-top:8px; gap:15px;">
+                                <a href="https://www.facebook.com/profile.php?id=61584046595246" target="_blank" rel="noopener" style="color:var(--primary); transform:scale(1.2);">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                                </a>
+                                <a href="https://www.instagram.com/osara.dermaclinics/" target="_blank" rel="noopener" style="color:var(--primary); transform:scale(1.2);">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-action-panel">
+                    <h3 class="contact-action-title">الحجز السريع عبر واتساب</h3>
+                    <h4 class="contact-action-title-en">Fast Booking via WhatsApp</h4>
+                    <p class="contact-action-desc">اضغط على الزر أدناه للتحدث مباشرة معنا وحجز موعدك بسهولة بخصوص خدمات الجلدية والتجميل والعيون.</p>
+                    <a href="https://wa.me/962778423361" class="btn btn-primary btn-whatsapp" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        <span>اضغط هنا للحجز الآن | Book via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/logo.png" alt="عيادة أوسارا للأمراض الجلدية وطب العيون" class="footer-logo-img">
+                    </div>
+                    <p class="footer-desc">
+                        عيادة أوسارا لطب الأمراض الجلدية والتجميل وطب وجراحة العيون في أبو نصير، عمان. نسعى لتقديم أرقى مستويات الرعاية الصحية بأحدث التقنيات وبأيدي أطباء أكفاء وذوي خبرة.
+                    </p>
+                    <p class="footer-desc en-text" lang="en" dir="ltr">
+                        OSara Clinics in Abu Nusair, Amman, provides professional care in medical dermatology, cosmetics, and ophthalmology using state-of-the-art diagnostic and laser technologies.
+                    </p>
+                </div>
+                
+                <div class="footer-links-col">
+                    <span class="footer-col-title">أقسام العيادة | Sections</span>
+                    <ul class="footer-links">
+                        <li><a href="#hero">الرئيسية | Home</a></li>
+                        <li><a href="#doctors">أطباؤنا | Medical Team</a></li>
+                        <li><a href="#medical-derm">الجلدية الطبية | Medical Derm</a></li>
+                        <li><a href="#cosmetic-derm">الإجراءات التجميلية | Cosmetics</a></li>
+                        <li><a href="#ophthalmology">طب العيون | Ophthalmology</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <span class="footer-col-title">أدلة طبية | Medical Guides</span>
+                    <ul class="footer-links">
+                        <li><a href="vitiligo-jordan.html">علاج البهاق | Vitiligo</a></li>
+                        <li><a href="mole-removal.html">إزالة الشامات | Mole Removal</a></li>
+                        <li><a href="botox-hyperhidrosis.html">بوتوكس التعرق | Sweat Botox</a></li>
+                        <li><a href="school-health.html">صحة المدارس والأطفال | School Health</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <span class="footer-col-title">تواصل معنا | Connect</span>
+                    <ul class="footer-links">
+                        <li>📍 عمان، أبو نصير، الأردن</li>
+                        <li>📞 <a href="tel:0778423361" style="color: inherit; text-decoration: none;" dir="ltr">07 7842 3361</a></li>
+                        <li>✉️ info@osaraclinics.com</li>
+                    </ul>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/profile.php?id=61584046595246" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/osara.dermaclinics/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright-ar">© 2026 جميع الحقوق محفوظة لعيادات أوسارا.</p>
+                <p class="copyright-en" lang="en" dir="ltr">© 2026 OSara Clinics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY FLOATING WHATSAPP BUTTON (Mobile Fixed) -->
+    <a href="https://wa.me/962778423361" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Book via WhatsApp">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <div class="whatsapp-float-pulse"></div>
+    </a>
+
+    <!-- Embedded Javascript -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            if (mainNav.classList.contains('active')) {
+                menuIcon.innerHTML = `<path d="M18 6L6 18M6 6l12 12"/>`;
+            } else {
+                menuIcon.innerHTML = `<line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>`;
+            }
+        });
+
+        const navLinksList = document.querySelectorAll('.nav-links a');
+        navLinksList.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                menuIcon.innerHTML = `<line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>`;
+            });
+        });
+
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').slice(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
