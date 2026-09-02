@@ -1,0 +1,45 @@
+name: PR6 hosted browser final
+on:
+  push:
+    branches: [verification/pr6-preview]
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Browser/mobile/analytics/screenshots
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null
+          cat > pr6-browser-final.mjs <<'JS'
+          import {chromium} from 'playwright'; import fs from 'fs';
+          const PRE='https://deploy-preview-6--gregarious-malabi-0dc7e1.netlify.app';
+          const R=['/','/dermatology','/ophthalmology','/doctors/dr-osama-alwreikat','/doctors/dr-sara-abu-touq','/vitiligo-jordan','/botox-hyperhidrosis','/mole-removal','/school-health','/psoriasis-treatment','/acne-scar-treatment'];
+          fs.mkdirSync('pr6-screenshots',{recursive:true}); let errors=[],rep={mobile:{},desktop:{},events:{},analytics:{},screenshots:[]};
+          const b=await chromium.launch({headless:true}); const mc=await b.newContext({viewport:{width:390,height:844}});
+          async function go(p,u){let last;for(let i=0;i<3;i++){try{return await p.goto(u,{waitUntil:'domcontentloaded',timeout:60000})}catch(e){last=e;await p.waitForTimeout(800)}}throw last}
+          for(const r of R){const p=await mc.newPage();let ce=[];p.on('console',m=>{if(m.type()==='error')ce.push(m.text())});p.on('pageerror',e=>ce.push(String(e)));const resp=await go(p,PRE+r);await p.waitForTimeout(450);const closed=await p.evaluate(()=>({sw:document.documentElement.scrollWidth,bw:document.body.scrollWidth,iw:innerWidth,h1:document.querySelectorAll('h1').length}));if(!resp||resp.status()!=200)errors.push(r+' status');if(closed.sw>390||closed.bw>390)errors.push(r+' overflow closed');await p.locator('.mobile-menu-btn').first().click();await p.waitForTimeout(350);const d=await p.evaluate(()=>{const n=document.querySelector('.main-nav'),q=n.getBoundingClientRect();return{active:n.classList.contains('active'),top:q.top,bottom:q.bottom,height:q.height,vh:innerHeight,position:getComputedStyle(n).position,close:!!n.querySelector('.osara-drawer-close'),logo:!!n.querySelector('.osara-drawer-logo'),sw:document.documentElement.scrollWidth,bw:document.body.scrollWidth}});if(!d.active||Math.abs(d.top)>1||Math.abs(d.bottom-d.vh)>1||Math.abs(d.height-d.vh)>1||d.position!=='fixed'||!d.close||!d.logo)errors.push(r+' drawer '+JSON.stringify(d));if(d.sw>390||d.bw>390)errors.push(r+' overflow open');if(r==='/'){await p.screenshot({path:'pr6-screenshots/home-drawer-390x844.png'});rep.screenshots.push('home-drawer-390x844.png')}if(r==='/dermatology'){await p.screenshot({path:'pr6-screenshots/dermatology-drawer-390x844.png'});rep.screenshots.push('dermatology-drawer-390x844.png')}await p.locator('.osara-drawer-close').click();await p.waitForTimeout(220);if(await p.locator('.main-nav.active').count())errors.push(r+' close');if(ce.length)errors.push(r+' console '+ce.join('|'));rep.mobile[r]={closed,drawer:d,console:ce};await p.close()}
+          const dc=await b.newContext({viewport:{width:1366,height:900}});let hs;
+          for(const r of R){const p=await dc.newPage();await go(p,PRE+r);await p.waitForTimeout(250);const s=await p.evaluate(()=>{const h=document.querySelector('.main-header'),n=h?.querySelector('.main-nav'),l=h?.querySelector('.logo-img'),t=document.querySelector('.top-bar');return{position:h?getComputedStyle(h).position:null,nav:n?getComputedStyle(n).display:null,logo:l?.getBoundingClientRect().height,topBg:t?getComputedStyle(t).backgroundColor:null}});if(r==='/')hs=s;else if(s.position!=='sticky'||s.nav!=='flex'||Math.abs((s.logo||0)-(hs.logo||0))>1||s.topBg!==hs.topBg)errors.push(r+' desktop '+JSON.stringify(s));rep.desktop[r]=s;await p.close()}
+          async function probe(route,sel,ev,bad,openDrawer=false){const p=await mc.newPage();await go(p,PRE+route);await p.waitForTimeout(350);await p.evaluate(()=>{window.__c=[];const o=window.gtag;window.gtag=function(){window.__c.push(Array.from(arguments));return o.apply(this,arguments)}});if(openDrawer){await p.locator('.mobile-menu-btn').first().click();await p.waitForTimeout(250)}const l=p.locator(sel).first();if(!(await l.count())){errors.push(ev+' missing '+sel);await p.close();return}await l.click({noWaitAfter:true});await p.waitForTimeout(300);const c=await p.evaluate(()=>window.__c);const good=c.filter(x=>x[0]==='event'&&x[1]===ev),wrong=bad?c.filter(x=>x[0]==='event'&&x[1]===bad):[];rep.events[ev+'@'+route+'@'+sel]={count:good.length,bad:wrong.length,calls:good};if(good.length!==1)errors.push(ev+' count '+good.length+' '+sel);if(wrong.length)errors.push(ev+' also '+bad+' '+sel);for(const x of good){const k=Object.keys(x[2]||{});if(k.some(y=>!['source_page','specialty','service','campaign'].includes(y)))errors.push(ev+' unsafe '+k.join(','))}await p.close()}
+          await probe('/dermatology','[data-appointment]','appointment_click','whatsapp_click');
+          await probe('/dermatology','.osara-contact-wa','whatsapp_click','appointment_click');
+          await probe('/ophthalmology','.osara-contact-call','phone_click');
+          await probe('/ophthalmology','.osara-contact-directions','directions_click');
+          await probe('/dermatology','.osara-global-header .btn-whatsapp','whatsapp_click','appointment_click',true);
+          const p=await mc.newPage();await go(p,PRE+'/');await p.waitForTimeout(400);rep.analytics=await p.evaluate(()=>({loader:[...document.scripts].filter(s=>s.src.includes('googletagmanager.com/gtag/js?id=G-72BY7LC2V2')).length,config:(window.dataLayer||[]).filter(x=>x&&x[0]==='config'&&x[1]==='G-72BY7LC2V2').length,gtag:typeof gtag==='function',pixel:[...document.scripts].filter(s=>s.src.includes('connect.facebook.net')).length,fbq:typeof fbq==='function'}));if(rep.analytics.loader!==1||rep.analytics.config!==1||!rep.analytics.gtag)errors.push('GA4');if(rep.analytics.pixel&&!rep.analytics.fbq)errors.push('Meta');await p.close();rep.errors=errors;fs.writeFileSync('pr6-browser-final.json',JSON.stringify(rep,null,2));console.log(JSON.stringify(rep,null,2));await b.close();process.exit(errors.length?1:0)
+          JS
+          node pr6-browser-final.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr6-browser-final
+          path: |
+            pr6-browser-final.json
+            pr6-screenshots/
