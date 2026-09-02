@@ -13,7 +13,7 @@
       nav.insertBefore(head,nav.firstChild);
     }
     var scrim=document.querySelector('.osara-nav-scrim');
-    if(!scrim){ scrim=document.createElement('div'); scrim.className='osara-nav-scrim'; scrim.setAttribute('aria-hidden','true'); document.body.appendChild(scrim); }
+    if(!scrim){ scrim=document.createElement('div'); scrim.className='osara-nav-scrim'; scrim.setAttribute('aria-hidden','true'); header.appendChild(scrim); }
     var closeBtn=nav.querySelector('.osara-drawer-close');
     function setOpen(open){
       nav.classList.toggle('active',open); scrim.classList.toggle('active',open); document.body.classList.toggle('osara-nav-open',open);
