@@ -1,0 +1,81 @@
+name: PR6 production validation
+on:
+  push:
+    branches: [verification/pr6-production]
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Static production checks
+        run: |
+          pip install requests beautifulsoup4 >/dev/null
+          python - <<'PY'
+          import requests,json,re,sys,time
+          from bs4 import BeautifulSoup
+          BASE='https://osaraclinics.com'
+          R=['/','/dermatology','/ophthalmology','/doctors/dr-osama-alwreikat','/doctors/dr-sara-abu-touq','/vitiligo-jordan','/botox-hyperhidrosis','/mole-removal','/school-health','/psoriasis-treatment','/acne-scar-treatment']
+          s=requests.Session(); s.headers['User-Agent']='OSara-PR6-production-validation/1.0'
+          def get(u,**kw):
+            last=None
+            for i in range(5):
+              try:return s.get(u,timeout=35,**kw)
+              except requests.RequestException as e:last=e;time.sleep(1+i)
+            raise last
+          e=[]; out={'routes':{},'errors':[]}
+          for r in R:
+            x=get(BASE+r); q=BeautifulSoup(x.text,'html.parser')
+            if x.status_code!=200:e.append(f'{r} status {x.status_code}')
+            if len(q.find_all('h1'))!=1:e.append(f'{r} h1')
+            c=q.find('link',rel='canonical'); exp=BASE+('/' if r=='/' else r)
+            if not c or c.get('href')!=exp:e.append(f'{r} canonical')
+            for sc in q.find_all('script',type='application/ld+json'):
+              try:json.loads(sc.string or sc.get_text())
+              except Exception as ex:e.append(f'{r} jsonld {ex}')
+            if x.text.count('googletagmanager.com/gtag/js?id=G-72BY7LC2V2')!=1:e.append(f'{r} ga loader')
+            if x.text.count("gtag('config', 'G-72BY7LC2V2')")!=1:e.append(f'{r} ga config')
+            if '/assets/site-nav.css' not in x.text or '/assets/site-nav.js' not in x.text:e.append(f'{r} shared nav assets')
+            if r!='/' and not q.select_one('footer.osara-minimal-footer'):e.append(f'{r} minimal footer')
+            if r!='/' and q.select_one('footer.osara-minimal-footer a[href^="tel:"],footer.osara-minimal-footer a[href*="wa.me"],footer.osara-minimal-footer a[href*="maps"]'):e.append(f'{r} duplicate footer CTA')
+            out['routes'][r]={'status':x.status_code,'h1':len(q.find_all('h1')),'canonical':c.get('href') if c else None}
+          sm=get(BASE+'/sitemap.xml').text; urls=re.findall(r'<loc>(.*?)</loc>',sm)
+          if len(urls)!=11 or set(urls)!={BASE+('/' if r=='/' else r) for r in R}:e.append('sitemap')
+          if 'Sitemap: https://osaraclinics.com/sitemap.xml' not in get(BASE+'/robots.txt').text:e.append('robots')
+          w=get('https://www.osaraclinics.com/',allow_redirects=False)
+          if w.status_code!=301 or not (w.headers.get('location') or '').startswith(BASE):e.append('www redirect')
+          for r in R[1:]:
+            a=get(BASE+r+'/',allow_redirects=False)
+            if a.status_code!=301 or a.headers.get('location')!=r:e.append(r+' slash')
+            h=get(BASE+r+'.html',allow_redirects=False)
+            if h.status_code!=200:e.append(r+' html')
+          out['sitemap_count']=len(urls);out['www']=[w.status_code,w.headers.get('location')];out['errors']=e
+          open('pr6-prod-static.json','w').write(json.dumps(out,indent=2));print(json.dumps(out,indent=2));sys.exit(bool(e))
+          PY
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Browser mobile drawer and event checks
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null
+          cat > pr6-prod-browser.mjs <<'JS'
+          import {chromium} from 'playwright';import fs from 'fs';
+          const B='https://osaraclinics.com',R=['/','/dermatology','/ophthalmology','/doctors/dr-osama-alwreikat','/doctors/dr-sara-abu-touq','/vitiligo-jordan','/botox-hyperhidrosis','/mole-removal','/school-health','/psoriasis-treatment','/acne-scar-treatment'];
+          let errors=[],out={mobile:{},events:{},analytics:{}};const b=await chromium.launch({headless:true}),c=await b.newContext({viewport:{width:390,height:844}});
+          for(const r of R){const p=await c.newPage();let ce=[];p.on('console',m=>{if(m.type()==='error')ce.push(m.text())});p.on('pageerror',x=>ce.push(String(x)));await p.goto(B+r,{waitUntil:'domcontentloaded',timeout:60000});await p.waitForTimeout(350);let z=await p.evaluate(()=>({sw:document.documentElement.scrollWidth,bw:document.body.scrollWidth,h1:document.querySelectorAll('h1').length}));if(z.sw>390||z.bw>390)errors.push(r+' overflow closed');await p.locator('.mobile-menu-btn').first().click();await p.waitForTimeout(250);let d=await p.evaluate(()=>{let n=document.querySelector('.main-nav'),q=n.getBoundingClientRect();return{active:n.classList.contains('active'),top:q.top,bottom:q.bottom,height:q.height,vh:innerHeight,pos:getComputedStyle(n).position,sw:document.documentElement.scrollWidth,bw:document.body.scrollWidth,close:!!n.querySelector('.osara-drawer-close'),logo:!!n.querySelector('.osara-drawer-logo')}});if(!d.active||Math.abs(d.top)>1||Math.abs(d.bottom-d.vh)>1||Math.abs(d.height-d.vh)>1||d.pos!=='fixed'||!d.close||!d.logo||d.sw>390||d.bw>390)errors.push(r+' drawer '+JSON.stringify(d));await p.locator('.osara-drawer-close').click();await p.waitForTimeout(150);if(await p.locator('.main-nav.active').count())errors.push(r+' close');if(ce.length)errors.push(r+' console '+ce.join('|'));out.mobile[r]={closed:z,drawer:d,console:ce};await p.close()}
+          async function probe(route,sel,ev,bad,drawer=false){const p=await c.newPage();await p.goto(B+route,{waitUntil:'domcontentloaded',timeout:60000});await p.waitForTimeout(300);await p.evaluate(()=>{window.__calls=[];const o=window.gtag;window.gtag=function(){window.__calls.push(Array.from(arguments));return o.apply(this,arguments)}});if(drawer){await p.locator('.mobile-menu-btn').first().click();await p.waitForTimeout(200)}await p.locator(sel).first().click({noWaitAfter:true});await p.waitForTimeout(250);let a=await p.evaluate(()=>window.__calls),g=a.filter(x=>x[0]==='event'&&x[1]===ev),w=bad?a.filter(x=>x[0]==='event'&&x[1]===bad):[];out.events[ev+' '+sel]={count:g.length,bad:w.length,calls:g};if(g.length!==1||w.length)errors.push(ev+' classification');await p.close()}
+          await probe('/dermatology','[data-appointment]','appointment_click','whatsapp_click');await probe('/dermatology','.osara-contact-wa','whatsapp_click','appointment_click');await probe('/ophthalmology','.osara-contact-call','phone_click');await probe('/ophthalmology','.osara-contact-directions','directions_click');await probe('/dermatology','.osara-global-header .btn-whatsapp','whatsapp_click','appointment_click',true);
+          const p=await c.newPage();await p.goto(B+'/',{waitUntil:'domcontentloaded',timeout:60000});await p.waitForTimeout(300);out.analytics=await p.evaluate(()=>({loader:[...document.scripts].filter(s=>s.src.includes('googletagmanager.com/gtag/js?id=G-72BY7LC2V2')).length,config:(window.dataLayer||[]).filter(x=>x&&x[0]==='config'&&x[1]==='G-72BY7LC2V2').length,gtag:typeof gtag==='function',fbq:typeof fbq==='function'}));if(out.analytics.loader!==1||out.analytics.config!==1||!out.analytics.gtag||!out.analytics.fbq)errors.push('analytics runtime');await p.close();out.errors=errors;fs.writeFileSync('pr6-prod-browser.json',JSON.stringify(out,null,2));console.log(JSON.stringify(out,null,2));await b.close();process.exit(errors.length?1:0)
+          JS
+          node pr6-prod-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr6-production-validation
+          path: |
+            pr6-prod-static.json
+            pr6-prod-browser.json
