@@ -2815,28 +2815,7 @@
 
     <!-- Embedded Javascript -->
     <script>
-        // Mobile Navigation Toggle
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mainNav = document.getElementById('main-nav');
-        const menuIcon = document.getElementById('menu-icon');
-
-        mobileMenuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            if (mainNav.classList.contains('active')) {
-                menuIcon.innerHTML = `<path d="M18 6L6 18M6 6l12 12"/>`;
-            } else {
-                menuIcon.innerHTML = `<line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>`;
-            }
-        });
-
-        const navLinksList = document.querySelectorAll('.nav-links a');
-        navLinksList.forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('active');
-                menuIcon.innerHTML = `<line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>`;
-            });
-        });
-
+        // Active section highlighting for homepage desktop navigation
         const sections = document.querySelectorAll('section');
         const navItems = document.querySelectorAll('.nav-links a');
 
