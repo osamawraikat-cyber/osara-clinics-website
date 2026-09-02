@@ -1,0 +1,31 @@
+name: Fix PR6 homepage toggle integration
+on:
+  push:
+    branches: [design/pr6-navigation-consistency]
+permissions:
+  contents: write
+jobs:
+  fix:
+    if: github.event.head_commit.message == 'Fix homepage shared drawer toggle integration'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/pr6-navigation-consistency
+      - run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('index.html'); s=p.read_text(encoding='utf-8')
+          pattern=r'''\s*// Mobile Navigation Toggle\n.*?\n\s*const sections = document\.querySelectorAll\('section'\);'''
+          repl="\n        // Active section highlighting for homepage desktop navigation\n        const sections = document.querySelectorAll('section');"
+          ns,n=re.subn(pattern,repl,s,count=1,flags=re.S)
+          if n!=1: raise SystemExit(f'expected one mobile toggle block, got {n}')
+          p.write_text(ns,encoding='utf-8')
+          PY
+          git rm .github/workflows/pr6-fix-home-toggle.yml
+          git config user.name "osamawraikat-cyber"
+          git config user.email "osamawraikat@gmail.com"
+          git add index.html
+          git commit -m "Use shared navigation toggle on homepage"
+          git push origin HEAD:design/pr6-navigation-consistency
