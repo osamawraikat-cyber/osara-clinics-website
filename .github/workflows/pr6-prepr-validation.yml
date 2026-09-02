@@ -1,0 +1,104 @@
+name: PR6 pre-PR validation
+on:
+  push:
+    branches: [design/pr6-navigation-consistency]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Static regression checks
+        run: |
+          pip install beautifulsoup4 >/dev/null
+          python - <<'PY'
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          import json,re,subprocess,sys
+          routes=['index.html','dermatology.html','ophthalmology.html','doctors/dr-osama-alwreikat.html','doctors/dr-sara-abu-touq.html','vitiligo-jordan.html','botox-hyperhidrosis.html','mole-removal.html','school-health.html','psoriasis-treatment.html','acne-scar-treatment.html']
+          errors=[]
+          def base(fn): return subprocess.check_output(['git','show','556303e12ea71dd24021e408788b05a884caded7:'+fn],text=True)
+          for fn in routes:
+            now=Path(fn).read_text()
+            old=base(fn)
+            s=BeautifulSoup(now,'html.parser'); so=BeautifulSoup(old,'html.parser')
+            if len(s.find_all('h1'))!=1: errors.append(f'{fn} H1={len(s.find_all("h1"))}')
+            for sel,attr in [('link[rel="canonical"]','href'),('meta[name="description"]','content')]:
+              a=s.select_one(sel); b=so.select_one(sel)
+              if (a and a.get(attr))!=(b and b.get(attr)): errors.append(f'{fn} {sel} changed')
+            if (s.title.string.strip() if s.title and s.title.string else None)!=(so.title.string.strip() if so.title and so.title.string else None): errors.append(f'{fn} title changed')
+            jnow=[]; jold=[]
+            for x in s.find_all('script',type='application/ld+json'):
+              try:jnow.append(json.loads(x.string or x.get_text()))
+              except Exception as e: errors.append(f'{fn} JSONLD parse {e}')
+            for x in so.find_all('script',type='application/ld+json'):
+              try:jold.append(json.loads(x.string or x.get_text()))
+              except:pass
+            if jnow!=jold: errors.append(f'{fn} JSONLD changed')
+            if now.count('googletagmanager.com/gtag/js?id=G-72BY7LC2V2')!=old.count('googletagmanager.com/gtag/js?id=G-72BY7LC2V2'): errors.append(f'{fn} GA loader changed')
+            if now.count("gtag('config', 'G-72BY7LC2V2')")!=old.count("gtag('config', 'G-72BY7LC2V2')"): errors.append(f'{fn} GA config changed')
+            if now.count('connect.facebook.net')!=old.count('connect.facebook.net'): errors.append(f'{fn} Meta Pixel marker changed')
+            # Preserve appointment classification markers and explicit appointment hrefs exactly.
+            def appts(html):
+              q=BeautifulSoup(html,'html.parser'); out=[]
+              for a in q.find_all('a',href=True):
+                cl=a.get('class') or []
+                if a.has_attr('data-appointment') or 'appointment-link' in cl or 'book-appointment' in cl:
+                  out.append((a.get('href'),tuple(sorted(cl)),a.get('data-specialty'),a.get('data-service'),a.get('data-campaign')))
+              return out
+            if appts(now)!=appts(old): errors.append(f'{fn} appointment hooks changed')
+            if fn!='index.html':
+              if not s.select_one('.osara-global-topbar') or not s.select_one('.osara-global-header .main-nav'): errors.append(f'{fn} unified header missing')
+              f=s.select_one('footer.osara-minimal-footer')
+              if not f: errors.append(f'{fn} minimal footer missing')
+              elif f.select('a[href^="tel:"],a[href*="maps.app"],a[href*="google.com/maps"],a[href*="wa.me"]'): errors.append(f'{fn} contact CTA remains in footer')
+              if len(s.select('.osara-contact-block'))!=1: errors.append(f'{fn} dedicated contact block count {len(s.select(".osara-contact-block"))}')
+          # untouched architecture files
+          for fn in ['assets/analytics.js','sitemap.xml','robots.txt','netlify.toml','MEDICAL_REVIEW_REQUIRED.md']:
+            if Path(fn).read_text()!=base(fn): errors.append(f'{fn} changed')
+          css=Path('assets/site-nav.css').read_text(); js=Path('assets/site-nav.js').read_text()
+          for token in ['top:0 !important','bottom:0 !important','height:100dvh !important','min-height:100dvh !important']:
+            if token not in css: errors.append('drawer missing '+token)
+          if 'osara-drawer-close' not in js or 'osara-drawer-logo' not in js: errors.append('drawer internal controls missing')
+          print(json.dumps({'errors':errors},indent=2,ensure_ascii=False)); sys.exit(1 if errors else 0)
+          PY
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Browser/mobile navigation checks
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null
+          node --check assets/site-nav.js
+          cat > /tmp/server.py <<'PY'
+          from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
+          from pathlib import Path
+          class H(SimpleHTTPRequestHandler):
+            def do_GET(self):
+              p=self.path.split('?',1)[0]
+              if p=='/': self.path='/index.html'
+              elif not Path('.'+p).exists() and Path('.'+p+'.html').exists(): self.path=p+'.html'
+              return super().do_GET()
+          ThreadingHTTPServer(('127.0.0.1',8765),H).serve_forever()
+          PY
+          python /tmp/server.py >/tmp/pr6server.log 2>&1 & echo $! >/tmp/pr6server.pid
+          cat > /tmp/check.mjs <<'JS'
+          import {chromium} from 'playwright';
+          import fs from 'fs'; fs.mkdirSync('pr6-prepr-shots',{recursive:true});
+          const paths=['/','/dermatology','/ophthalmology','/doctors/dr-osama-alwreikat','/doctors/dr-sara-abu-touq','/vitiligo-jordan','/botox-hyperhidrosis','/mole-removal','/school-health','/psoriasis-treatment','/acne-scar-treatment'];
+          const browser=await chromium.launch({headless:true}); const ctx=await browser.newContext({viewport:{width:390,height:844}}); let errors=[]; let rep={};
+          for(const path of paths){const p=await ctx.newPage();let ce=[];p.on('console',m=>{if(m.type()==='error')ce.push(m.text())});p.on('pageerror',e=>ce.push(String(e)));await p.goto('http://127.0.0.1:8765'+path,{waitUntil:'domcontentloaded'});await p.waitForTimeout(250);const before=await p.evaluate(()=>({sw:document.documentElement.scrollWidth,bw:document.body.scrollWidth,iw:innerWidth,h1:document.querySelectorAll('h1').length}));if(before.sw>390||before.bw>390)errors.push(path+' overflow closed');const btn=p.locator('.mobile-menu-btn').first();if(!(await btn.count()))errors.push(path+' menu button missing');else{await btn.click();await p.waitForTimeout(120);const d=await p.evaluate(()=>{const n=document.querySelector('.main-nav');const r=n.getBoundingClientRect();return{active:n.classList.contains('active'),top:r.top,bottom:r.bottom,height:r.height,vh:innerHeight,close:!!n.querySelector('.osara-drawer-close'),logo:!!n.querySelector('.osara-drawer-logo'),body:document.body.classList.contains('osara-nav-open'),sw:document.documentElement.scrollWidth,bw:document.body.scrollWidth}});if(!d.active||Math.abs(d.top)>1||Math.abs(d.bottom-d.vh)>1||Math.abs(d.height-d.vh)>1||!d.close||!d.logo||!d.body)errors.push(path+' drawer geometry/control '+JSON.stringify(d));if(d.sw>390||d.bw>390)errors.push(path+' overflow open');await p.locator('.osara-drawer-close').click();await p.waitForTimeout(80);if(await p.locator('.main-nav.active').count())errors.push(path+' close failed');rep[path]={...before,drawer:d,console:ce};}if(ce.length)errors.push(path+' console '+ce.join('|'));if(path==='/')await p.screenshot({path:'pr6-prepr-shots/home-mobile.png'});if(path==='/dermatology')await p.screenshot({path:'pr6-prepr-shots/dermatology-mobile.png'});await p.close();}
+          await browser.close();console.log(JSON.stringify({errors,rep},null,2));process.exit(errors.length?1:0);
+          JS
+          node /tmp/check.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pr6-prepr-validation
+          path: pr6-prepr-shots/
