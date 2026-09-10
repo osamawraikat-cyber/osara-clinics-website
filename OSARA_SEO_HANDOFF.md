@@ -268,6 +268,125 @@ Also capture robots.txt, sitemap, redirects, representative desktop/mobile rende
 - rewrite sensitive medical claims without physician review
 - deploy structural changes without verification
 
+## Current GBP state and implementation pause
+
+### GBP category state
+- Primary category: Dermatologist.
+- Secondary categories currently intended: Clinic, Skin Care Clinic, Ophthalmology Clinic.
+- Health and Beauty Shop was removed.
+- Avoid further category churn while recent Google edits are being reviewed.
+
+### GBP location and service-area decisions
+- OSara is a physical clinic.
+- Previously configured service areas were removed.
+- Do not add neighborhoods as service areas merely for SEO unless the business genuinely becomes a qualifying service-area or hybrid business.
+- Keep the physical address accurate.
+- A move to an adjacent building is expected. Update address, coordinates and NAP together only when the move actually occurs.
+
+### GBP contact state
+- Canonical website URL: `https://osaraclinics.com/`, not `www`.
+- Existing contact/WhatsApp information should remain consistent with authoritative clinic information.
+- Future dedicated `/services` and `/book` URLs are ideas only, not approved implementation.
+
+### GBP dermatology services
+The dermatology service inventory has recently been expanded substantially. Important services include:
+- Dermatology Consultation
+- Acne Treatment
+- Acne Scar Treatment
+- Subcision for Acne Scars
+- Chemical Peel
+- Microneedling / Dermapen
+- PRP Skin Treatment
+- PRP Hair Loss Treatment
+- Hair Loss Treatment
+- Skin Boosters
+- Hyperhidrosis Treatment
+- Botox Injections
+- Dermal Fillers
+- Vitiligo Treatment
+- Psoriasis Treatment
+- Eczema Treatment
+- Rosacea Treatment
+- Mole / skin lesion services
+- Wart Removal
+- Skin Biopsy
+- Cryotherapy
+- other genuinely offered dermatology services already present in GBP
+
+Do not create duplicate services merely to use alternate keyword wording.
+
+### GBP ophthalmology services
+Ophthalmology services were expanded to provide much broader, truthful service coverage, including relevant combinations of:
+- Ophthalmology Consultation
+- Comprehensive Eye Examination / Eye Examination
+- Vision Testing
+- Dry Eye Treatment
+- Eye Infection Treatment
+- Eye Allergy Treatment
+- Red Eye Treatment
+- Cataract Treatment
+- Cataract Surgery
+- Glaucoma Treatment
+- Glaucoma Surgery
+- Diabetic Eye Examination
+- Diabetic Retinopathy Treatment
+- Retinal Disease Evaluation/Treatment
+- Pediatric Eye Examination
+- Strabismus Evaluation/Treatment
+- Eyelid Conditions
+- Chalazion Treatment/Removal
+- Foreign Body Removal
+- Pterygium Treatment
+- Pterygium Surgery
+- Refractive Error Evaluation
+- other genuinely offered services already visible in the current GBP
+
+Do not invent a service that is not actually offered.
+
+### Surgical-intent SEO principle
+OSara wants to capture high-intent surgical searches when the service is genuinely provided through the clinic/physician.
+
+Do not unnecessarily replace truthful service terms such as Cataract Surgery, Glaucoma Surgery, Pterygium Surgery, or Eyelid Surgery (if genuinely offered) with generic “evaluation” wording merely out of SEO/medical caution.
+
+Truthfulness remains mandatory, but genuine surgical capabilities should be represented clearly because patients commonly search specifically for physicians who perform these procedures.
+
+### GBP service descriptions
+Current decision:
+- Do NOT rush to populate descriptions for every newly added service.
+- Allow recent service/category edits to settle first.
+- Later, selectively write useful descriptions for high-value services.
+- Descriptions should explain candidacy/service scope naturally.
+- Do not keyword-stuff.
+- Do not mechanically repeat “Abu Nusair, Amman” in every description.
+- Do not make guarantees or unsupported superiority/safety claims.
+
+### AI-search baseline observation
+A qualitative AI-assisted local search was able to identify OSara Clinics in Abu Nseir, associate it with Dr. Osama Alwreikat, identify vitiligo treatment, and surface the clinic contact information.
+
+However, when the query became specifically about melanocyte transplantation for vitiligo, the system did not have enough OSara-specific public evidence to confidently verify that procedure at OSara and instead surfaced stronger evidence for another institution.
+
+Interpretation:
+- OSara's general local/entity visibility appears to be developing.
+- The clinic → doctor → vitiligo relationship is understandable.
+- The clinic → doctor → NCMT/melanocyte transplantation relationship is currently weaker.
+- Treat this as an evidence/entity gap worth investigating later, not proof of a ranking position or a controlled benchmark.
+
+### Hair-transplant distinction
+Do not treat every missing search result as an SEO failure.
+
+If OSara does not genuinely perform surgical hair transplantation such as FUE/DHI, do not attempt to rank generic hair-loss/PRP services as “hair transplant.” Only target surgical hair-transplant intent if that service becomes genuinely available.
+
+This differs from NCMT if melanocyte transplantation is genuinely provided through OSara.
+
+### Current implementation status
+At the time of this documentation update:
+- GBP has undergone substantial recent edits.
+- Some edits were pending Google review when last checked.
+- Website implementation is intentionally paused.
+- Netlify credit constraints currently make unnecessary deployments undesirable.
+- Allow current SEO architecture and GBP edits time to settle.
+- Next major implementation decisions should follow a fresh combined audit rather than automatically continuing page expansion.
+
 ## Operating timeline
 **Now:** focused structural/technical sprint.  
 **September:** indexation, technical verification, conversion measurement, GSC monitoring.  
@@ -277,6 +396,48 @@ Also capture robots.txt, sitemap, redirects, representative desktop/mobile rende
 **2027+:** expand based on GSC + conversion evidence.
 
 Evidence first, pages second.
+
+## Deferred SEO / AI Visibility Backlog
+These are future opportunities only, not approved implementation work.
+
+- AI-search / answer-engine visibility should be audited alongside normal Google SEO.
+- Future audits should test whether systems such as Google AI results, ChatGPT-style search, Gemini-style search, and similar answer engines can confidently connect OSara Clinics → Dr. Osama Alwreikat / Dr. Sara Abu Touq → specific services → Abu Nusair/Amman → correct contact/appointment information.
+- Optimize underlying factual entity evidence rather than creating “AI SEO” gimmicks or thin pages.
+- Strengthen explicit relationships between clinic, doctors, specialties, services, location, and contact details using useful site content, internal linking, structured data where appropriate, GBP consistency, and authoritative public references.
+- Identified evidence gap: OSara currently has public visibility for vitiligo treatment, but AI/search systems may not confidently associate OSara specifically with melanocyte transplantation / NCMT.
+- Future consideration, only if the service is genuinely offered through OSara:
+  - Melanocyte Transplantation for Vitiligo
+  - Non-cultured Melanocyte Transplantation (NCMT)
+  - Vitiligo Surgery
+  - Arabic terminology such as `زراعة الخلايا الصبغية للبهاق` and `جراحة البهاق`
+- This NCMT topic may later warrant clearer GBP service representation, stronger vitiligo-page content, doctor-profile association, and possibly a dedicated page if search demand and evidence justify it.
+- Ophthalmology future high-intent SEO clusters to evaluate after current data matures:
+  - cataract treatment / cataract surgery
+  - glaucoma treatment / glaucoma surgery
+  - diabetic eye examination / diabetic retinopathy
+  - retinal disease
+  - dry eye
+  - pediatric ophthalmology
+  - strabismus
+  - eyelid conditions / eyelid surgery
+  - pterygium / pterygium surgery
+- Do not create one thin page per keyword. Use intent clusters and only create dedicated pages when the service is real and search/business value justifies it.
+- Potential future `/services` directory:
+  - should cover both Dermatology and Ophthalmology
+  - could later be used as the GBP services/menu URL
+  - should link into specialty hubs and relevant service pages
+- GBP service descriptions may be optimized later, selectively, after the current service/category edits have settled.
+- Do not keyword-stuff service descriptions or repeat “Abu Nusair, Amman” mechanically in every service.
+- Future audits should combine Google Business Profile, Google Search Console, GA4 conversion events, local rankings, technical SEO, live-site content, and AI/answer-engine visibility.
+- Use fresh data before deciding new pages or major structural changes.
+- Existing principle remains: broad legitimate query coverage is desired, but relevance and truthfulness outrank keyword volume.
+- High-intent surgical services should be represented explicitly when genuinely offered; do not unnecessarily downgrade them to “evaluation only.”
+- Do not claim procedures or surgeries that are not genuinely provided through OSara.
+
+**Status: DEFERRED / BACKLOG ONLY.**  
+These items are not authorization to modify or deploy the production website.  
+No production changes should be made from this section until a future audit is completed and the next PR is explicitly approved.  
+Netlify credit constraints are one reason implementation is currently paused.
 
 ## Exact instruction for the next coding session
 > Access `osamawraikat-cyber/osara-clinics-website`. Do not modify anything yet. Read `OSARA_SEO_HANDOFF.md`, inspect the repository architecture and production site, identify the framework/build system, inspect Netlify configuration, enumerate current routes/pages, and compare the implementation against the handoff. Produce a baseline audit and proposed file-by-file implementation plan. Do not deploy or merge until the audit is reviewed.
