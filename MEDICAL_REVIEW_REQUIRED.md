@@ -33,6 +33,29 @@ This file intentionally flags medically sensitive wording for physician review. 
 | `/mole-removal` | Any wording that implies laser removal is appropriate for all moles or that removal is scar-free, safest, permanent, or guaranteed | Main guide | Modality selection and outcome guarantees require physician review. |
 | `/school-health` | Any exact screening interval, guaranteed/rapid cure wording, “safe/painless” procedure wording, or claims of complete healing | Main guide | Pediatric screening intervals, safety and efficacy claims require physician review. |
 
+## Wave 1 pre-deployment pages — PENDING PHYSICIAN REVIEW
+
+These pages are implemented on the pre-deployment branch only. **None is physician-approved by this section and none should reach production until reviewed.** Conservative drafting intentionally avoids numerical success rates, guarantees, unsupported safety/superiority language and fabricated credentials.
+
+| URL | Review focus |
+|---|---|
+| `/vitiligo-surgery-jordan` | Confirm candidacy/stability wording; confirm that NCMT and punch minigrafting are genuinely available through Dr Osama/OSara; review aftercare and treatment-location wording. |
+| `/melanocyte-transplantation-vitiligo` | Confirm NCMT terminology, donor/recipient pathway, stability/candidacy language, recovery/repigmentation expectations and any phototherapy references. No cultured melanocyte transplantation claim. |
+| `/punch-grafting-vitiligo` | Confirm mini-punch/punch minigrafting terminology, candidacy, donor/recipient pathway, limitations and comparison with NCMT. |
+| `/acne-treatment` | Review treatment-selection statements and relationship between active acne control and later scar treatment. |
+| `/hair-loss-treatment` | Review diagnostic pathway, PRP scope and wording that distinguishes hair-loss treatment from surgical hair transplantation. |
+| `/wart-removal-cryotherapy` | Review cryotherapy indications, expected local reactions, repeat-treatment language and differential-diagnosis cautions. |
+| `/skin-biopsy` | Review biopsy indications, procedure/aftercare wording and pathology-result pathway. |
+| `/melasma-pigmentation-treatment` | Review diagnostic distinctions, treatment categories, recurrence/maintenance language and procedure suitability by skin type. |
+| `/cataract-surgery` | Confirm cataract indications and surgical pathway. Must clearly state consultation/planning/follow-up through OSara and surgery at an appropriate hospital/facility when required; do not imply surgery occurs inside OSara. |
+| `/glaucoma-treatment` | Review diagnostic/treatment categories, monitoring language and surgical pathway; avoid implying every patient needs surgery or that surgery occurs inside OSara. |
+| `/diabetic-eye-exam-retinopathy` | Review screening/follow-up recommendations, retinopathy staging/treatment scope and urgent-symptom wording. |
+| `/pterygium-treatment-surgery` | Review indications for observation versus surgery, operative pathway and recurrence/outcome language. |
+| `/pediatric-ophthalmology` | Review pediatric examination/candidacy language, screening implications and links to strabismus/school-health. |
+| `/strabismus-treatment` | Review assessment and treatment options, pediatric timing implications and surgical pathway; avoid unsupported primary-surgeon claims. |
+| `/dry-eye-treatment` | Review dry-eye causes/subtypes, examination and stepped-treatment wording. |
+
+The ophthalmology surgical model to verify across Wave 1 is: consultation/examination and planning through OSara → surgery at an appropriate contracted/partner hospital or facility when an operating facility is required → physician/clinic follow-up. Dr Sara participates in surgical care depending on the procedure and circumstances and may perform or assist with appropriate subspecialists. This wording must not be expanded into an unsupported claim that she is sole/primary surgeon for every operation.
 
 ## PR #2 physician-reviewed items — APPROVED
 
@@ -52,4 +75,4 @@ The following four PR #2 items were reviewed and approved by the physician on 20
 3. Only then should the production copy be changed.
 4. Add a genuine last-reviewed date to significant medical pages only after actual physician review.
 
-No medically sensitive claims were rewritten as part of SEO PR #1. The four PR #2 items documented above have completed physician review; all older PR #1 flags remain pending.
+No medically sensitive claims were rewritten as part of SEO PR #1. The four PR #2 items documented above have completed physician review; all older PR #1 flags remain pending. Wave 1 pages listed above are also pending.
