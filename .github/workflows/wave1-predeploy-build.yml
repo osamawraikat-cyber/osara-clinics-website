@@ -66,3 +66,5 @@ jobs:
           git add -A
           git commit -m "feat: prepare Wave 1 SEO service architecture [skip ci] [skip netlify]"
           git push origin HEAD:seo/wave1-predeploy
+
+# bootstrap trigger only; workflow self-removes after successful QA
