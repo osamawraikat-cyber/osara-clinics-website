@@ -1,0 +1,68 @@
+name: Wave 1 predeploy build
+
+on:
+  push:
+    branches:
+      - seo/wave1-predeploy
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: contains(github.event.head_commit.message, 'bootstrap Wave 1')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify ancestry and docs integrity
+        shell: bash
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor e36fccf5c72781ba7314ceddf8d42a0b57b4e0f6 HEAD
+          test "$(git rev-parse e36fccf5c72781ba7314ceddf8d42a0b57b4e0f6^)" = "3364745dccd0be84ce5efed59e3f8e07079e6569"
+          test "$(git rev-parse 3364745dccd0be84ce5efed59e3f8e07079e6569^)" = "3d224b9d954436288a7d096cd716d038e9b0c483"
+          test "$(git hash-object OSARA_SEO_HANDOFF.md)" = "fadcdb4e8529b0dc6656e08e5b7ffa04ba5fe001"
+      - name: Generate Wave 1 implementation and run static QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          gzip -dc scripts/wave1_generator.py.gz > /tmp/wave1_generator.py
+          python /tmp/wave1_generator.py
+          cat wave1-static-qa.json
+      - name: Verify implementation scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f scripts/wave1_generator.py.gz .github/workflows/wave1-predeploy-build.yml wave1-static-qa.json
+          rmdir scripts 2>/dev/null || true
+          python - <<'PY'
+          import subprocess,sys
+          base='e36fccf5c72781ba7314ceddf8d42a0b57b4e0f6'
+          expected_new={
+          'vitiligo-surgery-jordan.html','melanocyte-transplantation-vitiligo.html','punch-grafting-vitiligo.html','acne-treatment.html','hair-loss-treatment.html','wart-removal-cryotherapy.html','skin-biopsy.html','melasma-pigmentation-treatment.html','cataract-surgery.html','glaucoma-treatment.html','diabetic-eye-exam-retinopathy.html','pterygium-treatment-surgery.html','pediatric-ophthalmology.html','strabismus-treatment.html','dry-eye-treatment.html'}
+          expected_modified={'dermatology.html','ophthalmology.html','doctors/dr-osama-alwreikat.html','doctors/dr-sara-abu-touq.html','vitiligo-jordan.html','school-health.html','sitemap.xml','MEDICAL_REVIEW_REQUIRED.md'}
+          changed=set(subprocess.check_output(['git','diff','--name-only',base]).decode().splitlines())
+          expected=expected_new|expected_modified
+          if changed != expected:
+              print('Unexpected diff scope',sorted(changed^expected));sys.exit(1)
+          if subprocess.check_output(['git','hash-object','OSARA_SEO_HANDOFF.md']).decode().strip()!='fadcdb4e8529b0dc6656e08e5b7ffa04ba5fe001':
+              print('OSARA_SEO_HANDOFF.md changed unexpectedly');sys.exit(1)
+          for protected in ['robots.txt','netlify.toml','assets/analytics.js','assets/site-nav.js','assets/site-nav.css','assets/contact-cta.css','assets/guide-layout.css']:
+              if protected in changed:
+                  print('Protected file changed',protected);sys.exit(1)
+          print('Scope verified:',len(changed),'implementation files')
+          PY
+      - name: Commit implementation without Netlify build
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "osamawraikat-cyber"
+          git config user.email "osamawraikat@gmail.com"
+          git add -A
+          git commit -m "feat: prepare Wave 1 SEO service architecture [skip ci] [skip netlify]"
+          git push origin HEAD:seo/wave1-predeploy
