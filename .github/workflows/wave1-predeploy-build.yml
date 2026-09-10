@@ -1,13 +1,9 @@
 name: Wave 1 predeploy build
-
 on:
   push:
-    branches:
-      - seo/wave1-predeploy
-
+    branches: [seo/wave1-predeploy]
 permissions:
   contents: write
-
 jobs:
   build:
     if: contains(github.event.head_commit.message, 'bootstrap Wave 1')
@@ -16,55 +12,129 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Verify ancestry and docs integrity
-        shell: bash
+      - name: Verify ancestry and documentation integrity
         run: |
           set -euo pipefail
           git merge-base --is-ancestor e36fccf5c72781ba7314ceddf8d42a0b57b4e0f6 HEAD
           test "$(git rev-parse e36fccf5c72781ba7314ceddf8d42a0b57b4e0f6^)" = "3364745dccd0be84ce5efed59e3f8e07079e6569"
           test "$(git rev-parse 3364745dccd0be84ce5efed59e3f8e07079e6569^)" = "3d224b9d954436288a7d096cd716d038e9b0c483"
           test "$(git hash-object OSARA_SEO_HANDOFF.md)" = "fadcdb4e8529b0dc6656e08e5b7ffa04ba5fe001"
-      - name: Generate Wave 1 implementation and run static QA
-        shell: bash
+      - name: Integrate Wave 1 links, sitemap and review queue
         run: |
-          set -euo pipefail
-          gzip -dc scripts/wave1_generator.py.gz > /tmp/wave1_generator.py
-          python /tmp/wave1_generator.py
-          cat wave1-static-qa.json
-      - name: Verify implementation scope
-        shell: bash
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          marker='<!-- WAVE1-INTERNAL-LINKS -->'
+          def add(path, fragment):
+              p=Path(path); s=p.read_text()
+              if marker in s: return
+              needle='<section class="osara-contact-block"'
+              if needle not in s: raise SystemExit(f'contact block missing in {path}')
+              p.write_text(s.replace(needle, marker+'\n'+fragment+'\n'+needle,1))
+          add('dermatology.html','''<section class="card"><h2>أدلة العلاج والخدمات | Treatment & service guides</h2><div class="links"><a href="/vitiligo-surgery-jordan">جراحة البهاق | Vitiligo Surgery</a><a href="/melanocyte-transplantation-vitiligo">زراعة الخلايا الصبغية | NCMT</a><a href="/punch-grafting-vitiligo">Punch Minigrafting للبهاق</a><a href="/acne-treatment">علاج حب الشباب | Acne Treatment</a><a href="/hair-loss-treatment">علاج تساقط الشعر | Hair Loss</a><a href="/wart-removal-cryotherapy">الثآليل والكرايوثيرابي | Warts & Cryotherapy</a><a href="/skin-biopsy">خزعة الجلد | Skin Biopsy</a><a href="/melasma-pigmentation-treatment">الكلف والتصبغات | Melasma & Pigmentation</a></div></section>''')
+          add('ophthalmology.html','''<section class="card"><h2>أدلة طب العيون | Eye-care guides</h2><div class="links"><a href="/cataract-surgery">عملية المياه البيضاء / الساد | Cataract Surgery</a><a href="/glaucoma-treatment">الجلوكوما / المياه الزرقاء | Glaucoma</a><a href="/diabetic-eye-exam-retinopathy">فحص العين للسكري واعتلال الشبكية</a><a href="/pterygium-treatment-surgery">علاج وعملية الظفرة | Pterygium</a><a href="/pediatric-ophthalmology">طب عيون الأطفال | Pediatric Ophthalmology</a><a href="/strabismus-treatment">علاج الحول | Strabismus</a><a href="/dry-eye-treatment">علاج جفاف العين | Dry Eye</a></div></section>''')
+          add('vitiligo-jordan.html','''<section class="card-box"><h2>جراحة البهاق للحالات المختارة</h2><div class="h2-en">Vitiligo surgery for selected patients</div><p>في بعض حالات البهاق المستقر وبعد التقييم الطبي قد تُناقش خيارات جراحية منفصلة عن العلاج العام. اقرأ دليل جراحة البهاق ثم صفحات التقنيات المحددة.</p><div class="links"><a href="/vitiligo-surgery-jordan">جراحة البهاق | Vitiligo Surgery</a><a href="/melanocyte-transplantation-vitiligo">زراعة الخلايا الصبغية غير المزروعة | NCMT</a><a href="/punch-grafting-vitiligo">Punch Minigrafting</a></div></section>''')
+          add('doctors/dr-osama-alwreikat.html','''<section class="card"><h2>أدلة مرتبطة بخدمات الجلدية | Related dermatology guides</h2><div class="links"><a href="/vitiligo-surgery-jordan">جراحة البهاق</a><a href="/melanocyte-transplantation-vitiligo">NCMT / زراعة الخلايا الصبغية</a><a href="/punch-grafting-vitiligo">Punch Minigrafting</a><a href="/acne-treatment">حب الشباب</a><a href="/hair-loss-treatment">تساقط الشعر</a><a href="/wart-removal-cryotherapy">الثآليل والكرايوثيرابي</a><a href="/skin-biopsy">خزعة الجلد</a><a href="/melasma-pigmentation-treatment">الكلف والتصبغات</a></div></section>''')
+          add('doctors/dr-sara-abu-touq.html','''<section class="card"><h2>أدلة مرتبطة بطب العيون | Related ophthalmology guides</h2><p>للحالات الجراحية التي تحتاج غرفة عمليات، تكون الاستشارة والتخطيط والمتابعة عبر مسار الرعاية مع د. سارة، وتتم العملية في مستشفى أو منشأة جراحية مناسبة عند الحاجة.</p><div class="links"><a href="/cataract-surgery">عملية المياه البيضاء / الساد</a><a href="/glaucoma-treatment">الجلوكوما</a><a href="/diabetic-eye-exam-retinopathy">فحص العين للسكري</a><a href="/pterygium-treatment-surgery">الظفرة</a><a href="/pediatric-ophthalmology">طب عيون الأطفال</a><a href="/strabismus-treatment">الحول</a><a href="/dry-eye-treatment">جفاف العين</a></div></section>''')
+          add('school-health.html','''<section class="card-box"><h2>روابط عيون الأطفال | Pediatric eye links</h2><div class="links"><a href="/pediatric-ophthalmology">طب عيون الأطفال | Pediatric Ophthalmology</a><a href="/strabismus-treatment">الحول | Strabismus</a></div></section>''')
+          # sitemap
+          p=Path('sitemap.xml'); tree=ET.parse(p); root=tree.getroot(); ns='{http://www.sitemaps.org/schemas/sitemap/0.9}'
+          present={u.find(ns+'loc').text for u in root.findall(ns+'url')}
+          routes=['vitiligo-surgery-jordan','melanocyte-transplantation-vitiligo','punch-grafting-vitiligo','acne-treatment','hair-loss-treatment','wart-removal-cryotherapy','skin-biopsy','melasma-pigmentation-treatment','cataract-surgery','glaucoma-treatment','diabetic-eye-exam-retinopathy','pterygium-treatment-surgery','pediatric-ophthalmology','strabismus-treatment','dry-eye-treatment']
+          for r in routes:
+              url='https://osaraclinics.com/'+r
+              if url not in present:
+                  e=ET.SubElement(root,ns+'url'); ET.SubElement(e,ns+'loc').text=url; ET.SubElement(e,ns+'lastmod').text='2026-09-10'
+          ET.register_namespace('','http://www.sitemaps.org/schemas/sitemap/0.9'); tree.write(p,encoding='utf-8',xml_declaration=True)
+          # review queue, preserving all prior text
+          p=Path('MEDICAL_REVIEW_REQUIRED.md'); s=p.read_text(); heading='## Wave 1 pre-deployment pages — PHYSICIAN REVIEW REQUIRED'
+          if heading not in s:
+              s += '''\n\n## Wave 1 pre-deployment pages — PHYSICIAN REVIEW REQUIRED\n\nThese implementation drafts are **not physician-approved yet**. Existing pending and approved distinctions above remain unchanged. Every page below requires contextual review before production.\n\n| URL | Review focus | Status |\n|---|---|---|\n| `/vitiligo-surgery-jordan` | Stability/candidacy; service availability; realistic expectations. | **PENDING** |\n| `/melanocyte-transplantation-vitiligo` | NCMT definition, donor/recipient pathway, aftercare, phototherapy and repigmentation wording. | **PENDING** |\n| `/punch-grafting-vitiligo` | Technique, stability/candidacy, donor/recipient sites, recovery, comparison with NCMT. | **PENDING** |\n| `/acne-treatment` | Diagnosis, topical/oral treatment framing, scarring and follow-up. | **PENDING** |\n| `/hair-loss-treatment` | Differential diagnosis, testing, medical therapy and PRP; hair-transplant distinction. | **PENDING** |\n| `/wart-removal-cryotherapy` | Cryotherapy indications, expected reactions, repeat sessions and site-specific risks. | **PENDING** |\n| `/skin-biopsy` | Indications/types, anaesthesia, histopathology and wound care. | **PENDING** |\n| `/melasma-pigmentation-treatment` | Light protection, topical/procedural options, recurrence and pigmentation risk. | **PENDING** |\n| `/cataract-surgery` | Indications, lens planning, hospital operating pathway, Dr. Sara role, recovery/outcome. | **PENDING** |\n| `/glaucoma-treatment` | Diagnostic testing, target-pressure concept, drops/laser/surgery and hospital pathway. | **PENDING** |\n| `/diabetic-eye-exam-retinopathy` | Screening/follow-up framing, retinal referral/co-management. | **PENDING** |\n| `/pterygium-treatment-surgery` | Surgery indications, recurrence, operative pathway and aftercare. | **PENDING** |\n| `/pediatric-ophthalmology` | Examination indications, cycloplegic refraction, amblyopia/strabismus; no universal interval. | **PENDING** |\n| `/strabismus-treatment` | Visual/function wording, amblyopia, surgery indications, hospital pathway and surgeon role. | **PENDING** |\n| `/dry-eye-treatment` | Diagnostic pattern, treatment categories, red flags and available-testing scope. | **PENDING** |\n\nNo numerical success rates, guarantees, permanent/scar-free/best/safe claims, fixed durations, FDA claims or absolute indications are approved by this section. Surgical pages must distinguish service availability through the OSara/physician care pathway from the physical operating location.\n'''
+              p.write_text(s)
+          PY
+      - name: Full static pre-deployment QA
         run: |
-          set -euo pipefail
-          rm -f scripts/wave1_generator.py.gz .github/workflows/wave1-predeploy-build.yml wave1-static-qa.json
+          python - <<'PY'
+          from pathlib import Path
+          import re,json,xml.etree.ElementTree as ET,subprocess,sys
+          old=['','dermatology','ophthalmology','doctors/dr-osama-alwreikat','doctors/dr-sara-abu-touq','vitiligo-jordan','botox-hyperhidrosis','mole-removal','school-health','psoriasis-treatment','acne-scar-treatment']
+          new=['vitiligo-surgery-jordan','melanocyte-transplantation-vitiligo','punch-grafting-vitiligo','acne-treatment','hair-loss-treatment','wart-removal-cryotherapy','skin-biopsy','melasma-pigmentation-treatment','cataract-surgery','glaucoma-treatment','diabetic-eye-exam-retinopathy','pterygium-treatment-surgery','pediatric-ophthalmology','strabismus-treatment','dry-eye-treatment']
+          routes=old+new; files={r:(Path('index.html') if not r else Path(r+'.html')) for r in routes}
+          errs=[]; titles={}; canonicals={}; inbound={r:0 for r in routes}; report=[]
+          for r,p in files.items():
+              if not p.exists(): errs.append('missing '+str(p)); continue
+              s=p.read_text(); label=r or '/'
+              h1=len(re.findall(r'<h1\b',s,re.I))
+              if h1!=1: errs.append(f'{label}: H1={h1}')
+              mt=re.search(r'<title>(.*?)</title>',s,re.I|re.S); title=mt.group(1).strip() if mt else ''
+              md=re.search(r'<meta\s+name="description"\s+content="([^"]*)"',s,re.I); desc=md.group(1) if md else ''
+              mc=re.search(r'<link\s+rel="canonical"\s+href="([^"]+)"',s,re.I); can=mc.group(1) if mc else ''
+              expected='https://osaraclinics.com/' if not r else 'https://osaraclinics.com/'+r
+              if can!=expected: errs.append(f'{label}: bad canonical {can}')
+              if title in titles: errs.append(f'duplicate title {label}/{titles[title]}')
+              titles[title]=label
+              if can in canonicals: errs.append(f'duplicate canonical {label}/{canonicals[can]}')
+              canonicals[can]=label
+              if not desc: errs.append(f'{label}: no meta description')
+              missing=[x for x in ['og:type','og:title','og:description','og:url','og:image'] if x not in s]
+              if missing: errs.append(f'{label}: missing OG {missing}')
+              blocks=re.findall(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',s,re.I|re.S)
+              for b in blocks:
+                  try: json.loads(b)
+                  except Exception as e: errs.append(f'{label}: JSON-LD {e}')
+              if 'G-72BY7LC2V2' not in s or '/assets/analytics.js' not in s: errs.append(f'{label}: analytics missing')
+              if '/assets/site-nav.js' not in s: errs.append(f'{label}: site nav missing')
+              if '24/7' in s or '٢٤/٧' in s: errs.append(f'{label}: accidental 24/7 text')
+              for href in re.findall(r'href="(/[^"]*)"',s):
+                  t=href.split('#')[0].split('?')[0].rstrip('/').lstrip('/')
+                  if t in inbound: inbound[t]+=1
+              report.append((label,len(title),len(desc),len(blocks),','.join(missing) or 'complete'))
+          for r in new:
+              if inbound[r]==0: errs.append('orphan '+r)
+          # specialty/physician entity correctness on all new pages
+          for r in new[:8]:
+              s=files[r].read_text()
+              if 'dr-osama-alwreikat#physician' not in s: errs.append(r+': missing Dr Osama entity')
+          for r in new[8:]:
+              s=files[r].read_text()
+              if 'dr-sara-abu-touq#physician' not in s: errs.append(r+': missing Dr Sara entity')
+          # contact consistency on all new pages
+          for r in new:
+              s=files[r].read_text()
+              for token in ['962778423361','FMrYnf8xmhJJETsG9','data-appointment']:
+                  if token not in s: errs.append(f'{r}: missing {token}')
+              if re.search(r'data-(diagnosis|condition|message|patient|symptom)',s,re.I): errs.append(r+': sensitive analytics attribute')
+          ns='{http://www.sitemaps.org/schemas/sitemap/0.9}'; tree=ET.parse('sitemap.xml'); sm=[u.find(ns+'loc').text for u in tree.getroot().findall(ns+'url')]
+          expected={'https://osaraclinics.com/' if not r else 'https://osaraclinics.com/'+r for r in routes}
+          if len(sm)!=26 or set(sm)!=expected: errs.append(f'sitemap mismatch count={len(sm)}')
+          # protected infrastructure/documentation unchanged from parent
+          for f in ['OSARA_SEO_HANDOFF.md','robots.txt','netlify.toml','assets/analytics.js','assets/site-nav.js','assets/site-nav.css','assets/contact-cta.css','assets/guide-layout.css']:
+              if subprocess.run(['git','diff','--quiet','e36fccf5c72781ba7314ceddf8d42a0b57b4e0f6','--',f]).returncode: errs.append('protected changed '+f)
+          print('URL | title chars | meta chars | JSON-LD blocks | OG')
+          for row in report: print(' | '.join(map(str,row)))
+          print('NEW INBOUND COUNTS:',{r:inbound[r] for r in new})
+          if errs:
+              print('ERRORS:'); print('\n'.join(errs)); sys.exit(1)
+          print('PASS: 26 canonical routes; unique titles/canonicals; no new orphans; JSON-LD parses; OG complete; analytics/nav present; sitemap exact; protected files unchanged.')
+          PY
+      - name: Verify exact implementation scope and self-clean
+        run: |
+          rm -f scripts/wave1_generator.py.gz .github/workflows/wave1-predeploy-build.yml
           rmdir scripts 2>/dev/null || true
           python - <<'PY'
           import subprocess,sys
           base='e36fccf5c72781ba7314ceddf8d42a0b57b4e0f6'
-          expected_new={
-          'vitiligo-surgery-jordan.html','melanocyte-transplantation-vitiligo.html','punch-grafting-vitiligo.html','acne-treatment.html','hair-loss-treatment.html','wart-removal-cryotherapy.html','skin-biopsy.html','melasma-pigmentation-treatment.html','cataract-surgery.html','glaucoma-treatment.html','diabetic-eye-exam-retinopathy.html','pterygium-treatment-surgery.html','pediatric-ophthalmology.html','strabismus-treatment.html','dry-eye-treatment.html'}
-          expected_modified={'dermatology.html','ophthalmology.html','doctors/dr-osama-alwreikat.html','doctors/dr-sara-abu-touq.html','vitiligo-jordan.html','school-health.html','sitemap.xml','MEDICAL_REVIEW_REQUIRED.md'}
+          new={'vitiligo-surgery-jordan.html','melanocyte-transplantation-vitiligo.html','punch-grafting-vitiligo.html','acne-treatment.html','hair-loss-treatment.html','wart-removal-cryotherapy.html','skin-biopsy.html','melasma-pigmentation-treatment.html','cataract-surgery.html','glaucoma-treatment.html','diabetic-eye-exam-retinopathy.html','pterygium-treatment-surgery.html','pediatric-ophthalmology.html','strabismus-treatment.html','dry-eye-treatment.html'}
+          modified={'dermatology.html','ophthalmology.html','doctors/dr-osama-alwreikat.html','doctors/dr-sara-abu-touq.html','vitiligo-jordan.html','school-health.html','sitemap.xml','MEDICAL_REVIEW_REQUIRED.md'}
           changed=set(subprocess.check_output(['git','diff','--name-only',base]).decode().splitlines())
-          expected=expected_new|expected_modified
-          if changed != expected:
-              print('Unexpected diff scope',sorted(changed^expected));sys.exit(1)
-          if subprocess.check_output(['git','hash-object','OSARA_SEO_HANDOFF.md']).decode().strip()!='fadcdb4e8529b0dc6656e08e5b7ffa04ba5fe001':
-              print('OSARA_SEO_HANDOFF.md changed unexpectedly');sys.exit(1)
-          for protected in ['robots.txt','netlify.toml','assets/analytics.js','assets/site-nav.js','assets/site-nav.css','assets/contact-cta.css','assets/guide-layout.css']:
-              if protected in changed:
-                  print('Protected file changed',protected);sys.exit(1)
-          print('Scope verified:',len(changed),'implementation files')
+          if changed != new|modified:
+              print('scope mismatch',sorted(changed^(new|modified))); sys.exit(1)
+          print('Scope PASS:',len(changed),'files')
           PY
-      - name: Commit implementation without Netlify build
-        shell: bash
+      - name: Commit final predeploy state without Netlify
         run: |
-          set -euo pipefail
           git config user.name "osamawraikat-cyber"
           git config user.email "osamawraikat@gmail.com"
           git add -A
           git commit -m "feat: prepare Wave 1 SEO service architecture [skip ci] [skip netlify]"
           git push origin HEAD:seo/wave1-predeploy
-
-# bootstrap trigger only; workflow self-removes after successful QA
