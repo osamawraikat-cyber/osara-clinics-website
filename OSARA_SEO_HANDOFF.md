@@ -439,6 +439,326 @@ These items are not authorization to modify or deploy the production website.
 No production changes should be made from this section until a future audit is completed and the next PR is explicitly approved.  
 Netlify credit constraints are one reason implementation is currently paused.
 
+## Expanded Dermatology & Ophthalmology Content Architecture — September 2026
+
+**Mode/status:** RESEARCH + DOCUMENTATION ONLY. This section is architecture planning, not implementation authorization. The current production site must not be changed, merged, or deployed from this research. Netlify deployment credits are exhausted, so zero production deployments are desired at this stage.
+
+### Protected current architecture
+The current canonical architecture contains exactly 11 URLs and should be treated as the protected baseline while the recent architecture settles:
+- `/`
+- `/dermatology`
+- `/ophthalmology`
+- `/doctors/dr-osama-alwreikat`
+- `/doctors/dr-sara-abu-touq`
+- `/vitiligo-jordan`
+- `/botox-hyperhidrosis`
+- `/mole-removal`
+- `/school-health`
+- `/psoriasis-treatment`
+- `/acne-scar-treatment`
+
+Do not remove, rename, consolidate, or churn these URLs during research. Any future expansion should attach to this architecture deliberately.
+
+### Business and SEO objective
+The objective is qualified patient acquisition for legitimate OSara services, not traffic or page count for their own sake. Future prioritization should weigh:
+1. patient demand
+2. commercial / treatment value
+3. search intent
+4. competitive scarcity
+5. local relevance
+6. national relevance
+7. distinctness of search intent
+8. physician expertise
+9. topical-authority contribution
+10. likelihood of patient conversion
+11. AI/entity evidence value
+12. cannibalization risk
+
+A lower-volume scarce, high-value procedure may deserve priority over a higher-volume informational topic when business value, clinical scope and entity differentiation are stronger.
+
+### Ophthalmology surgical-care model
+OSara Clinics is a legitimate entry point for ophthalmology consultation, diagnosis, treatment planning, surgical planning and follow-up.
+
+For procedures requiring a hospital operating facility, the patient may be examined and managed through OSara Clinics and the surgery may subsequently be performed at an appropriate contracted/partner hospital or facility. Dr. Sara Abu Touq participates in the surgical care; depending on the procedure and circumstances, she may perform or assist with surgery together with appropriate subspecialists.
+
+Future content may therefore target legitimate surgical patient intent when that surgical pathway is genuinely available through Dr. Sara/OSara. Do not artificially reduce a genuine service to “evaluation only” merely because the operation is physically performed in a hospital.
+
+At the same time:
+- do not claim or imply that hospital-level eye surgery is physically performed inside OSara Clinics unless that is true;
+- where relevant, explain the pathway accurately: consultation/examination at OSara → surgical planning → surgery at an appropriate contracted hospital/facility → follow-up through the physician/clinic;
+- do not make unsupported statements that Dr. Sara is the primary surgeon for every procedure;
+- all new surgical page wording remains subject to physician review before production.
+
+### Vitiligo surgery strategy
+Physician-supplied planning fact: Dr. Osama Alwreikat can perform vitiligo surgical procedures through OSara Clinics, including:
+1. Non-cultured melanocyte transplantation (NCMT) — Arabic terminology may include `زراعة الخلايا الصبغية` / `زراعة الخلايا الميلانينية`.
+2. Punch minigrafting / mini-punch grafting for vitiligo — Arabic terminology should be researched carefully before implementation rather than keyword-stuffed.
+
+This makes vitiligo surgery a strategic differentiator and materially raises the priority of the vitiligo architecture.
+
+Preserve `/vitiligo-jordan` as the general vitiligo diagnosis/treatment page. Future research should evaluate a distinct surgical cluster rather than forcing every intent onto that URL:
+
+- `/vitiligo-jordan` — general vitiligo diagnosis and treatment
+  - future `/vitiligo-surgery-jordan` — parent page for surgical treatment of appropriately selected stable/refractory vitiligo
+    - future `/melanocyte-transplantation-vitiligo` — NCMT-specific procedure/candidacy intent
+    - future `/punch-grafting-vitiligo` — punch/mini-grafting-specific procedure intent
+
+These slugs are provisional research architecture only and should be refined before implementation. Do not create thin duplicate pages. Each child must answer a genuinely distinct set of patient questions.
+
+### NCMT / melanocyte-transplantation content model
+If implemented after research and approval, a strong NCMT page should be capable of covering distinct procedural questions such as:
+- what NCMT is;
+- who may be a candidate;
+- importance of disease stability;
+- donor area;
+- basic procedure pathway;
+- recipient-site preparation;
+- expected repigmentation timeline, only with physician-approved wording/evidence;
+- role of subsequent treatment or phototherapy where clinically appropriate;
+- limitations;
+- areas that may respond differently;
+- number of sessions where clinically relevant and approved;
+- NCMT versus punch minigrafting;
+- recovery/aftercare;
+- consultation process;
+- treatment location/pathway;
+- physician experience, only where factually supportable;
+- realistic expectations;
+- cost/pricing only if OSara later chooses to publish it.
+
+Do not publish guaranteed repigmentation percentages, success promises or unsupported outcome claims. Any quantitative or comparative outcome wording requires physician review and evidence.
+
+### Punch minigrafting content model
+If implemented later, a punch-minigrafting page should answer distinct questions including:
+- what punch minigrafting is;
+- use in appropriately selected stable vitiligo;
+- donor and recipient areas;
+- basic procedure;
+- recovery;
+- repigmentation process;
+- advantages and limitations;
+- NCMT versus punch grafting;
+- technique selection;
+- consultation and treatment pathway.
+
+Keep it separate from NCMT only if future SERP/business research confirms distinct intent and there is enough unique clinical content to avoid duplication.
+
+### Public evidence / authority context
+Research context supports the broader Jordanian procedure/entity landscape, but it must not be converted into invented personal credentials or institutional endorsements:
+- Royal Jordanian Medical Services publicly reported on 2025-10-21 that the Dermatology and Skin Surgery Department at Prince Hashem bin Al Hussein Hospital performed non-cultured melanocyte transplantation for selected patients with stable, limited vitiligo resistant to conventional treatment. Research source: `https://jrms.jaf.mil.jo/NewsView.aspx?NewsId=37339`.
+- The Journal of the Royal Medical Services published `Punch Minigrafting for Stable Vitiligo: Our Experience at the Jordanian Royal Medical Services` (2012; 19(4):81–86), documenting JRMS experience with punch minigrafting for stable vitiligo. Research source: `https://applications.emro.who.int/imemrf/J_Royal_Med_Serv/J_Royal_Med_Serv_2012_19_4_81_86.pdf`.
+- Dr. Osama's public professional website at `https://www.wraikat.com/` currently associates him with vitiligo surgery / NCMT and mini-punch grafting.
+
+Use these only as evidence/research context. Do not infer authorship, participation in a particular institutional case series, endorsement by JRMS, or any credential/affiliation that is not independently documented or explicitly physician-approved.
+
+Strategic entity objective:
+OSara Clinics → Dr. Osama Alwreikat → vitiligo treatment → vitiligo surgery → NCMT → punch minigrafting → Abu Nusair / Amman / Jordan.
+
+Strengthen that relationship later through truthful useful content and public evidence, not through artificial “AI SEO” markup.
+
+### Dermatology opportunity map
+**Tier S / strategic differentiator**
+- Vitiligo Surgery
+- NCMT / Melanocyte Transplantation
+- Punch Minigrafting
+
+**High priority**
+- Acne Treatment
+- Hair Loss Treatment
+- Wart Removal & Cryotherapy
+- Skin Biopsy
+- Melasma / Pigmentation Treatment
+- Eczema / Atopic Dermatitis
+- Rosacea
+- Alopecia Areata
+
+**Commercial / procedural**
+- PRP for Hair Loss
+- Cosmetic Botox
+- Dermal Fillers
+- Skin Boosters
+- Microneedling / Dermapen
+- Chemical Peels
+- PRP Skin
+- Female Laser Hair Removal if the service remains genuinely available long-term
+
+**Medical / authority**
+- Suspicious Skin Lesion / Skin Cancer Assessment
+- benign lesion / skin-tag removal
+- pediatric dermatology
+- tinea capitis where appropriate
+
+**Existing pages to strengthen rather than duplicate**
+- `/acne-scar-treatment` remains the parent for rolling/tethered scars, ice-pick scars, boxcar scars where appropriate, subcision, TCA CROSS, microneedling where relevant, and combination/staged treatment.
+- Do not immediately create thin URLs for `/subcision`, `/tca-cross`, `/rolling-scars`, or `/ice-pick-scars` unless later SERP/GSC evidence demonstrates substantial separable intent and content depth.
+- `/botox-hyperhidrosis` remains the hyperhidrosis-specific Botox page. Cosmetic Botox is a different patient intent and may eventually justify a separate URL.
+- `/mole-removal` remains existing and should be strengthened rather than duplicated.
+
+### Mesotherapy regulatory-review flag
+Do not create or aggressively SEO a page advertising injectable mesotherapy until the exact products used by OSara and their Jordanian registration/approved method of use have been reviewed.
+
+A recent Jordan regulatory concern has been identified around some products registered under “Mesotherapy” for external use where injection may not match the registered method. This is a **regulatory-review flag**, not a conclusion that every OSara product or every mesotherapy product is noncompliant.
+
+Before any injectable-mesotherapy marketing page is considered:
+- identify the exact product(s);
+- verify Jordanian registration status and registered route/method of use;
+- confirm the actual OSara use is compliant;
+- distinguish mesotherapy from skin boosters and other injectable products rather than conflating categories.
+
+No mesotherapy implementation or promotional claim is approved from this research note.
+
+### Ophthalmology opportunity map
+The ophthalmology side remains underdeveloped relative to dermatology and should be evaluated for stronger high-intent architecture.
+
+**Tier S / very high commercial intent**
+- Cataract Surgery — Arabic intent should naturally account for `عملية المياه البيضاء`, `علاج المياه البيضاء`, and `الساد`.
+- Glaucoma Treatment — Arabic terminology includes `الجلوكوما` and `المياه الزرقاء`.
+- Potential child: Glaucoma Surgery, only if the care pathway, content depth and distinct search intent justify a separate page.
+
+**High priority**
+- Diabetic Eye Examination & Diabetic Retinopathy
+- Pterygium Treatment & Surgery
+- Pediatric Ophthalmology
+- Strabismus
+- Dry Eye Treatment
+- Chalazion Treatment / Removal
+
+**Additional opportunities**
+- Amblyopia / Lazy Eye
+- Eyelid Conditions
+- Eyelid Surgery where genuinely available
+- Red Eye / Conjunctivitis
+- Retinal Disease Evaluation
+- Vision Testing / Refractive Errors
+- Eye allergy as part of an appropriate ocular-surface/red-eye cluster
+- Foreign body removal as part of an urgent/minor-eye-procedure page rather than necessarily a standalone URL
+
+Avoid creating one URL for every small wording variation.
+
+### Cataract flagship strategy
+Cataract surgery should be evaluated as one of Dr. Sara's flagship future commercial pages because it represents clear high-intent patient demand and a genuine surgical care pathway.
+
+A future page should explain the actual journey:
+symptoms → ophthalmic examination → diagnosis → when surgery may be appropriate → surgical planning → lens considerations where appropriate → contracted hospital/facility pathway → procedure → recovery → follow-up → booking/contact.
+
+Use both `المياه البيضاء` and `الساد` naturally. Do not keyword-stuff. Do not claim the surgery physically occurs at OSara if it occurs at a hospital/facility. Do not propagate unsupported guarantees, absolute safety claims, or statements that surgery is always immediately required.
+
+### Pediatric ophthalmology cluster
+Potential future architecture:
+- Pediatric Ophthalmology
+  - Strabismus
+  - Amblyopia / Lazy Eye
+
+Related content can include refractive errors, school vision and when children may need eye examinations. Existing `/school-health` should be reviewed for natural internal-link opportunities rather than duplicated.
+
+### Diabetic eye-care cluster
+Initially favor one strong page covering **Diabetic Eye Examination & Diabetic Retinopathy** instead of immediately splitting screening and retinopathy into separate weak URLs.
+
+Consider splitting later only if content becomes substantial enough, the actual treatment scope supports the distinction, and fresh GSC/SERP evidence demonstrates separate intent.
+
+### Local versus national targeting
+Most routine services should retain strong local relevance around the real clinic entity: Abu Nusair, Amman and the genuine nearby catchment. Do not create thin neighborhood doorway pages for Shafa Badran, Ain Al-Basha, Jubaiha or similar areas.
+
+Rare specialist services such as vitiligo surgery / NCMT may reasonably target broader Jordan / `الأردن` intent because patients may travel for scarce procedures. This does not justify stuffing city/country names into every heading, title or service description.
+
+### GBP alignment for future content
+Current GBP positioning remains:
+- Primary: Dermatologist
+- Additional: Clinic, Skin Care Clinic, Ophthalmology Clinic
+
+Avoid unnecessary category churn. The GBP already carries broad dermatology and ophthalmology service inventories. Future website pages should strengthen factual service relationships already represented in GBP.
+
+Potential future GBP additions to research, only where genuinely offered and useful:
+- Vitiligo Surgery
+- Melanocyte Transplantation / NCMT
+- Punch Minigrafting
+
+Do not add misleading services or duplicates merely to capture alternate wording.
+
+### AI-search / entity-evidence strategy
+The observed qualitative AI-search baseline could identify OSara Clinics, Dr. Osama Alwreikat, Abu Nusair, vitiligo treatment and the correct clinic contact information, but could not confidently verify melanocyte transplantation as an OSara service.
+
+Treat this as an **entity evidence gap**, not as a ranking benchmark.
+
+Future work should strengthen factual public evidence through:
+- dedicated useful pages when justified;
+- doctor-profile relationships;
+- specialty-hub relationships;
+- internal links;
+- appropriate structured data;
+- consistent GBP service information;
+- authoritative public references;
+- clear bilingual terminology;
+- clinic/location/contact consistency.
+
+Future audits should test whether ordinary search and answer engines can confidently connect: clinic → physician → procedure → location → booking.
+
+Do not create artificial AI-search pages, hidden “LLM” text, fake citations or special “AI SEO” markup.
+
+### Page-quality and cannibalization rules
+There is no arbitrary page-count cap. Thirty to fifty useful pages over time can be reasonable if each earns its URL.
+
+Agent development speed is not a reason to combine unrelated search intents, but ease of generation is also not a reason to create a page.
+
+A future page deserves its own URL when it has:
+- distinct patient intent;
+- substantial unique clinical content;
+- meaningful search/entity value;
+- genuine OSara service relevance.
+
+Avoid programmatic/thin SEO pages, doorway pages, near-duplicates and cannibalization. Before splitting parent/child topics, compare likely SERPs, actual patient questions, business value and content uniqueness.
+
+### Proposed Wave 1 — research cohort only
+Do **not** implement these now.
+
+**Dermatology**
+1. Vitiligo Surgery
+2. NCMT / Melanocyte Transplantation
+3. Punch Minigrafting
+4. Acne Treatment
+5. Hair Loss Treatment
+6. Wart Removal & Cryotherapy
+7. Skin Biopsy
+8. Melasma / Pigmentation Treatment
+
+**Ophthalmology**
+9. Cataract Surgery
+10. Glaucoma Treatment
+11. Diabetic Eye Examination & Diabetic Retinopathy
+12. Pterygium Treatment & Surgery
+13. Pediatric Ophthalmology
+14. Strabismus
+15. Dry Eye Treatment
+
+This is a research cohort, not a hard page-count cap. Before future implementation, review whether a Wave-2 opportunity should outrank a Wave-1 item based on commercial value, competitive scarcity, SERP evidence, clinical scope and patient demand.
+
+### Future implementation guardrails
+If implementation is explicitly approved later:
+- preserve the current visual design and navigation consistency;
+- preserve the canonical non-www domain and extensionless routes;
+- update sitemap deliberately;
+- use medically appropriate truthful schema;
+- preserve GA4 `G-72BY7LC2V2` and Meta Pixel;
+- preserve conversion events `whatsapp_click`, `phone_click`, `directions_click`, and `appointment_click` with existing classification semantics;
+- never send patient medical/free-text information to analytics;
+- preserve correct opening hours and authoritative Maps directions;
+- remain mobile-first and naturally bilingual;
+- add useful internal links;
+- avoid unsupported superlatives, guarantees and absolute claims;
+- keep the physician medical-review gate.
+
+### Medical-review status for future architecture
+Do not silently mark anything in `MEDICAL_REVIEW_REQUIRED.md` as approved. Existing pending claims remain pending unless explicitly physician-approved.
+
+Every new surgical/procedural page must undergo physician review before production. Particular caution applies to outcome percentages, duration claims, “permanent”, “safe”, “best”, “complete”, “scar-free”, FDA claims, absolute treatment statements, surgery outcome claims and vitiligo repigmentation guarantees.
+
+The fact that a procedure is genuinely offered does not by itself approve any proposed efficacy, safety, duration or superiority wording.
+
+**Status: NO IMPLEMENTATION / NO DEPLOY.**  
+This expanded architecture is research and documentation only. It is not authorization to create URLs, alter production content, change schema, modify GBP, merge code, or deploy anything.  
+Netlify deployment credits are exhausted; zero production deployments are desired while this research is being preserved.  
+Implementation must wait for a fresh combined audit and explicit approval of the next production PR.
+
 ## Exact instruction for the next coding session
 > Access `osamawraikat-cyber/osara-clinics-website`. Do not modify anything yet. Read `OSARA_SEO_HANDOFF.md`, inspect the repository architecture and production site, identify the framework/build system, inspect Netlify configuration, enumerate current routes/pages, and compare the implementation against the handoff. Produce a baseline audit and proposed file-by-file implementation plan. Do not deploy or merge until the audit is reviewed.
 
