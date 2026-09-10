@@ -33,6 +33,29 @@ This file intentionally flags medically sensitive wording for physician review. 
 | `/mole-removal` | Any wording that implies laser removal is appropriate for all moles or that removal is scar-free, safest, permanent, or guaranteed | Main guide | Modality selection and outcome guarantees require physician review. |
 | `/school-health` | Any exact screening interval, guaranteed/rapid cure wording, “safe/painless” procedure wording, or claims of complete healing | Main guide | Pediatric screening intervals, safety and efficacy claims require physician review. |
 
+## Wave 1 physician-reviewed pages — APPROVED 2026-09-10
+
+The 15 Wave-1 pages below were reviewed by the physician and are approved **only for the reviewed wording after the corrections documented on 2026-09-10**. This approval does not extend to arbitrary future copy changes. The older unresolved review items above remain pending and are not approved by this section.
+
+| URL | Physician review decision / approved boundary |
+|---|---|
+| `/vitiligo-surgery-jordan` | **APPROVED — 2026-09-10.** Clinical stability and candidacy remain individualized; NCMT and punch minigrafting remain separate pathways; no fixed success percentage. |
+| `/melanocyte-transplantation-vitiligo` | **APPROVED — 2026-09-10.** NCMT terminology, donor/recipient pathway, stability/candidacy, recovery/repigmentation expectations and phototherapy reference reviewed. No cultured melanocyte transplantation claim. |
+| `/punch-grafting-vitiligo` | **APPROVED — 2026-09-10.** Punch/mini-punch terminology, candidacy, donor/recipient pathway, limitations including colour/texture/cobblestoning/marks, and comparison with NCMT reviewed. |
+| `/acne-treatment` | **APPROVED — 2026-09-10.** Visible clinical content approved; schema wording uses reduction of scarring risk rather than prevention. |
+| `/hair-loss-treatment` | **APPROVED — 2026-09-10.** Diagnostic pathway and PRP scope reviewed; FUE/DHI are clearly distinguished from hair-loss services currently offered at OSara. |
+| `/wart-removal-cryotherapy` | **APPROVED — 2026-09-10.** Cryotherapy indication, freeze-thaw wording, pigment-change/scar risk, repeat-treatment language and differential-diagnosis cautions reviewed. No single-session clearance guarantee. |
+| `/skin-biopsy` | **APPROVED — 2026-09-10.** Biopsy indications, histopathology pathway, possible additional testing, wound care and bleeding/pain/infection/scar risks reviewed. |
+| `/melasma-pigmentation-treatment` | **APPROVED — 2026-09-10.** Diagnostic distinctions, light protection, topical/procedural categories, recurrence/maintenance and skin-type suitability reviewed. No permanent-clearance claim. |
+| `/cataract-surgery` | **APPROVED — 2026-09-10.** Cataract indications, lens planning, expectations and surgical pathway reviewed. Surgery requiring an operating theatre occurs at an appropriate hospital/facility; no implication it occurs inside OSara and no universal sole/primary-surgeon claim for Dr Sara. |
+| `/glaucoma-treatment` | **APPROVED — 2026-09-10.** Diagnostic/treatment categories, goal of slowing/preventing further damage, monitoring and facility pathway reviewed. Laser/surgery is not implied to occur inside OSara when required equipment/facility is unavailable there. |
+| `/diabetic-eye-exam-retinopathy` | **APPROVED — 2026-09-10.** Screening/follow-up wording, retinal referral/co-management and prompt-review symptoms reviewed. |
+| `/pterygium-treatment-surgery` | **APPROVED — 2026-09-10.** Observation versus surgery, operative pathway, recurrence and expectation wording reviewed; operating-theatre procedures occur at an appropriate hospital/facility. |
+| `/pediatric-ophthalmology` | **APPROVED — 2026-09-10.** Age-appropriate routine vision screening, earlier complete examination for symptoms/risk factors, amblyopia terminology and prompt-review symptoms reviewed. |
+| `/strabismus-treatment` | **APPROVED — 2026-09-10.** Refraction/amblyopia assessment, individualized treatment and eye-muscle surgical pathway reviewed; surgical team is case-dependent with no universal sole/primary-surgeon claim. |
+| `/dry-eye-treatment` | **APPROVED — 2026-09-10.** Dry-eye causes/subtypes, examination, stepped treatment, screen/airflow symptom wording and prompt-review vision wording reviewed. |
+
+The approved ophthalmology surgical model across Wave 1 is: consultation/examination and planning through OSara → surgery at an appropriate hospital or surgical facility when an operating facility is required → physician/clinic follow-up. Dr Sara participates in surgical care and follow-up, while her role during an operation and the surgical team depend on the individual case and procedure. This approval must not be expanded into an unsupported claim that she is sole/primary surgeon for every operation.
 
 ## PR #2 physician-reviewed items — APPROVED
 
@@ -52,4 +75,4 @@ The following four PR #2 items were reviewed and approved by the physician on 20
 3. Only then should the production copy be changed.
 4. Add a genuine last-reviewed date to significant medical pages only after actual physician review.
 
-No medically sensitive claims were rewritten as part of SEO PR #1. The four PR #2 items documented above have completed physician review; all older PR #1 flags remain pending.
+No medically sensitive claims were rewritten as part of SEO PR #1. The four PR #2 items documented above have completed physician review; all older PR #1 flags remain pending. The 15 Wave 1 pages listed above were physician-reviewed and approved on 2026-09-10 for the reviewed wording after the specified corrections; future substantive medical copy changes require review.
