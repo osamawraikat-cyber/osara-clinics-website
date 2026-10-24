@@ -74,3 +74,85 @@ body.osara-nav-open { overflow:hidden; touch-action:none; }
   .osara-minimal-footer .osara-footer-inner { flex-direction:column; text-align:center; }
   .osara-minimal-footer .osara-footer-links { justify-content:center; }
 }
+
+
+/* Homepage-aligned inner-page navigation and utility/WhatsApp icon styling.
+   Scoped so the approved homepage layout is not changed. */
+.osara-global-topbar .top-bar-item svg,
+.osara-global-topbar .top-bar-socials svg {
+  display:block;
+  flex:0 0 auto;
+}
+.osara-global-topbar .top-bar-socials a {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:26px;
+  min-height:26px;
+  transition:color .2s ease;
+}
+.osara-global-topbar .top-bar-socials a:hover {color:#C5A880;}
+.osara-global-topbar a:focus-visible,
+.osara-global-header a:focus-visible,
+.osara-global-header button:focus-visible {
+  outline:3px solid #C5A880;
+  outline-offset:4px;
+}
+.osara-global-header .osara-nav-shell {gap:12px;}
+.osara-global-header .logo-area {margin-left:clamp(10px,1.8vw,30px);flex:0 0 auto;}
+.osara-global-header .main-nav {gap:clamp(10px,1.5vw,22px);min-width:0;}
+.osara-global-header .nav-links {gap:clamp(7px,1vw,18px);flex-wrap:nowrap;}
+.osara-global-header .nav-links a {padding:6px 2px;white-space:nowrap;}
+.osara-global-header .nav-links a .nav-ar {font-size:clamp(.82rem,1vw,1rem);font-weight:700;}
+.osara-global-header .nav-links a .nav-en {font-size:clamp(.65rem,.76vw,.72rem);}
+.osara-global-header .nav-actions {flex:0 0 auto;}
+.osara-global-header .nav-actions .btn {padding:12px clamp(11px,1.5vw,24px);white-space:nowrap;}
+.osara-global-header .nav-actions svg {width:18px;height:18px;flex:0 0 18px;}
+.osara-unified-nav-page .whatsapp-float {
+  position:fixed;
+  bottom:30px;
+  left:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  box-shadow:0 4px 15px rgba(37,211,102,.4);
+  transition:background-color .2s ease,transform .2s ease,box-shadow .2s ease;
+  text-decoration:none;
+  z-index:999;
+}
+.osara-unified-nav-page .whatsapp-float svg {display:block;width:32px;height:32px;flex:0 0 auto;}
+.osara-unified-nav-page .whatsapp-float:hover {
+  background:#20BA5A;
+  transform:translateY(-4px);
+  box-shadow:0 8px 25px rgba(37,211,102,.53);
+}
+.osara-unified-nav-page .whatsapp-float:focus-visible {
+  outline:3px solid #0D5C60;
+  outline-offset:4px;
+}
+.osara-unified-nav-page .whatsapp-float-pulse {
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:#25D366;
+  opacity:.18;
+  z-index:-1;
+  pointer-events:none;
+}
+@media(max-width:768px){
+  .osara-global-header .logo-area {margin-left:0;}
+  .osara-global-header .nav-links {gap:6px;}
+  .osara-global-header .nav-links a {white-space:normal;}
+  .osara-global-header .nav-links a .nav-ar {font-size:1rem;}
+  .osara-global-header .nav-links a .nav-en {font-size:.72rem;}
+  .osara-unified-nav-page .whatsapp-float {bottom:20px;left:20px;}
+}
+/* Skincare keeps its existing single fixed booking bar on phones. */
+@media(max-width:720px){
+  .osara-unified-nav-page.skincare-page .whatsapp-float {display:none;}
+}
