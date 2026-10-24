@@ -25,7 +25,7 @@
     scrim.addEventListener('click',function(){setOpen(false);});
     nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setOpen(false);});});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
-    window.addEventListener('resize',function(){if(window.innerWidth>768)setOpen(false);});
+    window.addEventListener('resize',function(){var breakpoint=header.classList.contains('osara-global-header')?980:768;if(window.innerWidth>breakpoint)setOpen(false);});
     // Keep homepage section highlighting intact; it already owns scroll state.
     // Internal pages use the same static menu, with a single active destination.
     if (header.classList.contains('osara-global-header')) {
