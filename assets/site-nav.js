@@ -29,7 +29,7 @@
     // Keep homepage section highlighting intact; it already owns scroll state.
     // Internal pages use the same static menu, with a single active destination.
     if (header.classList.contains('osara-global-header')) {
-      var path=window.location.pathname.replace(/\\.html$/, '').replace(/\\/$/, '') || '/';
+      var path=window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
       var eyeRoutes=[
         '/ophthalmology','/cataract-surgery','/glaucoma-treatment',
         '/diabetic-eye-exam-retinopathy','/dry-eye-treatment',
