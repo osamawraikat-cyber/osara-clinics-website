@@ -25,13 +25,37 @@
     scrim.addEventListener('click',function(){setOpen(false);});
     nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setOpen(false);});});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
-    window.addEventListener('resize',function(){if(window.innerWidth>768)setOpen(false);});
-    var path=window.location.pathname;
-    nav.querySelectorAll('.nav-links a').forEach(function(a){
-      a.classList.remove('active');
-      var href=a.getAttribute('href')||'';
-      if((path==='/'&&href==='/#hero')||(path==='/dermatology'&&href==='/dermatology')||(path==='/ophthalmology'&&href==='/ophthalmology')) a.classList.add('active');
-    });
+    window.addEventListener('resize',function(){var breakpoint=header.classList.contains('osara-global-header')?980:768;if(window.innerWidth>breakpoint)setOpen(false);});
+    // Preserve the existing homepage initialization: clear initial active
+    // links, then let the homepage's own scroll handler highlight sections.
+    if (!header.classList.contains('osara-global-header')) {
+      nav.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active');});
+      return;
+    }
+    // Internal pages use the same static menu, with a single active destination.
+    if (header.classList.contains('osara-global-header')) {
+      var path=window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+      var eyeRoutes=[
+        '/ophthalmology','/cataract-surgery','/glaucoma-treatment',
+        '/diabetic-eye-exam-retinopathy','/dry-eye-treatment',
+        '/pediatric-ophthalmology','/pterygium-treatment-surgery',
+        '/strabismus-treatment'
+      ];
+      var current='/dermatology';
+      if (path==='/skincare') current='/skincare';
+      else if (path.indexOf('/doctors/')===0) current='/#doctors';
+      else if (eyeRoutes.indexOf(path)!==-1) current='/ophthalmology';
+      else if (path==='/botox-hyperhidrosis') current='/#cosmetic-derm';
+      nav.querySelectorAll('.nav-links a').forEach(function(a){
+        a.classList.remove('active');
+        a.removeAttribute('aria-current');
+        var href=a.getAttribute('href')||'';
+        if(href===current){
+          a.classList.add('active');
+          if(path===href) a.setAttribute('aria-current','page');
+        }
+      });
+    }
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
