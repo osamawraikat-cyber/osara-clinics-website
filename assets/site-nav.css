@@ -156,3 +156,43 @@ body.osara-nav-open { overflow:hidden; touch-action:none; }
 @media(max-width:720px){
   .osara-unified-nav-page.skincare-page .whatsapp-float {display:none;}
 }
+
+
+/* Intermediate tablets: eight bilingual destinations do not fit comfortably
+   in one row. Use the existing accessible drawer without touching the
+   homepage's approved 768px navigation breakpoint. */
+@media (min-width:769px) and (max-width:980px) {
+  .osara-global-header .mobile-menu-btn {display:block;}
+  .osara-global-header .main-nav {
+    position:fixed;
+    top:0;
+    right:-100%;
+    bottom:0;
+    width:min(86vw,340px);
+    height:100vh;
+    height:100dvh;
+    background:#fff;
+    flex-direction:column;
+    padding:0 24px 28px;
+    box-shadow:-8px 0 28px rgba(15,23,42,.18);
+    transition:right .28s ease;
+    align-items:stretch;
+    z-index:1102;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+  }
+  .osara-global-header .main-nav.active {right:0;}
+  .osara-drawer-head {display:flex;min-height:82px;flex:0 0 auto;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid rgba(13,92,96,.08);margin:0 -4px 18px;padding:10px 0;}
+  .osara-drawer-logo img {display:block;height:54px;width:auto;}
+  .osara-drawer-close {width:44px;height:44px;display:grid;place-items:center;border:1px solid rgba(13,92,96,.15);border-radius:10px;background:#FCFAF7;color:#0D5C60;font-size:1.75rem;cursor:pointer;}
+  .osara-global-header .nav-links {flex-direction:column;align-items:stretch;width:100%;gap:6px;}
+  .osara-global-header .nav-links li {width:100%;}
+  .osara-global-header .nav-links a {display:flex;flex-direction:row;justify-content:space-between;align-items:center;width:100%;min-height:48px;padding:9px 4px;white-space:normal;}
+  .osara-global-header .nav-links a .nav-ar {font-size:1rem;}
+  .osara-global-header .nav-links a .nav-en {font-size:.72rem;}
+  .osara-global-header .nav-links a::after {display:none;}
+  .osara-global-header .nav-actions {margin-top:20px;width:100%;}
+  .osara-global-header .nav-actions .btn {width:100%;min-height:50px;}
+  .osara-nav-scrim {display:block;position:fixed;inset:0;background:rgba(15,23,42,.42);opacity:0;pointer-events:none;transition:opacity .28s ease;z-index:1101;}
+  .osara-nav-scrim.active {opacity:1;pointer-events:auto;}
+}
