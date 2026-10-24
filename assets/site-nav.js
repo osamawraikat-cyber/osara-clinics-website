@@ -26,7 +26,12 @@
     nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setOpen(false);});});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
     window.addEventListener('resize',function(){var breakpoint=header.classList.contains('osara-global-header')?980:768;if(window.innerWidth>breakpoint)setOpen(false);});
-    // Keep homepage section highlighting intact; it already owns scroll state.
+    // Preserve the existing homepage initialization: clear initial active
+    // links, then let the homepage's own scroll handler highlight sections.
+    if (!header.classList.contains('osara-global-header')) {
+      nav.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active');});
+      return;
+    }
     // Internal pages use the same static menu, with a single active destination.
     if (header.classList.contains('osara-global-header')) {
       var path=window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
