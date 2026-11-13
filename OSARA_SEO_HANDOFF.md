@@ -792,3 +792,15 @@ The audit should answer:
 - future content driven by Search Console + conversions
 
 The goal is qualified local discovery and patient conversion for a trustworthy dermatology + ophthalmology clinic, not traffic or page count for its own sake.
+
+
+## Current patient-facing ophthalmology booking — OWNER CONFIRMED 2026-11-13
+
+This is the latest explicit owner instruction and **supersedes older availability-only/doctor-on-leave language** in any previous branch, PR, conversational handoff, or booking agent rules.
+
+- Both dermatology and ophthalmology are presented as open for **direct appointment booking Saturday–Thursday, 08:00–20:00 (Asia/Amman)** at OSara Clinics, Abu Nusair, Amman. Friday is closed for in-person consultations; remote enquiries may still be answered.
+- Dr. Sara Abu Touq's eye clinic appointments are bookable during these stated clinic hours. **Do not** tell patients the ophthalmologist is on leave or that they must first check whether the doctor is available. A patient may still book an individual time slot via WhatsApp/phone.
+- Use calls to action such as **احجز موعد العيون | Book an eye appointment**, not **استفسر عن توفر موعد | Check availability**. Prefilled WhatsApp messages must request a booking, not ask if ophthalmology exists or if the doctor is present.
+- Continue to distinguish outpatient eye examinations and pre-/post-operative coordination at OSara from surgery performed in an appropriate hospital/facility when required. Do not claim surgery happens inside OSara's rooms.
+- The confirmed 2026-11-13 changes are about hours and direct-booking presentation; they do not independently change licensing/credential facts. Keep titles and credentials substantiated.
+- Keep clinic-wide opening-hours structured data at Sat–Thu 08:00–20:00. Avoid introducing separate hours for ophthalmology unless owner provides new instructions.
